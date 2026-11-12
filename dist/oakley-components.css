@@ -1,0 +1,43 @@
+/* Copied from live Oakley CSS; source snapshot in references/oakley-centered-v4. */
+.ct_cr-cta{display:-webkit-box;display:-ms-flexbox;display:flex;padding:14px 30px;position:relative;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;backdrop-filter:blur(5px);background:hsla(0,0%,100%,.2);border:1px solid hsla(0,0%,100%,.1);color:#fff;font-family:AvenirNext,sans-serif;-webkit-font-feature-settings:"liga" off,"clig" off;font-feature-settings:"liga" off,"clig" off;font-size:16px;font-style:normal;font-weight:600;line-height:20px;text-align:center;text-decoration:none;text-transform:uppercase;-webkit-transition:background-color .2s ease-in-out;transition:background-color .2s ease-in-out}
+.ct_cr-cta:hover{background-color:hsla(0,0%,100%,.3)}
+.ct_cr-cta.ct_cr-cta--menu{padding:9px}
+.ct_cr-cta:after,.ct_cr-cta:before{border:2px solid #fff;content:"";height:12px;position:absolute;-webkit-transition:-webkit-transform .2s ease;transition:-webkit-transform .2s ease;transition:transform .2s ease;transition:transform .2s ease,-webkit-transform .2s ease;width:12px}
+.ct_cr-cta:before{border-bottom:none;border-right:none;left:-1px;top:-1px}
+.ct_cr-cta:after{border-left:none;border-top:none;bottom:-1px;right:-1px}
+.ct_cr-cta span:after,.ct_cr-cta span:before{border:2px solid #fff;content:"";height:12px;position:absolute;-webkit-transition:-webkit-transform .2s ease;transition:-webkit-transform .2s ease;transition:transform .2s ease;transition:transform .2s ease,-webkit-transform .2s ease;width:12px}
+.ct_cr-cta span:before{border-bottom:none;border-left:none;right:-1px;top:-1px}
+.ct_cr-cta span:after{border-right:none;border-top:none;bottom:-1px;left:-1px}
+.ct_cr-cta:hover:before{-webkit-transform:translate(-5px,-5px);transform:translate(-5px,-5px)}
+.ct_cr-cta:hover:after{-webkit-transform:translate(5px,5px);transform:translate(5px,5px)}
+.ct_cr-cta:hover span:before{-webkit-transform:translate(5px,-5px);transform:translate(5px,-5px)}
+.ct_cr-cta:hover span:after{-webkit-transform:translate(-5px,5px);transform:translate(-5px,5px)}
+.ct_cr-navbar{left:16px;position:absolute;right:16px;top:16px;z-index:10}
+.ct_cr-navbar,.ct_cr-navbar__menuIcon{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
+.ct_cr-navbar__menuIcon{height:40px;width:40px;-webkit-box-pack:center;-ms-flex-pack:center;background:rgba(0,0,0,.2);border:1px solid hsla(0,0%,100%,.4);justify-content:center;pointer-events:auto;position:relative}
+.ct_cr-navbar__menuIcon .icon{left:50%;position:absolute;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%);-webkit-transition:opacity .2s ease-in-out,-webkit-transform .2s ease-in-out;transition:opacity .2s ease-in-out,-webkit-transform .2s ease-in-out;transition:opacity .2s ease-in-out,transform .2s ease-in-out;transition:opacity .2s ease-in-out,transform .2s ease-in-out,-webkit-transform .2s ease-in-out}
+.ct_cr-navbar__menuIcon .icon--hamburger{height:22px;opacity:1;top:50%}
+.ct_cr-navbar__menuIcon .icon--close{height:20px;opacity:0;top:50%}
+.ct_cr-navbar__menuIcon.is-active .icon--hamburger{opacity:0;pointer-events:none;-webkit-transform:translate(-50%,-50%) rotate(20deg);transform:translate(-50%,-50%) rotate(20deg)}
+.ct_cr-navbar__menuIcon.is-active .icon--close{opacity:1;pointer-events:auto;-webkit-transform:translate(-50%,-50%) rotate(0deg);transform:translate(-50%,-50%) rotate(0deg)}
+.ct_cr-navbar__logo{left:50%;position:absolute;top:10px;-webkit-transform:translateX(-50%);transform:translateX(-50%)}
+@media (min-width:768px){.ct_cr-navbar{left:40px;pointer-events:none;right:40px;top:30px;z-index:10}
+.ct_cr-navbar__logo{left:50%;pointer-events:auto;position:absolute;-webkit-transform:translateX(-50%);transform:translateX(-50%)}
+.ct_cr-navbar .ct_cr-menu__shopCollection{font-size:14px;opacity:0;padding:8px 20px;pointer-events:auto;position:absolute;right:0}
+}
+@media (max-width:767px){.ct_cr-navbar .ct_cr-menu__shopCollection{bottom:40px;left:50%;opacity:0;pointer-events:none;position:fixed;-webkit-transform:translateX(-50%);transform:translateX(-50%);-webkit-transition:opacity .2s ease;transition:opacity .2s ease;width:-webkit-max-content;width:-moz-max-content;width:max-content}
+.ct_cr-navbar .ct_cr-menu__shopCollection.is-visible{opacity:1;pointer-events:auto}
+}
+.ct_cr-menu{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;background:rgba(0,0,0,.8);height:100%;left:0;opacity:0;pointer-events:none;position:absolute;text-align:center;top:0;width:100%;z-index:9}
+.ct_cr-menu,.ct_cr-menu.is-visible{-webkit-transition:opacity .2s ease-in-out;transition:opacity .2s ease-in-out}
+.ct_cr-menu.is-visible{opacity:1;overflow:hidden;pointer-events:auto}
+.ct_cr-menu__itemsList{list-style:none;margin:0 0 32px;padding:0;position:relative}
+.ct_cr-menu__itemsList__item{color:#fff;font-family:AvenirNext,sans-serif;-webkit-font-feature-settings:"liga" off,"clig" off;font-feature-settings:"liga" off,"clig" off;font-size:16px;font-style:normal;font-weight:600;line-height:20px;margin-bottom:32px;text-align:center;text-transform:uppercase}
+.ct_cr-menu__itemsList__item__link:hover{text-decoration:underline!important;text-decoration-thickness:.5px!important;text-underline-offset:5px}
+.ct_cr-menu__itemsList:after{background:hsla(0,0%,100%,.2);content:"";height:1px;left:50%;position:absolute;-webkit-transform:translateX(-50%);transform:translateX(-50%);width:100px}
+.ct_cr-menu__homepage{color:#fff;font-family:AvenirNext,sans-serif;-webkit-font-feature-settings:"liga" off,"clig" off;font-feature-settings:"liga" off,"clig" off;font-size:16px;font-style:normal;font-weight:600;line-height:20px;text-align:center;text-transform:uppercase}
+.ct_cr-menu__homepage:hover{text-decoration:underline!important;text-decoration-thickness:.5px!important;text-underline-offset:5px}
+.ct_cr-grid{height:100vh;left:0;pointer-events:none;position:fixed;top:0;width:100vw;z-index:10}
+.ct_cr-grid .line{background-color:hsla(0,0%,100%,.2);opacity:1;position:absolute;-webkit-transition:opacity .5s ease,-webkit-transform .5s ease;transition:opacity .5s ease,-webkit-transform .5s ease;transition:opacity .5s ease,transform .5s ease;transition:opacity .5s ease,transform .5s ease,-webkit-transform .5s ease}
+.ct_cr-grid .v-line{height:100vh;width:1px}
+.ct_cr-grid .h-line{bottom:60px;height:1px;width:100vw}

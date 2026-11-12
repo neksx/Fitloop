@@ -1,0 +1,2167 @@
+{
+  "sets": {
+    "0": {
+      "files": [
+        "assets/fitting-room/static-flare-v24.png"
+      ],
+      "placement": [
+        0.501953125,
+        0.013671875,
+        1.134490966796875,
+        1.0084364149305556
+      ]
+    },
+    "1": {
+      "files": [
+        "assets/fitting-room/natural-pearl-v56.png"
+      ],
+      "placement": [
+        0.5,
+        0.013020833333333334,
+        1.13525390625,
+        1.0091145833333335
+      ]
+    },
+    "2": {
+      "files": [
+        "assets/fitting-room/static-gradient-v24.png"
+      ],
+      "placement": [
+        0.50146484375,
+        0.013671875,
+        1.134490966796875,
+        1.0084364149305556
+      ]
+    },
+    "woman-1": {
+      "files": [
+        "assets/fitting-room/natural-pearl-v56.png"
+      ],
+      "placement": [
+        0.5009765625,
+        0.017578125,
+        1.13067626953125,
+        1.0050455729166667
+      ]
+    },
+    "woman-2": {
+      "files": [
+        "assets/fitting-room/static-woman-gradient-v24.png"
+      ],
+      "placement": [
+        0.501953125,
+        0.016927083333333332,
+        1.131439208984375,
+        1.0057237413194444
+      ]
+    },
+    "woman-0": {
+      "files": [
+        "assets/fitting-room/static-woman-flare-v24.png"
+      ],
+      "placement": [
+        0.50341796875,
+        0.016276041666666668,
+        1.131439208984375,
+        1.0057237413194444
+      ]
+    },
+    "man-1": {
+      "files": [
+        "assets/fitting-room/static-man-pearl-v24.png"
+      ],
+      "placement": [
+        0.50146484375,
+        0.012369791666666666,
+        1.137542724609375,
+        1.0111490885416667
+      ]
+    },
+    "man-2": {
+      "files": [
+        "assets/fitting-room/static-man-gradient-v24.png"
+      ],
+      "placement": [
+        0.5009765625,
+        0.013671875,
+        1.13525390625,
+        1.0091145833333335
+      ]
+    },
+    "man-0": {
+      "files": [
+        "assets/fitting-room/static-man-flare-v24.png"
+      ],
+      "placement": [
+        0.50146484375,
+        0.013671875,
+        1.136016845703125,
+        1.0097927517361112
+      ]
+    },
+    "man-tie-dye-1": {
+      "files": [
+        "assets/fitting-room/man-tie-dye-v56.png"
+      ],
+      "alpha": "assets/fitting-room/man-tie-dye-mask-v56.png",
+      "placement": [
+        0.50146484375,
+        0.012369791666666666,
+        1.137542724609375,
+        1.0111490885416667
+      ],
+      "head": {
+        "file": "assets/fitting-room/man-tie-dye-v56.png",
+        "alpha": "assets/fitting-room/man-tie-dye-mask-v56.png",
+        "placement": [
+          0.50146484375,
+          0.012369791666666666,
+          1.137542724609375,
+          1.0111490885416667
+        ]
+      }
+    },
+    "man-leather-anorak-1": {
+      "files": [
+        "assets/fitting-room/man-leather-anorak-v56.png"
+      ],
+      "alpha": "assets/fitting-room/man-leather-anorak-mask-v56.png",
+      "placement": [
+        0.50146484375,
+        0.012369791666666666,
+        1.137542724609375,
+        1.0111490885416667
+      ],
+      "head": {
+        "file": "assets/fitting-room/man-tie-dye-v56.png",
+        "alpha": "assets/fitting-room/man-tie-dye-mask-v56.png",
+        "placement": [
+          0.50146484375,
+          0.012369791666666666,
+          1.137542724609375,
+          1.0111490885416667
+        ]
+      }
+    },
+    "woman-tie-dye-0": {
+      "files": [
+        "assets/fitting-room/woman-tie-dye-0-v57.png"
+      ],
+      "placement": [
+        0.5009765625,
+        0.017578125,
+        1.13067626953125,
+        1.0050455729166667
+      ],
+      "head": {
+        "file": "assets/fitting-room/natural-pearl-v56.png",
+        "placement": [
+          0.5009765625,
+          0.017578125,
+          1.13067626953125,
+          1.0050455729166667
+        ]
+      }
+    },
+    "woman-tie-dye-1": {
+      "files": [
+        "assets/fitting-room/woman-tie-dye-1-v57.png"
+      ],
+      "placement": [
+        0.5009765625,
+        0.017578125,
+        1.13067626953125,
+        1.0050455729166667
+      ],
+      "head": {
+        "file": "assets/fitting-room/natural-pearl-v56.png",
+        "placement": [
+          0.5009765625,
+          0.017578125,
+          1.13067626953125,
+          1.0050455729166667
+        ]
+      }
+    },
+    "woman-tie-dye-2": {
+      "files": [
+        "assets/fitting-room/woman-tie-dye-2-v57.png"
+      ],
+      "placement": [
+        0.5009765625,
+        0.017578125,
+        1.13067626953125,
+        1.0050455729166667
+      ],
+      "head": {
+        "file": "assets/fitting-room/natural-pearl-v56.png",
+        "placement": [
+          0.5009765625,
+          0.017578125,
+          1.13067626953125,
+          1.0050455729166667
+        ]
+      }
+    },
+    "woman-leather-anorak-0": {
+      "files": [
+        "assets/fitting-room/woman-leather-anorak-0-v57.png"
+      ],
+      "placement": [
+        0.5009765625,
+        0.017578125,
+        1.13067626953125,
+        1.0050455729166667
+      ],
+      "head": {
+        "file": "assets/fitting-room/natural-pearl-v56.png",
+        "placement": [
+          0.5009765625,
+          0.017578125,
+          1.13067626953125,
+          1.0050455729166667
+        ]
+      }
+    },
+    "woman-leather-anorak-1": {
+      "files": [
+        "assets/fitting-room/woman-leather-anorak-1-v57.png"
+      ],
+      "placement": [
+        0.5009765625,
+        0.017578125,
+        1.13067626953125,
+        1.0050455729166667
+      ],
+      "head": {
+        "file": "assets/fitting-room/natural-pearl-v56.png",
+        "placement": [
+          0.5009765625,
+          0.017578125,
+          1.13067626953125,
+          1.0050455729166667
+        ]
+      }
+    },
+    "woman-leather-anorak-2": {
+      "files": [
+        "assets/fitting-room/woman-leather-anorak-2-v57.png"
+      ],
+      "placement": [
+        0.5009765625,
+        0.017578125,
+        1.13067626953125,
+        1.0050455729166667
+      ],
+      "head": {
+        "file": "assets/fitting-room/natural-pearl-v56.png",
+        "placement": [
+          0.5009765625,
+          0.017578125,
+          1.13067626953125,
+          1.0050455729166667
+        ]
+      }
+    },
+    "man-tie-dye-0": {
+      "files": [
+        "assets/fitting-room/man-tie-dye-0-v57.png"
+      ],
+      "placement": [
+        0.50146484375,
+        0.012369791666666666,
+        1.137542724609375,
+        1.0111490885416667
+      ],
+      "head": {
+        "file": "assets/fitting-room/man-tie-dye-v56.png",
+        "alpha": "assets/fitting-room/man-tie-dye-mask-v56.png",
+        "placement": [
+          0.50146484375,
+          0.012369791666666666,
+          1.137542724609375,
+          1.0111490885416667
+        ]
+      }
+    },
+    "man-tie-dye-2": {
+      "files": [
+        "assets/fitting-room/man-tie-dye-2-v57.png"
+      ],
+      "placement": [
+        0.50146484375,
+        0.012369791666666666,
+        1.137542724609375,
+        1.0111490885416667
+      ],
+      "head": {
+        "file": "assets/fitting-room/man-tie-dye-v56.png",
+        "alpha": "assets/fitting-room/man-tie-dye-mask-v56.png",
+        "placement": [
+          0.50146484375,
+          0.012369791666666666,
+          1.137542724609375,
+          1.0111490885416667
+        ]
+      }
+    },
+    "man-leather-anorak-0": {
+      "files": [
+        "assets/fitting-room/man-leather-anorak-0-v57.png"
+      ],
+      "placement": [
+        0.50146484375,
+        0.012369791666666666,
+        1.137542724609375,
+        1.0111490885416667
+      ],
+      "head": {
+        "file": "assets/fitting-room/man-tie-dye-v56.png",
+        "alpha": "assets/fitting-room/man-tie-dye-mask-v56.png",
+        "placement": [
+          0.50146484375,
+          0.012369791666666666,
+          1.137542724609375,
+          1.0111490885416667
+        ]
+      }
+    },
+    "man-leather-anorak-2": {
+      "files": [
+        "assets/fitting-room/man-leather-anorak-2-v57.png"
+      ],
+      "placement": [
+        0.50146484375,
+        0.012369791666666666,
+        1.137542724609375,
+        1.0111490885416667
+      ],
+      "head": {
+        "file": "assets/fitting-room/man-tie-dye-v56.png",
+        "alpha": "assets/fitting-room/man-tie-dye-mask-v56.png",
+        "placement": [
+          0.50146484375,
+          0.012369791666666666,
+          1.137542724609375,
+          1.0111490885416667
+        ]
+      }
+    },
+    "__woman-top-6": {
+      "files": [
+        "assets/fitting-room/woman-garment-6-v58.png"
+      ],
+      "placement": [
+        0.5009765625,
+        0.017578125,
+        1.13067626953125,
+        1.0050455729166667
+      ],
+      "head": {
+        "file": "assets/fitting-room/natural-pearl-v56.png",
+        "placement": [
+          0.5009765625,
+          0.017578125,
+          1.13067626953125,
+          1.0050455729166667
+        ]
+      }
+    },
+    "__woman-top-7": {
+      "files": [
+        "assets/fitting-room/woman-garment-7-v58.png"
+      ],
+      "placement": [
+        0.5009765625,
+        0.017578125,
+        1.13067626953125,
+        1.0050455729166667
+      ],
+      "head": {
+        "file": "assets/fitting-room/natural-pearl-v56.png",
+        "placement": [
+          0.5009765625,
+          0.017578125,
+          1.13067626953125,
+          1.0050455729166667
+        ]
+      }
+    },
+    "__woman-top-8": {
+      "files": [
+        "assets/fitting-room/woman-garment-8-v58.png"
+      ],
+      "placement": [
+        0.5009765625,
+        0.017578125,
+        1.13067626953125,
+        1.0050455729166667
+      ],
+      "head": {
+        "file": "assets/fitting-room/natural-pearl-v56.png",
+        "placement": [
+          0.5009765625,
+          0.017578125,
+          1.13067626953125,
+          1.0050455729166667
+        ]
+      }
+    },
+    "__woman-bottom-3": {
+      "files": [
+        "assets/fitting-room/woman-garment-9-v58.png"
+      ],
+      "placement": [
+        0.5009765625,
+        0.017578125,
+        1.13067626953125,
+        1.0050455729166667
+      ],
+      "head": {
+        "file": "assets/fitting-room/natural-pearl-v56.png",
+        "placement": [
+          0.5009765625,
+          0.017578125,
+          1.13067626953125,
+          1.0050455729166667
+        ]
+      }
+    },
+    "__woman-bottom-4": {
+      "files": [
+        "assets/fitting-room/woman-garment-10-v58.png"
+      ],
+      "placement": [
+        0.5009765625,
+        0.017578125,
+        1.13067626953125,
+        1.0050455729166667
+      ],
+      "head": {
+        "file": "assets/fitting-room/natural-pearl-v56.png",
+        "placement": [
+          0.5009765625,
+          0.017578125,
+          1.13067626953125,
+          1.0050455729166667
+        ]
+      }
+    },
+    "__woman-bottom-5": {
+      "files": [
+        "assets/fitting-room/woman-garment-11-v58.png"
+      ],
+      "placement": [
+        0.5009765625,
+        0.017578125,
+        1.13067626953125,
+        1.0050455729166667
+      ],
+      "head": {
+        "file": "assets/fitting-room/natural-pearl-v56.png",
+        "placement": [
+          0.5009765625,
+          0.017578125,
+          1.13067626953125,
+          1.0050455729166667
+        ]
+      }
+    },
+    "woman-bottom-3": {
+      "files": [
+        "assets/fitting-room/woman-garment-9-v58.png"
+      ],
+      "placement": [
+        0.5009765625,
+        0.017578125,
+        1.13067626953125,
+        1.0050455729166667
+      ],
+      "head": {
+        "file": "assets/fitting-room/natural-pearl-v56.png",
+        "placement": [
+          0.5009765625,
+          0.017578125,
+          1.13067626953125,
+          1.0050455729166667
+        ]
+      }
+    },
+    "woman-bottom-4": {
+      "files": [
+        "assets/fitting-room/woman-garment-10-v58.png"
+      ],
+      "placement": [
+        0.5009765625,
+        0.017578125,
+        1.13067626953125,
+        1.0050455729166667
+      ],
+      "head": {
+        "file": "assets/fitting-room/natural-pearl-v56.png",
+        "placement": [
+          0.5009765625,
+          0.017578125,
+          1.13067626953125,
+          1.0050455729166667
+        ]
+      }
+    },
+    "woman-bottom-5": {
+      "files": [
+        "assets/fitting-room/woman-garment-11-v58.png"
+      ],
+      "placement": [
+        0.5009765625,
+        0.017578125,
+        1.13067626953125,
+        1.0050455729166667
+      ],
+      "head": {
+        "file": "assets/fitting-room/natural-pearl-v56.png",
+        "placement": [
+          0.5009765625,
+          0.017578125,
+          1.13067626953125,
+          1.0050455729166667
+        ]
+      }
+    },
+    "woman-tie-dye-3": {
+      "files": [
+        "assets/fitting-room/woman-tie-dye-1-v57.png"
+      ],
+      "placement": [
+        0.5009765625,
+        0.017578125,
+        1.13067626953125,
+        1.0050455729166667
+      ],
+      "head": {
+        "file": "assets/fitting-room/natural-pearl-v56.png",
+        "placement": [
+          0.5009765625,
+          0.017578125,
+          1.13067626953125,
+          1.0050455729166667
+        ]
+      },
+      "composite": {
+        "top": "woman-tie-dye-1",
+        "bottom": "__woman-bottom-3",
+        "gender": "woman"
+      }
+    },
+    "woman-tie-dye-4": {
+      "files": [
+        "assets/fitting-room/woman-tie-dye-1-v57.png"
+      ],
+      "placement": [
+        0.5009765625,
+        0.017578125,
+        1.13067626953125,
+        1.0050455729166667
+      ],
+      "head": {
+        "file": "assets/fitting-room/natural-pearl-v56.png",
+        "placement": [
+          0.5009765625,
+          0.017578125,
+          1.13067626953125,
+          1.0050455729166667
+        ]
+      },
+      "composite": {
+        "top": "woman-tie-dye-1",
+        "bottom": "__woman-bottom-4",
+        "gender": "woman"
+      }
+    },
+    "woman-tie-dye-5": {
+      "files": [
+        "assets/fitting-room/woman-tie-dye-1-v57.png"
+      ],
+      "placement": [
+        0.5009765625,
+        0.017578125,
+        1.13067626953125,
+        1.0050455729166667
+      ],
+      "head": {
+        "file": "assets/fitting-room/natural-pearl-v56.png",
+        "placement": [
+          0.5009765625,
+          0.017578125,
+          1.13067626953125,
+          1.0050455729166667
+        ]
+      },
+      "composite": {
+        "top": "woman-tie-dye-1",
+        "bottom": "__woman-bottom-5",
+        "gender": "woman"
+      }
+    },
+    "woman-leather-anorak-3": {
+      "files": [
+        "assets/fitting-room/woman-leather-anorak-1-v57.png"
+      ],
+      "placement": [
+        0.5009765625,
+        0.017578125,
+        1.13067626953125,
+        1.0050455729166667
+      ],
+      "head": {
+        "file": "assets/fitting-room/natural-pearl-v56.png",
+        "placement": [
+          0.5009765625,
+          0.017578125,
+          1.13067626953125,
+          1.0050455729166667
+        ]
+      },
+      "composite": {
+        "top": "woman-leather-anorak-1",
+        "bottom": "__woman-bottom-3",
+        "gender": "woman"
+      }
+    },
+    "woman-leather-anorak-4": {
+      "files": [
+        "assets/fitting-room/woman-leather-anorak-1-v57.png"
+      ],
+      "placement": [
+        0.5009765625,
+        0.017578125,
+        1.13067626953125,
+        1.0050455729166667
+      ],
+      "head": {
+        "file": "assets/fitting-room/natural-pearl-v56.png",
+        "placement": [
+          0.5009765625,
+          0.017578125,
+          1.13067626953125,
+          1.0050455729166667
+        ]
+      },
+      "composite": {
+        "top": "woman-leather-anorak-1",
+        "bottom": "__woman-bottom-4",
+        "gender": "woman"
+      }
+    },
+    "woman-leather-anorak-5": {
+      "files": [
+        "assets/fitting-room/woman-leather-anorak-1-v57.png"
+      ],
+      "placement": [
+        0.5009765625,
+        0.017578125,
+        1.13067626953125,
+        1.0050455729166667
+      ],
+      "head": {
+        "file": "assets/fitting-room/natural-pearl-v56.png",
+        "placement": [
+          0.5009765625,
+          0.017578125,
+          1.13067626953125,
+          1.0050455729166667
+        ]
+      },
+      "composite": {
+        "top": "woman-leather-anorak-1",
+        "bottom": "__woman-bottom-5",
+        "gender": "woman"
+      }
+    },
+    "woman-logo-bling-0": {
+      "files": [
+        "assets/fitting-room/woman-garment-6-v58.png"
+      ],
+      "placement": [
+        0.5009765625,
+        0.017578125,
+        1.13067626953125,
+        1.0050455729166667
+      ],
+      "head": {
+        "file": "assets/fitting-room/natural-pearl-v56.png",
+        "placement": [
+          0.5009765625,
+          0.017578125,
+          1.13067626953125,
+          1.0050455729166667
+        ]
+      },
+      "composite": {
+        "top": "__woman-top-6",
+        "bottom": "woman-0",
+        "gender": "woman"
+      }
+    },
+    "woman-logo-bling-1": {
+      "files": [
+        "assets/fitting-room/woman-garment-6-v58.png"
+      ],
+      "placement": [
+        0.5009765625,
+        0.017578125,
+        1.13067626953125,
+        1.0050455729166667
+      ],
+      "head": {
+        "file": "assets/fitting-room/natural-pearl-v56.png",
+        "placement": [
+          0.5009765625,
+          0.017578125,
+          1.13067626953125,
+          1.0050455729166667
+        ]
+      }
+    },
+    "woman-logo-bling-2": {
+      "files": [
+        "assets/fitting-room/woman-garment-6-v58.png"
+      ],
+      "placement": [
+        0.5009765625,
+        0.017578125,
+        1.13067626953125,
+        1.0050455729166667
+      ],
+      "head": {
+        "file": "assets/fitting-room/natural-pearl-v56.png",
+        "placement": [
+          0.5009765625,
+          0.017578125,
+          1.13067626953125,
+          1.0050455729166667
+        ]
+      },
+      "composite": {
+        "top": "__woman-top-6",
+        "bottom": "woman-2",
+        "gender": "woman"
+      }
+    },
+    "woman-logo-bling-3": {
+      "files": [
+        "assets/fitting-room/woman-native-6-3-v58.png"
+      ],
+      "placement": [
+        0.5009765625,
+        0.017578125,
+        1.13067626953125,
+        1.0050455729166667
+      ],
+      "head": {
+        "file": "assets/fitting-room/natural-pearl-v56.png",
+        "placement": [
+          0.5009765625,
+          0.017578125,
+          1.13067626953125,
+          1.0050455729166667
+        ]
+      }
+    },
+    "woman-logo-bling-4": {
+      "files": [
+        "assets/fitting-room/woman-native-6-4-v58.png"
+      ],
+      "placement": [
+        0.5009765625,
+        0.017578125,
+        1.13067626953125,
+        1.0050455729166667
+      ],
+      "head": {
+        "file": "assets/fitting-room/natural-pearl-v56.png",
+        "placement": [
+          0.5009765625,
+          0.017578125,
+          1.13067626953125,
+          1.0050455729166667
+        ]
+      }
+    },
+    "woman-logo-bling-5": {
+      "files": [
+        "assets/fitting-room/woman-native-6-5-v58.png"
+      ],
+      "placement": [
+        0.5009765625,
+        0.017578125,
+        1.13067626953125,
+        1.0050455729166667
+      ],
+      "head": {
+        "file": "assets/fitting-room/natural-pearl-v56.png",
+        "placement": [
+          0.5009765625,
+          0.017578125,
+          1.13067626953125,
+          1.0050455729166667
+        ]
+      }
+    },
+    "woman-paint-splatter-0": {
+      "files": [
+        "assets/fitting-room/woman-garment-7-v58.png"
+      ],
+      "placement": [
+        0.5009765625,
+        0.017578125,
+        1.13067626953125,
+        1.0050455729166667
+      ],
+      "head": {
+        "file": "assets/fitting-room/natural-pearl-v56.png",
+        "placement": [
+          0.5009765625,
+          0.017578125,
+          1.13067626953125,
+          1.0050455729166667
+        ]
+      },
+      "composite": {
+        "top": "__woman-top-7",
+        "bottom": "woman-0",
+        "gender": "woman"
+      }
+    },
+    "woman-paint-splatter-1": {
+      "files": [
+        "assets/fitting-room/woman-garment-7-v58.png"
+      ],
+      "placement": [
+        0.5009765625,
+        0.017578125,
+        1.13067626953125,
+        1.0050455729166667
+      ],
+      "head": {
+        "file": "assets/fitting-room/natural-pearl-v56.png",
+        "placement": [
+          0.5009765625,
+          0.017578125,
+          1.13067626953125,
+          1.0050455729166667
+        ]
+      }
+    },
+    "woman-paint-splatter-2": {
+      "files": [
+        "assets/fitting-room/woman-garment-7-v58.png"
+      ],
+      "placement": [
+        0.5009765625,
+        0.017578125,
+        1.13067626953125,
+        1.0050455729166667
+      ],
+      "head": {
+        "file": "assets/fitting-room/natural-pearl-v56.png",
+        "placement": [
+          0.5009765625,
+          0.017578125,
+          1.13067626953125,
+          1.0050455729166667
+        ]
+      },
+      "composite": {
+        "top": "__woman-top-7",
+        "bottom": "woman-2",
+        "gender": "woman"
+      }
+    },
+    "woman-paint-splatter-3": {
+      "files": [
+        "assets/fitting-room/woman-native-7-3-v58.png"
+      ],
+      "placement": [
+        0.5009765625,
+        0.017578125,
+        1.13067626953125,
+        1.0050455729166667
+      ],
+      "head": {
+        "file": "assets/fitting-room/natural-pearl-v56.png",
+        "placement": [
+          0.5009765625,
+          0.017578125,
+          1.13067626953125,
+          1.0050455729166667
+        ]
+      }
+    },
+    "woman-paint-splatter-4": {
+      "files": [
+        "assets/fitting-room/woman-native-7-4-v58.png"
+      ],
+      "placement": [
+        0.5009765625,
+        0.017578125,
+        1.13067626953125,
+        1.0050455729166667
+      ],
+      "head": {
+        "file": "assets/fitting-room/natural-pearl-v56.png",
+        "placement": [
+          0.5009765625,
+          0.017578125,
+          1.13067626953125,
+          1.0050455729166667
+        ]
+      }
+    },
+    "woman-paint-splatter-5": {
+      "files": [
+        "assets/fitting-room/woman-native-7-5-v58.png"
+      ],
+      "placement": [
+        0.5009765625,
+        0.017578125,
+        1.13067626953125,
+        1.0050455729166667
+      ],
+      "head": {
+        "file": "assets/fitting-room/natural-pearl-v56.png",
+        "placement": [
+          0.5009765625,
+          0.017578125,
+          1.13067626953125,
+          1.0050455729166667
+        ]
+      }
+    },
+    "woman-monogram-0": {
+      "files": [
+        "assets/fitting-room/woman-garment-8-v58.png"
+      ],
+      "placement": [
+        0.5009765625,
+        0.017578125,
+        1.13067626953125,
+        1.0050455729166667
+      ],
+      "head": {
+        "file": "assets/fitting-room/natural-pearl-v56.png",
+        "placement": [
+          0.5009765625,
+          0.017578125,
+          1.13067626953125,
+          1.0050455729166667
+        ]
+      },
+      "composite": {
+        "top": "__woman-top-8",
+        "bottom": "woman-0",
+        "gender": "woman"
+      }
+    },
+    "woman-monogram-1": {
+      "files": [
+        "assets/fitting-room/woman-garment-8-v58.png"
+      ],
+      "placement": [
+        0.5009765625,
+        0.017578125,
+        1.13067626953125,
+        1.0050455729166667
+      ],
+      "head": {
+        "file": "assets/fitting-room/natural-pearl-v56.png",
+        "placement": [
+          0.5009765625,
+          0.017578125,
+          1.13067626953125,
+          1.0050455729166667
+        ]
+      }
+    },
+    "woman-monogram-2": {
+      "files": [
+        "assets/fitting-room/woman-garment-8-v58.png"
+      ],
+      "placement": [
+        0.5009765625,
+        0.017578125,
+        1.13067626953125,
+        1.0050455729166667
+      ],
+      "head": {
+        "file": "assets/fitting-room/natural-pearl-v56.png",
+        "placement": [
+          0.5009765625,
+          0.017578125,
+          1.13067626953125,
+          1.0050455729166667
+        ]
+      },
+      "composite": {
+        "top": "__woman-top-8",
+        "bottom": "woman-2",
+        "gender": "woman"
+      }
+    },
+    "woman-monogram-3": {
+      "files": [
+        "assets/fitting-room/woman-native-8-3-v58.png"
+      ],
+      "placement": [
+        0.5009765625,
+        0.017578125,
+        1.13067626953125,
+        1.0050455729166667
+      ],
+      "head": {
+        "file": "assets/fitting-room/natural-pearl-v56.png",
+        "placement": [
+          0.5009765625,
+          0.017578125,
+          1.13067626953125,
+          1.0050455729166667
+        ]
+      }
+    },
+    "woman-monogram-4": {
+      "files": [
+        "assets/fitting-room/woman-native-8-4-v58.png"
+      ],
+      "placement": [
+        0.5009765625,
+        0.017578125,
+        1.13067626953125,
+        1.0050455729166667
+      ],
+      "head": {
+        "file": "assets/fitting-room/natural-pearl-v56.png",
+        "placement": [
+          0.5009765625,
+          0.017578125,
+          1.13067626953125,
+          1.0050455729166667
+        ]
+      }
+    },
+    "woman-monogram-5": {
+      "files": [
+        "assets/fitting-room/woman-native-8-5-v58.png"
+      ],
+      "placement": [
+        0.5009765625,
+        0.017578125,
+        1.13067626953125,
+        1.0050455729166667
+      ],
+      "head": {
+        "file": "assets/fitting-room/natural-pearl-v56.png",
+        "placement": [
+          0.5009765625,
+          0.017578125,
+          1.13067626953125,
+          1.0050455729166667
+        ]
+      }
+    },
+    "__man-top-6": {
+      "files": [
+        "assets/fitting-room/man-garment-6-v58.png"
+      ],
+      "placement": [
+        0.50146484375,
+        0.012369791666666666,
+        1.137542724609375,
+        1.0111490885416667
+      ],
+      "head": {
+        "file": "assets/fitting-room/man-tie-dye-v56.png",
+        "alpha": "assets/fitting-room/man-tie-dye-mask-v56.png",
+        "placement": [
+          0.50146484375,
+          0.012369791666666666,
+          1.137542724609375,
+          1.0111490885416667
+        ]
+      }
+    },
+    "__man-top-7": {
+      "files": [
+        "assets/fitting-room/man-garment-7-v58.png"
+      ],
+      "placement": [
+        0.50146484375,
+        0.012369791666666666,
+        1.137542724609375,
+        1.0111490885416667
+      ],
+      "head": {
+        "file": "assets/fitting-room/man-tie-dye-v56.png",
+        "alpha": "assets/fitting-room/man-tie-dye-mask-v56.png",
+        "placement": [
+          0.50146484375,
+          0.012369791666666666,
+          1.137542724609375,
+          1.0111490885416667
+        ]
+      }
+    },
+    "__man-top-8": {
+      "files": [
+        "assets/fitting-room/man-garment-8-v58.png"
+      ],
+      "placement": [
+        0.50146484375,
+        0.012369791666666666,
+        1.137542724609375,
+        1.0111490885416667
+      ],
+      "head": {
+        "file": "assets/fitting-room/man-tie-dye-v56.png",
+        "alpha": "assets/fitting-room/man-tie-dye-mask-v56.png",
+        "placement": [
+          0.50146484375,
+          0.012369791666666666,
+          1.137542724609375,
+          1.0111490885416667
+        ]
+      }
+    },
+    "__man-bottom-3": {
+      "files": [
+        "assets/fitting-room/man-garment-9-v58.png"
+      ],
+      "placement": [
+        0.50146484375,
+        0.012369791666666666,
+        1.137542724609375,
+        1.0111490885416667
+      ],
+      "head": {
+        "file": "assets/fitting-room/man-tie-dye-v56.png",
+        "alpha": "assets/fitting-room/man-tie-dye-mask-v56.png",
+        "placement": [
+          0.50146484375,
+          0.012369791666666666,
+          1.137542724609375,
+          1.0111490885416667
+        ]
+      }
+    },
+    "__man-bottom-4": {
+      "files": [
+        "assets/fitting-room/man-garment-10-v58.png"
+      ],
+      "placement": [
+        0.50146484375,
+        0.012369791666666666,
+        1.137542724609375,
+        1.0111490885416667
+      ],
+      "head": {
+        "file": "assets/fitting-room/man-tie-dye-v56.png",
+        "alpha": "assets/fitting-room/man-tie-dye-mask-v56.png",
+        "placement": [
+          0.50146484375,
+          0.012369791666666666,
+          1.137542724609375,
+          1.0111490885416667
+        ]
+      }
+    },
+    "__man-bottom-5": {
+      "files": [
+        "assets/fitting-room/man-garment-11-v58.png"
+      ],
+      "placement": [
+        0.50146484375,
+        0.012369791666666666,
+        1.137542724609375,
+        1.0111490885416667
+      ],
+      "head": {
+        "file": "assets/fitting-room/man-tie-dye-v56.png",
+        "alpha": "assets/fitting-room/man-tie-dye-mask-v56.png",
+        "placement": [
+          0.50146484375,
+          0.012369791666666666,
+          1.137542724609375,
+          1.0111490885416667
+        ]
+      }
+    },
+    "man-bottom-3": {
+      "files": [
+        "assets/fitting-room/static-man-pearl-v24.png"
+      ],
+      "placement": [
+        0.50146484375,
+        0.012369791666666666,
+        1.137542724609375,
+        1.0111490885416667
+      ],
+      "head": {
+        "file": "assets/fitting-room/man-tie-dye-v56.png",
+        "alpha": "assets/fitting-room/man-tie-dye-mask-v56.png",
+        "placement": [
+          0.50146484375,
+          0.012369791666666666,
+          1.137542724609375,
+          1.0111490885416667
+        ]
+      },
+      "composite": {
+        "top": "man-1",
+        "bottom": "__man-bottom-3",
+        "gender": "man"
+      }
+    },
+    "man-bottom-4": {
+      "files": [
+        "assets/fitting-room/static-man-pearl-v24.png"
+      ],
+      "placement": [
+        0.50146484375,
+        0.012369791666666666,
+        1.137542724609375,
+        1.0111490885416667
+      ],
+      "head": {
+        "file": "assets/fitting-room/man-tie-dye-v56.png",
+        "alpha": "assets/fitting-room/man-tie-dye-mask-v56.png",
+        "placement": [
+          0.50146484375,
+          0.012369791666666666,
+          1.137542724609375,
+          1.0111490885416667
+        ]
+      },
+      "composite": {
+        "top": "man-1",
+        "bottom": "__man-bottom-4",
+        "gender": "man"
+      }
+    },
+    "man-bottom-5": {
+      "files": [
+        "assets/fitting-room/static-man-pearl-v24.png"
+      ],
+      "placement": [
+        0.50146484375,
+        0.012369791666666666,
+        1.137542724609375,
+        1.0111490885416667
+      ],
+      "head": {
+        "file": "assets/fitting-room/man-tie-dye-v56.png",
+        "alpha": "assets/fitting-room/man-tie-dye-mask-v56.png",
+        "placement": [
+          0.50146484375,
+          0.012369791666666666,
+          1.137542724609375,
+          1.0111490885416667
+        ]
+      },
+      "composite": {
+        "top": "man-1",
+        "bottom": "__man-bottom-5",
+        "gender": "man"
+      }
+    },
+    "man-tie-dye-3": {
+      "files": [
+        "assets/fitting-room/man-garment-9-v58.png"
+      ],
+      "placement": [
+        0.50146484375,
+        0.012369791666666666,
+        1.137542724609375,
+        1.0111490885416667
+      ],
+      "head": {
+        "file": "assets/fitting-room/man-tie-dye-v56.png",
+        "alpha": "assets/fitting-room/man-tie-dye-mask-v56.png",
+        "placement": [
+          0.50146484375,
+          0.012369791666666666,
+          1.137542724609375,
+          1.0111490885416667
+        ]
+      }
+    },
+    "man-tie-dye-4": {
+      "files": [
+        "assets/fitting-room/man-garment-10-v58.png"
+      ],
+      "placement": [
+        0.50146484375,
+        0.012369791666666666,
+        1.137542724609375,
+        1.0111490885416667
+      ],
+      "head": {
+        "file": "assets/fitting-room/man-tie-dye-v56.png",
+        "alpha": "assets/fitting-room/man-tie-dye-mask-v56.png",
+        "placement": [
+          0.50146484375,
+          0.012369791666666666,
+          1.137542724609375,
+          1.0111490885416667
+        ]
+      }
+    },
+    "man-tie-dye-5": {
+      "files": [
+        "assets/fitting-room/man-garment-11-v58.png"
+      ],
+      "placement": [
+        0.50146484375,
+        0.012369791666666666,
+        1.137542724609375,
+        1.0111490885416667
+      ],
+      "head": {
+        "file": "assets/fitting-room/man-tie-dye-v56.png",
+        "alpha": "assets/fitting-room/man-tie-dye-mask-v56.png",
+        "placement": [
+          0.50146484375,
+          0.012369791666666666,
+          1.137542724609375,
+          1.0111490885416667
+        ]
+      }
+    },
+    "man-leather-anorak-3": {
+      "files": [
+        "assets/fitting-room/man-leather-anorak-v56.png"
+      ],
+      "placement": [
+        0.50146484375,
+        0.012369791666666666,
+        1.137542724609375,
+        1.0111490885416667
+      ],
+      "head": {
+        "file": "assets/fitting-room/man-tie-dye-v56.png",
+        "alpha": "assets/fitting-room/man-tie-dye-mask-v56.png",
+        "placement": [
+          0.50146484375,
+          0.012369791666666666,
+          1.137542724609375,
+          1.0111490885416667
+        ]
+      },
+      "composite": {
+        "top": "man-leather-anorak-1",
+        "bottom": "__man-bottom-3",
+        "gender": "man"
+      }
+    },
+    "man-leather-anorak-4": {
+      "files": [
+        "assets/fitting-room/man-leather-anorak-v56.png"
+      ],
+      "placement": [
+        0.50146484375,
+        0.012369791666666666,
+        1.137542724609375,
+        1.0111490885416667
+      ],
+      "head": {
+        "file": "assets/fitting-room/man-tie-dye-v56.png",
+        "alpha": "assets/fitting-room/man-tie-dye-mask-v56.png",
+        "placement": [
+          0.50146484375,
+          0.012369791666666666,
+          1.137542724609375,
+          1.0111490885416667
+        ]
+      },
+      "composite": {
+        "top": "man-leather-anorak-1",
+        "bottom": "__man-bottom-4",
+        "gender": "man"
+      }
+    },
+    "man-leather-anorak-5": {
+      "files": [
+        "assets/fitting-room/man-leather-anorak-v56.png"
+      ],
+      "placement": [
+        0.50146484375,
+        0.012369791666666666,
+        1.137542724609375,
+        1.0111490885416667
+      ],
+      "head": {
+        "file": "assets/fitting-room/man-tie-dye-v56.png",
+        "alpha": "assets/fitting-room/man-tie-dye-mask-v56.png",
+        "placement": [
+          0.50146484375,
+          0.012369791666666666,
+          1.137542724609375,
+          1.0111490885416667
+        ]
+      },
+      "composite": {
+        "top": "man-leather-anorak-1",
+        "bottom": "__man-bottom-5",
+        "gender": "man"
+      }
+    },
+    "man-logo-bling-0": {
+      "files": [
+        "assets/fitting-room/man-garment-6-v58.png"
+      ],
+      "placement": [
+        0.50146484375,
+        0.012369791666666666,
+        1.137542724609375,
+        1.0111490885416667
+      ],
+      "head": {
+        "file": "assets/fitting-room/man-tie-dye-v56.png",
+        "alpha": "assets/fitting-room/man-tie-dye-mask-v56.png",
+        "placement": [
+          0.50146484375,
+          0.012369791666666666,
+          1.137542724609375,
+          1.0111490885416667
+        ]
+      },
+      "composite": {
+        "top": "__man-top-6",
+        "bottom": "man-0",
+        "gender": "man"
+      }
+    },
+    "man-logo-bling-1": {
+      "files": [
+        "assets/fitting-room/man-garment-6-v58.png"
+      ],
+      "placement": [
+        0.50146484375,
+        0.012369791666666666,
+        1.137542724609375,
+        1.0111490885416667
+      ],
+      "head": {
+        "file": "assets/fitting-room/man-tie-dye-v56.png",
+        "alpha": "assets/fitting-room/man-tie-dye-mask-v56.png",
+        "placement": [
+          0.50146484375,
+          0.012369791666666666,
+          1.137542724609375,
+          1.0111490885416667
+        ]
+      }
+    },
+    "man-logo-bling-2": {
+      "files": [
+        "assets/fitting-room/man-garment-6-v58.png"
+      ],
+      "placement": [
+        0.50146484375,
+        0.012369791666666666,
+        1.137542724609375,
+        1.0111490885416667
+      ],
+      "head": {
+        "file": "assets/fitting-room/man-tie-dye-v56.png",
+        "alpha": "assets/fitting-room/man-tie-dye-mask-v56.png",
+        "placement": [
+          0.50146484375,
+          0.012369791666666666,
+          1.137542724609375,
+          1.0111490885416667
+        ]
+      },
+      "composite": {
+        "top": "__man-top-6",
+        "bottom": "man-2",
+        "gender": "man"
+      }
+    },
+    "man-logo-bling-3": {
+      "files": [
+        "assets/fitting-room/man-garment-6-v58.png"
+      ],
+      "placement": [
+        0.50146484375,
+        0.012369791666666666,
+        1.137542724609375,
+        1.0111490885416667
+      ],
+      "head": {
+        "file": "assets/fitting-room/man-tie-dye-v56.png",
+        "alpha": "assets/fitting-room/man-tie-dye-mask-v56.png",
+        "placement": [
+          0.50146484375,
+          0.012369791666666666,
+          1.137542724609375,
+          1.0111490885416667
+        ]
+      },
+      "composite": {
+        "top": "__man-top-6",
+        "bottom": "__man-bottom-3",
+        "gender": "man"
+      }
+    },
+    "man-logo-bling-4": {
+      "files": [
+        "assets/fitting-room/man-garment-6-v58.png"
+      ],
+      "placement": [
+        0.50146484375,
+        0.012369791666666666,
+        1.137542724609375,
+        1.0111490885416667
+      ],
+      "head": {
+        "file": "assets/fitting-room/man-tie-dye-v56.png",
+        "alpha": "assets/fitting-room/man-tie-dye-mask-v56.png",
+        "placement": [
+          0.50146484375,
+          0.012369791666666666,
+          1.137542724609375,
+          1.0111490885416667
+        ]
+      },
+      "composite": {
+        "top": "__man-top-6",
+        "bottom": "__man-bottom-4",
+        "gender": "man"
+      }
+    },
+    "man-logo-bling-5": {
+      "files": [
+        "assets/fitting-room/man-garment-6-v58.png"
+      ],
+      "placement": [
+        0.50146484375,
+        0.012369791666666666,
+        1.137542724609375,
+        1.0111490885416667
+      ],
+      "head": {
+        "file": "assets/fitting-room/man-tie-dye-v56.png",
+        "alpha": "assets/fitting-room/man-tie-dye-mask-v56.png",
+        "placement": [
+          0.50146484375,
+          0.012369791666666666,
+          1.137542724609375,
+          1.0111490885416667
+        ]
+      },
+      "composite": {
+        "top": "__man-top-6",
+        "bottom": "__man-bottom-5",
+        "gender": "man"
+      }
+    },
+    "man-paint-splatter-0": {
+      "files": [
+        "assets/fitting-room/man-garment-7-v58.png"
+      ],
+      "placement": [
+        0.50146484375,
+        0.012369791666666666,
+        1.137542724609375,
+        1.0111490885416667
+      ],
+      "head": {
+        "file": "assets/fitting-room/man-tie-dye-v56.png",
+        "alpha": "assets/fitting-room/man-tie-dye-mask-v56.png",
+        "placement": [
+          0.50146484375,
+          0.012369791666666666,
+          1.137542724609375,
+          1.0111490885416667
+        ]
+      },
+      "composite": {
+        "top": "__man-top-7",
+        "bottom": "man-0",
+        "gender": "man"
+      }
+    },
+    "man-paint-splatter-1": {
+      "files": [
+        "assets/fitting-room/man-garment-7-v58.png"
+      ],
+      "placement": [
+        0.50146484375,
+        0.012369791666666666,
+        1.137542724609375,
+        1.0111490885416667
+      ],
+      "head": {
+        "file": "assets/fitting-room/man-tie-dye-v56.png",
+        "alpha": "assets/fitting-room/man-tie-dye-mask-v56.png",
+        "placement": [
+          0.50146484375,
+          0.012369791666666666,
+          1.137542724609375,
+          1.0111490885416667
+        ]
+      }
+    },
+    "man-paint-splatter-2": {
+      "files": [
+        "assets/fitting-room/man-garment-7-v58.png"
+      ],
+      "placement": [
+        0.50146484375,
+        0.012369791666666666,
+        1.137542724609375,
+        1.0111490885416667
+      ],
+      "head": {
+        "file": "assets/fitting-room/man-tie-dye-v56.png",
+        "alpha": "assets/fitting-room/man-tie-dye-mask-v56.png",
+        "placement": [
+          0.50146484375,
+          0.012369791666666666,
+          1.137542724609375,
+          1.0111490885416667
+        ]
+      },
+      "composite": {
+        "top": "__man-top-7",
+        "bottom": "man-2",
+        "gender": "man"
+      }
+    },
+    "man-paint-splatter-3": {
+      "files": [
+        "assets/fitting-room/man-garment-7-v58.png"
+      ],
+      "placement": [
+        0.50146484375,
+        0.012369791666666666,
+        1.137542724609375,
+        1.0111490885416667
+      ],
+      "head": {
+        "file": "assets/fitting-room/man-tie-dye-v56.png",
+        "alpha": "assets/fitting-room/man-tie-dye-mask-v56.png",
+        "placement": [
+          0.50146484375,
+          0.012369791666666666,
+          1.137542724609375,
+          1.0111490885416667
+        ]
+      },
+      "composite": {
+        "top": "__man-top-7",
+        "bottom": "__man-bottom-3",
+        "gender": "man"
+      }
+    },
+    "man-paint-splatter-4": {
+      "files": [
+        "assets/fitting-room/man-garment-7-v58.png"
+      ],
+      "placement": [
+        0.50146484375,
+        0.012369791666666666,
+        1.137542724609375,
+        1.0111490885416667
+      ],
+      "head": {
+        "file": "assets/fitting-room/man-tie-dye-v56.png",
+        "alpha": "assets/fitting-room/man-tie-dye-mask-v56.png",
+        "placement": [
+          0.50146484375,
+          0.012369791666666666,
+          1.137542724609375,
+          1.0111490885416667
+        ]
+      },
+      "composite": {
+        "top": "__man-top-7",
+        "bottom": "__man-bottom-4",
+        "gender": "man"
+      }
+    },
+    "man-paint-splatter-5": {
+      "files": [
+        "assets/fitting-room/man-garment-7-v58.png"
+      ],
+      "placement": [
+        0.50146484375,
+        0.012369791666666666,
+        1.137542724609375,
+        1.0111490885416667
+      ],
+      "head": {
+        "file": "assets/fitting-room/man-tie-dye-v56.png",
+        "alpha": "assets/fitting-room/man-tie-dye-mask-v56.png",
+        "placement": [
+          0.50146484375,
+          0.012369791666666666,
+          1.137542724609375,
+          1.0111490885416667
+        ]
+      },
+      "composite": {
+        "top": "__man-top-7",
+        "bottom": "__man-bottom-5",
+        "gender": "man"
+      }
+    },
+    "man-monogram-0": {
+      "files": [
+        "assets/fitting-room/man-garment-8-v58.png"
+      ],
+      "placement": [
+        0.50146484375,
+        0.012369791666666666,
+        1.137542724609375,
+        1.0111490885416667
+      ],
+      "head": {
+        "file": "assets/fitting-room/man-tie-dye-v56.png",
+        "alpha": "assets/fitting-room/man-tie-dye-mask-v56.png",
+        "placement": [
+          0.50146484375,
+          0.012369791666666666,
+          1.137542724609375,
+          1.0111490885416667
+        ]
+      },
+      "composite": {
+        "top": "__man-top-8",
+        "bottom": "man-0",
+        "gender": "man"
+      }
+    },
+    "man-monogram-1": {
+      "files": [
+        "assets/fitting-room/man-garment-8-v58.png"
+      ],
+      "placement": [
+        0.50146484375,
+        0.012369791666666666,
+        1.137542724609375,
+        1.0111490885416667
+      ],
+      "head": {
+        "file": "assets/fitting-room/man-tie-dye-v56.png",
+        "alpha": "assets/fitting-room/man-tie-dye-mask-v56.png",
+        "placement": [
+          0.50146484375,
+          0.012369791666666666,
+          1.137542724609375,
+          1.0111490885416667
+        ]
+      }
+    },
+    "man-monogram-2": {
+      "files": [
+        "assets/fitting-room/man-garment-8-v58.png"
+      ],
+      "placement": [
+        0.50146484375,
+        0.012369791666666666,
+        1.137542724609375,
+        1.0111490885416667
+      ],
+      "head": {
+        "file": "assets/fitting-room/man-tie-dye-v56.png",
+        "alpha": "assets/fitting-room/man-tie-dye-mask-v56.png",
+        "placement": [
+          0.50146484375,
+          0.012369791666666666,
+          1.137542724609375,
+          1.0111490885416667
+        ]
+      },
+      "composite": {
+        "top": "__man-top-8",
+        "bottom": "man-2",
+        "gender": "man"
+      }
+    },
+    "man-monogram-3": {
+      "files": [
+        "assets/fitting-room/man-garment-8-v58.png"
+      ],
+      "placement": [
+        0.50146484375,
+        0.012369791666666666,
+        1.137542724609375,
+        1.0111490885416667
+      ],
+      "head": {
+        "file": "assets/fitting-room/man-tie-dye-v56.png",
+        "alpha": "assets/fitting-room/man-tie-dye-mask-v56.png",
+        "placement": [
+          0.50146484375,
+          0.012369791666666666,
+          1.137542724609375,
+          1.0111490885416667
+        ]
+      },
+      "composite": {
+        "top": "__man-top-8",
+        "bottom": "__man-bottom-3",
+        "gender": "man"
+      }
+    },
+    "man-monogram-4": {
+      "files": [
+        "assets/fitting-room/man-garment-8-v58.png"
+      ],
+      "placement": [
+        0.50146484375,
+        0.012369791666666666,
+        1.137542724609375,
+        1.0111490885416667
+      ],
+      "head": {
+        "file": "assets/fitting-room/man-tie-dye-v56.png",
+        "alpha": "assets/fitting-room/man-tie-dye-mask-v56.png",
+        "placement": [
+          0.50146484375,
+          0.012369791666666666,
+          1.137542724609375,
+          1.0111490885416667
+        ]
+      },
+      "composite": {
+        "top": "__man-top-8",
+        "bottom": "__man-bottom-4",
+        "gender": "man"
+      }
+    },
+    "man-monogram-5": {
+      "files": [
+        "assets/fitting-room/man-garment-8-v58.png"
+      ],
+      "placement": [
+        0.50146484375,
+        0.012369791666666666,
+        1.137542724609375,
+        1.0111490885416667
+      ],
+      "head": {
+        "file": "assets/fitting-room/man-tie-dye-v56.png",
+        "alpha": "assets/fitting-room/man-tie-dye-mask-v56.png",
+        "placement": [
+          0.50146484375,
+          0.012369791666666666,
+          1.137542724609375,
+          1.0111490885416667
+        ]
+      },
+      "composite": {
+        "top": "__man-top-8",
+        "bottom": "__man-bottom-5",
+        "gender": "man"
+      }
+    },
+    "woman-bottom-6": {
+      "files": [
+        "assets/fitting-room/woman-ksubi-v61.png"
+      ],
+      "placement": [
+        0.5009765625,
+        0.017578125,
+        1.13067626953125,
+        1.0050455729166667
+      ],
+      "head": {
+        "file": "assets/fitting-room/natural-pearl-v56.png",
+        "placement": [
+          0.5009765625,
+          0.017578125,
+          1.13067626953125,
+          1.0050455729166667
+        ]
+      }
+    },
+    "woman-tie-dye-6": {
+      "files": [
+        "assets/fitting-room/woman-tie-dye-1-v57.png"
+      ],
+      "placement": [
+        0.5009765625,
+        0.017578125,
+        1.13067626953125,
+        1.0050455729166667
+      ],
+      "head": {
+        "file": "assets/fitting-room/natural-pearl-v56.png",
+        "placement": [
+          0.5009765625,
+          0.017578125,
+          1.13067626953125,
+          1.0050455729166667
+        ]
+      },
+      "composite": {
+        "top": "woman-tie-dye-1",
+        "bottom": "woman-bottom-6",
+        "gender": "woman"
+      }
+    },
+    "woman-leather-anorak-6": {
+      "files": [
+        "assets/fitting-room/woman-leather-anorak-1-v57.png"
+      ],
+      "placement": [
+        0.5009765625,
+        0.017578125,
+        1.13067626953125,
+        1.0050455729166667
+      ],
+      "head": {
+        "file": "assets/fitting-room/natural-pearl-v56.png",
+        "placement": [
+          0.5009765625,
+          0.017578125,
+          1.13067626953125,
+          1.0050455729166667
+        ]
+      },
+      "composite": {
+        "top": "woman-leather-anorak-1",
+        "bottom": "woman-bottom-6",
+        "gender": "woman"
+      }
+    },
+    "woman-logo-bling-6": {
+      "files": [
+        "assets/fitting-room/woman-garment-6-v58.png"
+      ],
+      "placement": [
+        0.5009765625,
+        0.017578125,
+        1.13067626953125,
+        1.0050455729166667
+      ],
+      "head": {
+        "file": "assets/fitting-room/natural-pearl-v56.png",
+        "placement": [
+          0.5009765625,
+          0.017578125,
+          1.13067626953125,
+          1.0050455729166667
+        ]
+      },
+      "composite": {
+        "top": "woman-logo-bling-1",
+        "bottom": "woman-bottom-6",
+        "gender": "woman"
+      }
+    },
+    "woman-paint-splatter-6": {
+      "files": [
+        "assets/fitting-room/woman-garment-7-v58.png"
+      ],
+      "placement": [
+        0.5009765625,
+        0.017578125,
+        1.13067626953125,
+        1.0050455729166667
+      ],
+      "head": {
+        "file": "assets/fitting-room/natural-pearl-v56.png",
+        "placement": [
+          0.5009765625,
+          0.017578125,
+          1.13067626953125,
+          1.0050455729166667
+        ]
+      },
+      "composite": {
+        "top": "woman-paint-splatter-1",
+        "bottom": "woman-bottom-6",
+        "gender": "woman"
+      }
+    },
+    "woman-monogram-6": {
+      "files": [
+        "assets/fitting-room/woman-garment-8-v58.png"
+      ],
+      "placement": [
+        0.5009765625,
+        0.017578125,
+        1.13067626953125,
+        1.0050455729166667
+      ],
+      "head": {
+        "file": "assets/fitting-room/natural-pearl-v56.png",
+        "placement": [
+          0.5009765625,
+          0.017578125,
+          1.13067626953125,
+          1.0050455729166667
+        ]
+      },
+      "composite": {
+        "top": "woman-monogram-1",
+        "bottom": "woman-bottom-6",
+        "gender": "woman"
+      }
+    },
+    "man-bottom-6": {
+      "files": [
+        "assets/fitting-room/man-ksubi-v61.png"
+      ],
+      "placement": [
+        0.50146484375,
+        0.012369791666666666,
+        1.137542724609375,
+        1.0111490885416667
+      ],
+      "head": {
+        "file": "assets/fitting-room/man-tie-dye-v56.png",
+        "alpha": "assets/fitting-room/man-tie-dye-mask-v56.png",
+        "placement": [
+          0.50146484375,
+          0.012369791666666666,
+          1.137542724609375,
+          1.0111490885416667
+        ]
+      }
+    },
+    "man-tie-dye-6": {
+      "files": [
+        "assets/fitting-room/man-tie-dye-v56.png"
+      ],
+      "alpha": "assets/fitting-room/man-tie-dye-mask-v56.png",
+      "placement": [
+        0.50146484375,
+        0.012369791666666666,
+        1.137542724609375,
+        1.0111490885416667
+      ],
+      "head": {
+        "file": "assets/fitting-room/man-tie-dye-v56.png",
+        "alpha": "assets/fitting-room/man-tie-dye-mask-v56.png",
+        "placement": [
+          0.50146484375,
+          0.012369791666666666,
+          1.137542724609375,
+          1.0111490885416667
+        ]
+      },
+      "composite": {
+        "top": "man-tie-dye-1",
+        "bottom": "man-bottom-6",
+        "gender": "man"
+      }
+    },
+    "man-leather-anorak-6": {
+      "files": [
+        "assets/fitting-room/man-leather-anorak-v56.png"
+      ],
+      "alpha": "assets/fitting-room/man-leather-anorak-mask-v56.png",
+      "placement": [
+        0.50146484375,
+        0.012369791666666666,
+        1.137542724609375,
+        1.0111490885416667
+      ],
+      "head": {
+        "file": "assets/fitting-room/man-tie-dye-v56.png",
+        "alpha": "assets/fitting-room/man-tie-dye-mask-v56.png",
+        "placement": [
+          0.50146484375,
+          0.012369791666666666,
+          1.137542724609375,
+          1.0111490885416667
+        ]
+      },
+      "composite": {
+        "top": "man-leather-anorak-1",
+        "bottom": "man-bottom-6",
+        "gender": "man"
+      }
+    },
+    "man-logo-bling-6": {
+      "files": [
+        "assets/fitting-room/man-garment-6-v58.png"
+      ],
+      "placement": [
+        0.50146484375,
+        0.012369791666666666,
+        1.137542724609375,
+        1.0111490885416667
+      ],
+      "head": {
+        "file": "assets/fitting-room/man-tie-dye-v56.png",
+        "alpha": "assets/fitting-room/man-tie-dye-mask-v56.png",
+        "placement": [
+          0.50146484375,
+          0.012369791666666666,
+          1.137542724609375,
+          1.0111490885416667
+        ]
+      },
+      "composite": {
+        "top": "man-logo-bling-1",
+        "bottom": "man-bottom-6",
+        "gender": "man"
+      }
+    },
+    "man-paint-splatter-6": {
+      "files": [
+        "assets/fitting-room/man-garment-7-v58.png"
+      ],
+      "placement": [
+        0.50146484375,
+        0.012369791666666666,
+        1.137542724609375,
+        1.0111490885416667
+      ],
+      "head": {
+        "file": "assets/fitting-room/man-tie-dye-v56.png",
+        "alpha": "assets/fitting-room/man-tie-dye-mask-v56.png",
+        "placement": [
+          0.50146484375,
+          0.012369791666666666,
+          1.137542724609375,
+          1.0111490885416667
+        ]
+      },
+      "composite": {
+        "top": "man-paint-splatter-1",
+        "bottom": "man-bottom-6",
+        "gender": "man"
+      }
+    },
+    "man-monogram-6": {
+      "files": [
+        "assets/fitting-room/man-garment-8-v58.png"
+      ],
+      "placement": [
+        0.50146484375,
+        0.012369791666666666,
+        1.137542724609375,
+        1.0111490885416667
+      ],
+      "head": {
+        "file": "assets/fitting-room/man-tie-dye-v56.png",
+        "alpha": "assets/fitting-room/man-tie-dye-mask-v56.png",
+        "placement": [
+          0.50146484375,
+          0.012369791666666666,
+          1.137542724609375,
+          1.0111490885416667
+        ]
+      },
+      "composite": {
+        "top": "man-monogram-1",
+        "bottom": "man-bottom-6",
+        "gender": "man"
+      }
+    }
+  }
+}

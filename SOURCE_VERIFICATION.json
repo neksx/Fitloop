@@ -1,0 +1,211 @@
+{
+  "source": "https://fitloop-intro-hero-oct30.kymodelsx.chatgpt.site/",
+  "importedAt": "2026-11-11T07:55:05.208Z",
+  "version": "v71",
+  "files": [
+    {
+      "file": "assets/hero-illustration-clean-v4.png",
+      "identical": true,
+      "sha256": "7c999b59438c4af2dd7acc39fab310d2afafc53dbe50606238b984e842d6ed6b"
+    },
+    {
+      "file": "styles.css?v=59",
+      "identical": true,
+      "sha256": "ba38e622041b3f33d50f0c247b91fe675e8da54fa5eec57bfca3d29d8b0d4a3d"
+    },
+    {
+      "file": "redesign.css?v=20",
+      "identical": true,
+      "sha256": "b47d28fcca2937611e2442dbc7b54f3cd6153d774254da4eadd4987fb360f9ae"
+    },
+    {
+      "file": "oakley-components.css?v=13",
+      "identical": true,
+      "sha256": "2ace4a49da66ead481ae217bdc6acb61e17ecd34409721e6096b8c8a84094c57"
+    },
+    {
+      "file": "glass.css?v=36",
+      "identical": true,
+      "sha256": "5fc61f19bfed8ca7b43387e6ad4734648e343f4c55b3735ef181804b31491af0"
+    },
+    {
+      "file": "sections.css?v=45",
+      "identical": true,
+      "sha256": "0ee9db89a7777e442cd672ba020170c0aa49c2586c12318ccb4a5d097c5595a1"
+    },
+    {
+      "file": "fitting.css?v=37",
+      "identical": true,
+      "sha256": "5765ae96dae28fca8e8534d400babb6210210c8fccc003365fb9b2c26c6c1647"
+    },
+    {
+      "file": "experience.js?v=31",
+      "identical": true,
+      "sha256": "54cc00d1a9d68981a8ac5f65897239fa7c4ba890adecb06fd4c000a01c322bd4"
+    },
+    {
+      "file": "sections.js?v=68",
+      "identical": true,
+      "sha256": "964af0ad991f5f27fce68845abaf6d0091c457fa5db343a08c1463a27f418b0e"
+    },
+    {
+      "file": "fitting-catalog.js?v=61",
+      "identical": true,
+      "sha256": "eee198c5fdfa152c119e3e3d8acc0b699274ba11b7fdb0219187ff917f5a0865"
+    },
+    {
+      "file": "fitting-state.js?v=61",
+      "identical": true,
+      "sha256": "e9c39a2d7ccb36170d7dbee61c66386fb11cfc3404e06e2752b91837e6ecd480"
+    },
+    {
+      "file": "fitting-motion.js?v=71",
+      "identical": true,
+      "sha256": "6e8bfdaeb9d1fb90a97fc1decee8ff782076c052ee9f21888a9416be7ca18966"
+    },
+    {
+      "file": "how-demo.js?v=71",
+      "identical": true,
+      "sha256": "8690ccadcd1ac58dd6596c47a0d5a2ef34ba3cb98ceaa185611bb1d6696d9969"
+    },
+    {
+      "file": "fitting-sizing.js?v=65",
+      "identical": true,
+      "sha256": "448b779efd8f935b641cef42b5f670fbabcf4f6f866f0f82a6b823697ae9c3b5"
+    },
+    {
+      "file": "fitting.js?v=71",
+      "identical": true,
+      "sha256": "e42b66c1417a8bb8c374f129bc2e26dbefaac448a0ded1e4bb56c11afa6c5d2e"
+    },
+    {
+      "file": "fitting-factory.js?v=65",
+      "identical": true,
+      "sha256": "f5f6d45c981b4a2ad6a222c756ffe81de178349988d8a00a578e96d230f26e2f"
+    },
+    {
+      "file": "saved-looks.css?v=46",
+      "identical": true,
+      "sha256": "83c88d1949979efaa74d86135d6e44d2ec9409500a6bdc0faca25c63cf82ab99"
+    },
+    {
+      "file": "saved-looks.js?v=68",
+      "identical": true,
+      "sha256": "936d409326c8562818f8c4234d8df24b2777d9ca2824d5f2616a960b7c47e712"
+    },
+    {
+      "file": "saved-transition.js?v=52",
+      "identical": true,
+      "sha256": "00bb6a3974e764b3de80ed0369c24619bee450c183b5241319e1062dd5a47c16"
+    },
+    {
+      "file": "save-flow.css?v=61",
+      "identical": true,
+      "sha256": "672a0224155229de4fd1da0af1eb417378fdfa0f2bac6b2a1a0f700785562b2f"
+    },
+    {
+      "file": "save-flow.js?v=61",
+      "identical": true,
+      "sha256": "8160684a627aed4a206954edb732dc8f8cba8f9bae60bce7faf87ab8d43e2b9e"
+    },
+    {
+      "file": "responsive.css?v=39",
+      "identical": true,
+      "sha256": "d392bf790327533d1d40621cc0ea0d6a7a211135056828578ac9cb33c5d491c3"
+    },
+    {
+      "file": "local-review.css?v=57",
+      "identical": true,
+      "sha256": "ce5c647f68ba207c28b668b1499fafdcc519c8a9a736942d36f445859cb76d85"
+    },
+    {
+      "file": "desktop-cursor.js?v=59",
+      "identical": true,
+      "sha256": "7d984d68357be024cae6ffbfc7e6abfb38cfa4024eb13e198b9b3e6880cb6ff4"
+    },
+    {
+      "file": "refinements-v57.css?v=64-zcode-20261109",
+      "identical": true,
+      "sha256": "eb9d4481e568af6bcdd924e87dac3074e942a7ea26da23ede59968a19150d388"
+    },
+    {
+      "file": "icons-v57.js?v=57",
+      "identical": true,
+      "sha256": "9b9bbb29edbde846044aab4fcf65a4a86869731f296ea01befae137a41663647"
+    },
+    {
+      "file": "button-svg.css?v=65",
+      "identical": true,
+      "sha256": "72ad690a86022be2276b13b5d1ecd51b632efbda59bc11e347971b3319c2cfe5"
+    },
+    {
+      "file": "how-demo.css?v=65",
+      "identical": true,
+      "sha256": "017ecf8677aba5ffb83c14c8da7215654b69e49b8f5cb62dfacef04bb209e923"
+    },
+    {
+      "file": "review-v65.css?v=67",
+      "identical": true,
+      "sha256": "1f413e658419d0a5b68942fac962241cd3c0122a31da111624c0d80e5a7b2cec"
+    },
+    {
+      "file": "review-v68.css?v=69",
+      "identical": true,
+      "sha256": "15057675b0645d072d5891af479b75346bdf2fa8169cddf221b983d254d2d6f8"
+    },
+    {
+      "file": "sakura.js?v=68",
+      "identical": true,
+      "sha256": "17f64ffc95ecfea75eda044186216904b564192f3dd8e5e4f74b72d29c6f2c45"
+    },
+    {
+      "file": "assets/fitloop-symbol.svg",
+      "identical": true,
+      "sha256": "55abea8d394c48527bd515574ce2fa9438bcf972729d2a4b4fa423454d7f6cb5"
+    },
+    {
+      "file": "assets/purple-pearl-cropped-jacket-black.jpg",
+      "identical": true,
+      "sha256": "b06420a513ae5eea2868c437e8e952ccee1fbf6e5a4f02fb14849af2ff2a2796"
+    },
+    {
+      "file": "assets/purple-p018-textured-pearl-black.jpg",
+      "identical": true,
+      "sha256": "cc9c0070c1cd70b7f5c2d7ce031e2a66098c71fa3e252127e59efc56293c9887"
+    },
+    {
+      "file": "assets/purple-p005-coated-gradient.jpg",
+      "identical": true,
+      "sha256": "d40ab0423d0c43b8358eda3ca2d73ca7b3eb06f7acaae5027f541e17912ad59f"
+    },
+    {
+      "file": "assets/purple-p004-upside-down-flare.jpg",
+      "identical": true,
+      "sha256": "585458212f32bce16665c104446aba3c258b0c6c73102115519ed98e28d434cd"
+    },
+    {
+      "file": "assets/section-opening-art.png",
+      "identical": true,
+      "sha256": "e825d60418f36cd8ae5331dc42a868fd5d6b812b32d008f16d04b099d8b843e0"
+    }
+  ],
+  "assetsDownloaded": 185,
+  "assetFailures": [],
+  "syntaxChecked": [
+    "desktop-cursor.js",
+    "experience.js",
+    "fitting-catalog.js",
+    "fitting-factory.js",
+    "fitting-motion.js",
+    "fitting-sizing.js",
+    "fitting-state.js",
+    "fitting.js",
+    "how-demo.js",
+    "icons-v57.js",
+    "sakura.js",
+    "save-flow.js",
+    "saved-looks.js",
+    "saved-transition.js",
+    "sections.js"
+  ]
+}

@@ -1,0 +1,86 @@
+[
+  {
+    "key": "woman-tie-dye-0",
+    "references": [
+      "/Users/neksx/Documents/ChatGPT/AI/sites/fitloop-intro-hero/dist/assets/fitting-room/natural-pearl-v56.png",
+      "/Users/neksx/Documents/ChatGPT/AI/sites/fitloop-intro-hero/dist/assets/fitting-room/man-tie-dye-v56.png",
+      "/Users/neksx/Documents/ChatGPT/AI/sites/fitloop-intro-hero/dist/assets/fitting-room/static-flare-v24.png"
+    ],
+    "prompt": "Edit target image 1: this exact woman. Replace ONLY her cropped pearl jacket with the exact black washed Tie Dye denim jacket worn by the man in supporting image 2. Ignore the man's identity and body entirely. Change trousers to the exact blue P004 contrasting panel upside-down flare denim from supporting image 3; no pearl studs on the blue jeans. Preserve image1's exact woman, original natural face, eyes, hair strands, hands, pose, body proportions, shoes, scale, framing and soft natural lighting. Same full-length front-facing woman, entire head and shoes visible, no beautification, no sharpening or new highlights. Portrait 1024x1536, real transparent alpha, no background, shadow, glow, halos, text or collage."
+  },
+  {
+    "key": "woman-tie-dye-1",
+    "references": [
+      "/Users/neksx/Documents/ChatGPT/AI/sites/fitloop-intro-hero/dist/assets/fitting-room/natural-pearl-v56.png",
+      "/Users/neksx/Documents/ChatGPT/AI/sites/fitloop-intro-hero/dist/assets/fitting-room/man-tie-dye-v56.png"
+    ],
+    "prompt": "Edit target image 1: this exact woman. Replace ONLY her cropped pearl jacket with the exact black washed Tie Dye denim jacket worn by the man in supporting image 2. Ignore the man's identity and body entirely. Keep the woman's original black pearl trousers untouched. Preserve image1's exact woman, original natural face, eyes, hair strands, hands, pose, body proportions, shoes, scale, framing and soft natural lighting. Same full-length front-facing woman, entire head and shoes visible, no beautification, no sharpening or new highlights. Portrait 1024x1536, real transparent alpha, no background, shadow, glow, halos, text or collage."
+  },
+  {
+    "key": "woman-tie-dye-2",
+    "references": [
+      "/Users/neksx/Documents/ChatGPT/AI/sites/fitloop-intro-hero/dist/assets/fitting-room/natural-pearl-v56.png",
+      "/Users/neksx/Documents/ChatGPT/AI/sites/fitloop-intro-hero/dist/assets/fitting-room/man-tie-dye-v56.png",
+      "/Users/neksx/Documents/ChatGPT/AI/sites/fitloop-intro-hero/dist/assets/fitting-room/static-gradient-v24.png"
+    ],
+    "prompt": "Edit target image 1: this exact woman. Replace ONLY her cropped pearl jacket with the exact black washed Tie Dye denim jacket worn by the man in supporting image 2. Ignore the man's identity and body entirely. Change trousers to the exact blue P005 coated gradient slim straight denim from supporting image 3; no pearl studs on the blue jeans. Preserve image1's exact woman, original natural face, eyes, hair strands, hands, pose, body proportions, shoes, scale, framing and soft natural lighting. Same full-length front-facing woman, entire head and shoes visible, no beautification, no sharpening or new highlights. Portrait 1024x1536, real transparent alpha, no background, shadow, glow, halos, text or collage."
+  },
+  {
+    "key": "woman-leather-anorak-0",
+    "references": [
+      "/Users/neksx/Documents/ChatGPT/AI/sites/fitloop-intro-hero/dist/assets/fitting-room/natural-pearl-v56.png",
+      "/Users/neksx/Documents/ChatGPT/AI/sites/fitloop-intro-hero/dist/assets/fitting-room/man-leather-anorak-v56.png",
+      "/Users/neksx/Documents/ChatGPT/AI/sites/fitloop-intro-hero/dist/assets/fitting-room/static-flare-v24.png"
+    ],
+    "prompt": "Edit target image 1: this exact woman. Replace ONLY her cropped pearl jacket with the exact black Leather Tech Anorak jacket, hood down behind the neck worn by the man in supporting image 2. Ignore the man's identity and body entirely. Change trousers to the exact blue P004 contrasting panel upside-down flare denim from supporting image 3; no pearl studs on the blue jeans. Preserve image1's exact woman, original natural face, eyes, hair strands, hands, pose, body proportions, shoes, scale, framing and soft natural lighting. Same full-length front-facing woman, entire head and shoes visible, no beautification, no sharpening or new highlights. Portrait 1024x1536, real transparent alpha, no background, shadow, glow, halos, text or collage."
+  },
+  {
+    "key": "woman-leather-anorak-1",
+    "references": [
+      "/Users/neksx/Documents/ChatGPT/AI/sites/fitloop-intro-hero/dist/assets/fitting-room/natural-pearl-v56.png",
+      "/Users/neksx/Documents/ChatGPT/AI/sites/fitloop-intro-hero/dist/assets/fitting-room/man-leather-anorak-v56.png"
+    ],
+    "prompt": "Edit target image 1: this exact woman. Replace ONLY her cropped pearl jacket with the exact black Leather Tech Anorak jacket, hood down behind the neck worn by the man in supporting image 2. Ignore the man's identity and body entirely. Keep the woman's original black pearl trousers untouched. Preserve image1's exact woman, original natural face, eyes, hair strands, hands, pose, body proportions, shoes, scale, framing and soft natural lighting. Same full-length front-facing woman, entire head and shoes visible, no beautification, no sharpening or new highlights. Portrait 1024x1536, real transparent alpha, no background, shadow, glow, halos, text or collage."
+  },
+  {
+    "key": "woman-leather-anorak-2",
+    "references": [
+      "/Users/neksx/Documents/ChatGPT/AI/sites/fitloop-intro-hero/dist/assets/fitting-room/natural-pearl-v56.png",
+      "/Users/neksx/Documents/ChatGPT/AI/sites/fitloop-intro-hero/dist/assets/fitting-room/man-leather-anorak-v56.png",
+      "/Users/neksx/Documents/ChatGPT/AI/sites/fitloop-intro-hero/dist/assets/fitting-room/static-gradient-v24.png"
+    ],
+    "prompt": "Edit target image 1: this exact woman. Replace ONLY her cropped pearl jacket with the exact black Leather Tech Anorak jacket, hood down behind the neck worn by the man in supporting image 2. Ignore the man's identity and body entirely. Change trousers to the exact blue P005 coated gradient slim straight denim from supporting image 3; no pearl studs on the blue jeans. Preserve image1's exact woman, original natural face, eyes, hair strands, hands, pose, body proportions, shoes, scale, framing and soft natural lighting. Same full-length front-facing woman, entire head and shoes visible, no beautification, no sharpening or new highlights. Portrait 1024x1536, real transparent alpha, no background, shadow, glow, halos, text or collage."
+  },
+  {
+    "key": "man-tie-dye-0",
+    "references": [
+      "/Users/neksx/Documents/ChatGPT/AI/sites/fitloop-intro-hero/dist/assets/fitting-room/man-tie-dye-v56.png",
+      "/Users/neksx/Documents/ChatGPT/AI/sites/fitloop-intro-hero/dist/assets/fitting-room/static-man-flare-v24.png"
+    ],
+    "prompt": "Edit target image 1. Change ONLY trousers to the exact blue P004 patchwork upside-down flare denim with light and dark panels and inverted waistband at hems worn in image 2. Preserve image1's exact existing man, face, hair, neck, hands, body, full-length neutral front-facing pose, black tie-dye jacket, jacket seams/texture/fasteners, shoes, framing, proportions and natural soft lighting. Do not add pearl studs on blue trousers. Remove background only. Same single person, head and shoes fully visible, portrait 1024x1536, real transparent alpha. No glow, halo, shadows, background, grids, typography. Never alter the head or face or jacket."
+  },
+  {
+    "key": "man-tie-dye-2",
+    "references": [
+      "/Users/neksx/Documents/ChatGPT/AI/sites/fitloop-intro-hero/dist/assets/fitting-room/man-tie-dye-v56.png",
+      "/Users/neksx/Documents/ChatGPT/AI/sites/fitloop-intro-hero/dist/assets/fitting-room/static-man-gradient-v24.png"
+    ],
+    "prompt": "Edit target image 1. Change ONLY trousers to the exact blue P005 coated gradient blue slim straight denim worn in image 2. Preserve image1's exact existing man, face, hair, neck, hands, body, full-length neutral front-facing pose, black tie-dye jacket, jacket seams/texture/fasteners, shoes, framing, proportions and natural soft lighting. Do not add pearl studs on blue trousers. Remove background only. Same single person, head and shoes fully visible, portrait 1024x1536, real transparent alpha. No glow, halo, shadows, background, grids, typography. Never alter the head or face or jacket."
+  },
+  {
+    "key": "man-leather-anorak-0",
+    "references": [
+      "/Users/neksx/Documents/ChatGPT/AI/sites/fitloop-intro-hero/dist/assets/fitting-room/man-leather-anorak-v56.png",
+      "/Users/neksx/Documents/ChatGPT/AI/sites/fitloop-intro-hero/dist/assets/fitting-room/static-man-flare-v24.png"
+    ],
+    "prompt": "Edit target image 1. Change ONLY trousers to the exact blue P004 patchwork upside-down flare denim with light and dark panels and inverted waistband at hems worn in image 2. Preserve image1's exact existing man, face, hair, neck, hands, body, full-length neutral front-facing pose, black leather-anorak jacket, jacket seams/texture/fasteners, shoes, framing, proportions and natural soft lighting. Do not add pearl studs on blue trousers. Remove background only. Same single person, head and shoes fully visible, portrait 1024x1536, real transparent alpha. No glow, halo, shadows, background, grids, typography. Never alter the head or face or jacket."
+  },
+  {
+    "key": "man-leather-anorak-2",
+    "references": [
+      "/Users/neksx/Documents/ChatGPT/AI/sites/fitloop-intro-hero/dist/assets/fitting-room/man-leather-anorak-v56.png",
+      "/Users/neksx/Documents/ChatGPT/AI/sites/fitloop-intro-hero/dist/assets/fitting-room/static-man-gradient-v24.png"
+    ],
+    "prompt": "Edit target image 1. Change ONLY trousers to the exact blue P005 coated gradient blue slim straight denim worn in image 2. Preserve image1's exact existing man, face, hair, neck, hands, body, full-length neutral front-facing pose, black leather-anorak jacket, jacket seams/texture/fasteners, shoes, framing, proportions and natural soft lighting. Do not add pearl studs on blue trousers. Remove background only. Same single person, head and shoes fully visible, portrait 1024x1536, real transparent alpha. No glow, halo, shadows, background, grids, typography. Never alter the head or face or jacket."
+  }
+]

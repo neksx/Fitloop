@@ -1,0 +1,38 @@
+{
+  "fonts": [
+    {
+      "font": "AvenirNext, sans-serif",
+      "line": "14px",
+      "selector": ".service-label-item",
+      "size": "10px",
+      "spacing": "2px",
+      "weight": "400"
+    },
+    {
+      "font": "AvenirNext, sans-serif",
+      "line": "18px",
+      "selector": ".service-title",
+      "size": "12px",
+      "spacing": "normal",
+      "weight": "900"
+    },
+    {
+      "font": "AvenirNext, sans-serif",
+      "line": "18px",
+      "selector": ".service-copy",
+      "size": "12px",
+      "spacing": "normal",
+      "weight": "400"
+    }
+  ],
+  "stage": {
+    "height": 150,
+    "width": 150,
+    "x": 565,
+    "y": 330
+  },
+  "viewport": [
+    1280,
+    720
+  ]
+}

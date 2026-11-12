@@ -1,0 +1,23 @@
+{
+  "border": "rgba(0, 0, 0, 0)",
+  "corners": [
+    {
+      "stroke": "1px",
+      "transform": "matrix(1, 0, 0, 1, -5, -5)"
+    },
+    {
+      "stroke": "1px",
+      "transform": "matrix(1, 0, 0, 1, 5, -5)"
+    },
+    {
+      "stroke": "1px",
+      "transform": "matrix(1, 0, 0, 1, -5, 5)"
+    },
+    {
+      "stroke": "1px",
+      "transform": "matrix(1, 0, 0, 1, 5, 5)"
+    }
+  ],
+  "focus": true,
+  "shadow": "none"
+}

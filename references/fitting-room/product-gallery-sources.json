@@ -1,0 +1,79 @@
+[
+  {
+    "key": "jacket",
+    "index": 1,
+    "file": "assets/fitting-room/jacket-1.jpg",
+    "source": "https://cdn.shopify.com/s/files/1/1544/1395/files/P052-TPBL426_051_304e023c-e233-4bbe-8bb8-67d89505c02b.jpg?width=1200",
+    "bytes": 216617
+  },
+  {
+    "key": "jacket",
+    "index": 2,
+    "file": "assets/fitting-room/jacket-2.jpg",
+    "source": "https://cdn.shopify.com/s/files/1/1544/1395/files/P052-TPBL426_055_ebe7e828-02cc-4890-9937-e44cf3115412.jpg?width=1200",
+    "bytes": 166920
+  },
+  {
+    "key": "jacket",
+    "index": 3,
+    "file": "assets/fitting-room/jacket-3.jpg",
+    "source": "https://cdn.shopify.com/s/files/1/1544/1395/files/P052-TPBL426_059_02a43769-ded8-4412-b194-93f399a3b064.jpg?width=1200",
+    "bytes": 200325
+  },
+  {
+    "key": "pearl",
+    "index": 1,
+    "file": "assets/fitting-room/pearl-1.jpg",
+    "source": "https://cdn.shopify.com/s/files/1/1544/1395/files/P052-TPBL426_048_abd895b8-5646-467c-952f-0dbdcc2e05c9.jpg?width=1200",
+    "bytes": 178365
+  },
+  {
+    "key": "pearl",
+    "index": 2,
+    "file": "assets/fitting-room/pearl-2.jpg",
+    "source": "https://cdn.shopify.com/s/files/1/1544/1395/files/P052-TPBL426_055_250ebfb0-5e87-4145-a3cd-403a6c4dfd4f.jpg?width=1200",
+    "bytes": 135669
+  },
+  {
+    "key": "pearl",
+    "index": 3,
+    "file": "assets/fitting-room/pearl-3.jpg",
+    "source": "https://cdn.shopify.com/s/files/1/1544/1395/files/P052-TPBL426_059_9bde8364-3250-4698-bce4-dc15ddeb6d6c.jpg?width=1200",
+    "bytes": 159115
+  },
+  {
+    "key": "gradient",
+    "index": 1,
+    "file": "assets/fitting-room/gradient-1.jpg",
+    "source": "https://cdn.shopify.com/s/files/1/1544/1395/files/P005-IBCG426_0002_77415c97-e5fc-4173-9163-210c7f7948a5.jpg?width=1200",
+    "bytes": 136503
+  },
+  {
+    "key": "gradient",
+    "index": 2,
+    "file": "assets/fitting-room/gradient-2.jpg",
+    "source": "https://cdn.shopify.com/s/files/1/1544/1395/files/P005-IBCG426_0004_f23c8ce1-8bc2-4f72-8f0b-e3f968515df2.jpg?width=1200",
+    "bytes": 126033
+  },
+  {
+    "key": "gradient",
+    "index": 3,
+    "file": "assets/fitting-room/gradient-3.jpg",
+    "source": "https://cdn.shopify.com/s/files/1/1544/1395/files/P005-IBCG426_0006_98c6a090-3fc0-4790-b2c0-56df8fad2353.jpg?width=1200",
+    "bytes": 122637
+  },
+  {
+    "key": "flare",
+    "index": 1,
+    "file": "assets/fitting-room/flare-1.jpg",
+    "source": "https://cdn.shopify.com/s/files/1/1544/1395/files/M4104-HWCC426_016_e0cac272-da08-458f-bc35-d3121dfaaeb5.jpg?width=1200",
+    "bytes": 192686
+  },
+  {
+    "key": "flare",
+    "index": 2,
+    "file": "assets/fitting-room/flare-2.jpg",
+    "source": "https://cdn.shopify.com/s/files/1/1544/1395/files/M4104-HWCC426_020_d83e41a9-a4dd-4a43-be0a-17f26d0bb22e.jpg?width=1200",
+    "bytes": 179165
+  }
+]

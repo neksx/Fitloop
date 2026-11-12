@@ -1,0 +1,64 @@
+{
+  "manCheck": [
+    {
+      "opacity": "0",
+      "portrait": "#woman",
+      "rect": {
+        "bottom": 880.0000610351562,
+        "height": 660.0000610351562,
+        "left": 500,
+        "right": 940,
+        "top": 220,
+        "width": 440,
+        "x": 500,
+        "y": 220
+      }
+    },
+    {
+      "opacity": "1",
+      "portrait": "#man",
+      "rect": {
+        "bottom": 880.0000610351562,
+        "height": 660.0000610351562,
+        "left": 500,
+        "right": 940,
+        "top": 220,
+        "width": 440,
+        "x": 500,
+        "y": 220
+      }
+    }
+  ],
+  "womanCheck": [
+    {
+      "opacity": "1",
+      "portrait": "#woman",
+      "rect": {
+        "bottom": 880.0000610351562,
+        "height": 660.0000610351562,
+        "left": 500,
+        "right": 940,
+        "top": 220,
+        "width": 440,
+        "x": 500,
+        "y": 220
+      }
+    },
+    {
+      "opacity": "0",
+      "portrait": "#man",
+      "rect": {
+        "bottom": 880.0000610351562,
+        "height": 660.0000610351562,
+        "left": 500,
+        "right": 940,
+        "top": 220,
+        "width": 440,
+        "x": 500,
+        "y": 220
+      }
+    }
+  ],
+  "xml": "Both SVG files parsed successfully",
+  "assets": "Embedded original fonts and PNGs; self-contained HTML viewer"
+}

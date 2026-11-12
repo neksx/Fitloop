@@ -1,0 +1,98 @@
+[
+  {
+    "name": "jacket",
+    "source": "/Users/neksx/.codex/generated_images/01a18c94-e509-7e63-bc78-734a498ec3b8/exec-7735ff8f-bd57-4807-8091-09de7e6c7a48.png",
+    "size": [
+      1024,
+      1536
+    ],
+    "bbox": [
+      19,
+      384,
+      989,
+      767
+    ],
+    "alpha": [
+      0,
+      254
+    ],
+    "corners": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "name": "pearl",
+    "source": "/Users/neksx/.codex/generated_images/01a18c94-e509-7e63-bc78-734a498ec3b8/exec-e45d67fe-08fe-4e15-be04-ac23222d41f7.png",
+    "size": [
+      1024,
+      1536
+    ],
+    "bbox": [
+      192,
+      107,
+      642,
+      1320
+    ],
+    "alpha": [
+      0,
+      254
+    ],
+    "corners": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "name": "gradient",
+    "source": "/Users/neksx/.codex/generated_images/01a18c94-e509-7e63-bc78-734a498ec3b8/exec-b0b0fac8-e447-40c1-a599-b93c00d220e4.png",
+    "size": [
+      1024,
+      1536
+    ],
+    "bbox": [
+      252,
+      171,
+      521,
+      1205
+    ],
+    "alpha": [
+      0,
+      254
+    ],
+    "corners": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "name": "flare",
+    "source": "/Users/neksx/.codex/generated_images/01a18c94-e509-7e63-bc78-734a498ec3b8/exec-585b5d40-3a53-4df8-a2a5-8635426b8fc1.png",
+    "size": [
+      1024,
+      1536
+    ],
+    "bbox": [
+      205,
+      133,
+      621,
+      1233
+    ],
+    "alpha": [
+      0,
+      254
+    ],
+    "corners": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+]

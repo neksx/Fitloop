@@ -1,0 +1,45 @@
+{
+  "product": "Anti K Stage Dive Trashed",
+  "sku": "MPS25DJ030",
+  "url": "https://ksubi.com.au/products/anti-k-stage-dive-trashed",
+  "sizes": [
+    "28",
+    "29",
+    "30",
+    "31",
+    "32",
+    "33",
+    "34",
+    "36",
+    "38",
+    "40",
+    "42"
+  ],
+  "images": [
+    {
+      "url": "https://ksubi.com.au/cdn/shop/files/ANTIKSTAGEDIVETRASHED_1876_1200x.jpg?v=1744068991",
+      "path": "/Users/neksx/Documents/ChatGPT/AI/outputs/fitloop-ksubi-v61/ksubi-anti-k-gallery-0.jpg",
+      "bytes": 250960
+    },
+    {
+      "url": "https://ksubi.com.au/cdn/shop/files/FUEGOEKCESSZIPTHRUHOODIEPAINTED_578_fabcefc7-131e-4985-b661-4055b6a014d6_1200x.jpg?v=1744068991",
+      "path": "/Users/neksx/Documents/ChatGPT/AI/outputs/fitloop-ksubi-v61/ksubi-anti-k-gallery-1.jpg",
+      "bytes": 92409
+    },
+    {
+      "url": "https://ksubi.com.au/cdn/shop/files/ANTIKSTAGEDIVETRASHED_1880_1200x.jpg?v=1744068991",
+      "path": "/Users/neksx/Documents/ChatGPT/AI/outputs/fitloop-ksubi-v61/ksubi-anti-k-gallery-2.jpg",
+      "bytes": 208079
+    },
+    {
+      "url": "https://ksubi.com.au/cdn/shop/files/ANTIKSTAGEDIVETRASHED_1884_1200x.jpg?v=1744068991",
+      "path": "/Users/neksx/Documents/ChatGPT/AI/outputs/fitloop-ksubi-v61/ksubi-anti-k-gallery-3.jpg",
+      "bytes": 246572
+    },
+    {
+      "url": "https://ksubi.com.au/cdn/shop/files/ANTIKSTAGEDIVETRASHED_1886_1200x.jpg?v=1744068991",
+      "path": "/Users/neksx/Documents/ChatGPT/AI/outputs/fitloop-ksubi-v61/ksubi-anti-k-gallery-4.jpg",
+      "bytes": 791181
+    }
+  ]
+}

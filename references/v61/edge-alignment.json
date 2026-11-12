@@ -1,0 +1,52 @@
+{
+  "desktop": {
+    "button": {
+      "font": "600 12px / 16px AvenirNext, sans-serif",
+      "height": 42
+    },
+    "closeFrameRight": 474.6640625,
+    "differences": {
+      "header": 0,
+      "left": 0,
+      "right": 0
+    },
+    "pageWidth": 1440,
+    "row": {
+      "left": 52,
+      "right": 474.6640625
+    },
+    "saveCorners": {
+      "left": 52,
+      "right": 474.6640625
+    },
+    "viewport": {
+      "height": 660,
+      "width": 1440
+    }
+  },
+  "mobile": {
+    "button": {
+      "font": "600 14px / 20px AvenirNext, sans-serif",
+      "height": 48
+    },
+    "closeFrameRight": 362,
+    "differences": {
+      "header": 0,
+      "left": 0,
+      "right": 0
+    },
+    "pageWidth": 390,
+    "row": {
+      "left": 28,
+      "right": 362
+    },
+    "saveCorners": {
+      "left": 28,
+      "right": 362
+    },
+    "viewport": {
+      "height": 844,
+      "width": 390
+    }
+  }
+}

@@ -1,0 +1,119 @@
+
+/* Fitting-room refinements; desktop hover preserves touch behavior. */
+.local-panel-viewport{position:absolute;inset:-8px -20px 0;padding-top:8px;overflow-y:auto;overflow-x:hidden;scrollbar-width:none;overscroll-behavior:contain}
+.local-panel-viewport::-webkit-scrollbar{display:none}
+.local-panel-inner{position:relative;height:100%;margin:0 20px}
+.local-panel-inner>header{position:relative;z-index:2;background:#fff;display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
+.local-saved-link{position:absolute;top:100%;left:-4px;margin:0;padding-bottom:24px;font:400 10px/13.2px AvenirNext,sans-serif;color:#171816;white-space:nowrap}
+.local-saved-link a,.local-saved-return a{margin-left:8px;text-decoration:underline}
+.local-saved-return{position:absolute;left:144px;top:30px;height:40px;display:flex;align-items:center;z-index:36;font:400 10px/13.2px AvenirNext,sans-serif;gap:0;color:#171816}
+.local-return-time{margin-left:8px;color:#b2b2b2}
+@media(min-width:768px){
+ .look-switcher{width:262px}
+ .white-screen .fitting-panel[data-mode=look] .fitting-save{bottom:17px}
+ .fitting-panel[data-mode=look] .fitting-products-bar{bottom:87px}
+ .fitting-panel[data-mode=look] #fitting-filters{bottom:163px}
+}
+@media(min-width:768px) and (hover:hover) and (pointer:fine){
+ .fitting-rail .fitting-card-toggle{pointer-events:none}
+ .fitting-rail .fitting-card-action{top:0;bottom:0;height:auto;transform:none;opacity:1;pointer-events:auto;visibility:visible;transition:none}
+ .fitting-rail .product-card .fitting-card-action[data-action=refresh] .brand-badge{left:100%}
+ .fitting-rail .product-card .fitting-card-action[data-action=replace] .brand-badge{left:0}
+ .fitting-rail .product-card .fitting-card-action .brand-badge{width:42px;height:42px;min-height:42px;padding:4px 6px;font:600 12px/16px AvenirNext,sans-serif;opacity:0}
+ .fitting-rail .product-card .fitting-card-action:not(:hover):not(:focus-visible) .brand-badge{opacity:0}
+ .fitting-rail .product-card .fitting-card-action:not(:hover):not(:focus-visible) .brand-badge>span{opacity:0}
+ .fitting-rail .product-card .brand-badge>span{opacity:0;font:600 12px/16px AvenirNext,sans-serif}
+ .fitting-rail .product-card .fitting-card-action:is(:hover,:focus-visible) .brand-badge{width:112px;opacity:1}
+ .fitting-rail .product-card .fitting-card-action:is(:hover,:focus-visible) .brand-badge>span{opacity:1}
+ .local-worn-notice{position:absolute;inset:0;z-index:5;display:flex;align-items:center;justify-content:center;background:#fff;color:#171816;font:400 12px/20px AvenirNext,sans-serif;text-align:center;pointer-events:none;opacity:0}
+ .is-worn-notice .product-visual,.is-worn-notice .brand-badge{visibility:hidden}
+}
+@media(max-width:767px){.local-saved-return{left:16px;top:120px;height:24px;background:#fff}.local-saved-link{left:0}}
+@media(min-width:768px) and (hover:hover) and (pointer:fine){
+ .fitting-rail .product-card .fitting-card-action .brand-badge{max-width:none}
+}
+
+@media(min-width:768px){.saved-card-header .saved-delete{transform:translateX(-2px)}}
+
+/* Keep Close fixed while moving the panel trash icon 2px left. */
+@media(min-width:768px){#fitting-panel .fitting-panel-actions{gap:10px}}
+
+/* V47: restore the panel layout inside its scroll wrapper; desktop only. */
+@media(min-width:768px){
+ .local-panel-inner{display:flex;flex-direction:column}
+ .local-panel-inner>header>div:first-child{min-width:0;flex:1}
+ .fitting-panel[data-mode=gallery] .local-panel-viewport{overflow:clip}
+ .fitting-panel[data-mode=gallery] .fitting-panel-scroll{flex:1;min-height:0;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain}
+ .fitting-panel[data-mode=gallery] #fitting-panel-content{flex:none;min-width:0}
+ .fitting-stage,.fitting-models{overflow:clip}
+ .fitting-panel{transition:transform .85s cubic-bezier(.22,1,.36,1),opacity .35s ease,visibility 0s .85s}
+ .fitting-panel.is-open{transition-delay:0s}
+ .fitting-panel-open .fitting-panel-boundaries>i{transition:transform 1.8s cubic-bezier(.4,0,.2,1) .5s}
+}
+@media(min-width:768px) and (prefers-reduced-motion:reduce){.fitting-panel,.fitting-panel-boundaries,.fitting-panel-boundaries>i{transition:none!important}}
+
+/* User-approved 12px square, inverted against the desktop page beneath it. */
+.desktop-square-cursor{display:none}
+@media(min-width:768px) and (hover:hover) and (pointer:fine){
+ html.square-cursor-active,html.square-cursor-active *{cursor:none!important}
+ .desktop-square-cursor{--cursor-edge:#fff;position:fixed;left:0;top:0;z-index:10000;display:block;box-sizing:border-box;width:10px;height:10px;background:#000;opacity:1;mix-blend-mode:normal;pointer-events:none;visibility:hidden;will-change:transform}
+ .desktop-square-cursor::after{content:"";position:absolute;inset:0;background:
+  linear-gradient(var(--cursor-edge) 0 0) left top/3px 1px no-repeat,
+  linear-gradient(var(--cursor-edge) 0 0) left top/1px 3px no-repeat,
+  linear-gradient(var(--cursor-edge) 0 0) right top/3px 1px no-repeat,
+  linear-gradient(var(--cursor-edge) 0 0) right top/1px 3px no-repeat,
+  linear-gradient(var(--cursor-edge) 0 0) left bottom/3px 1px no-repeat,
+  linear-gradient(var(--cursor-edge) 0 0) left bottom/1px 3px no-repeat,
+  linear-gradient(var(--cursor-edge) 0 0) right bottom/3px 1px no-repeat,
+  linear-gradient(var(--cursor-edge) 0 0) right bottom/1px 3px no-repeat}
+ .desktop-square-cursor.is-light{--cursor-edge:#000;background:#fff}
+ .desktop-square-cursor.is-visible{visibility:visible}
+}
+
+/* V52 — approved desktop SVG refinements and contextual saved-look action. */
+@media(min-width:768px){
+ .fitting-panel[data-mode=gallery] h2{white-space:normal;overflow:visible;text-overflow:clip}
+ .fitting-fit-profile dt,.fitting-measurement-controls dt{transform:translateY(2px)}
+ .fitting-panel-open .fitting-panel-boundaries>i{transition-duration:1.5s}
+ .saved-collection-transition .page-screen{transition:none!important}
+ .saved-collection-transition .saved-nav-label{display:block;opacity:0}
+}
+@media(min-width:768px) and (hover:hover) and (pointer:fine){
+ .saved-screen .saved-card .saved-view{pointer-events:auto}
+ .desktop-square-cursor.is-contextual{visibility:hidden}
+ .saved-screen .saved-view .saved-cursor{opacity:0;transition:opacity .18s ease}
+ .saved-screen .saved-view:is(:hover,:focus-visible) .saved-cursor{opacity:1}
+}
+
+/* V54 — hover-bound card frames, bottom status and page-wide return cursor. */
+@media(min-width:768px){
+ .saved-status{position:fixed;left:40px;right:auto;bottom:40px;width:max-content;max-width:calc(100% - 80px);margin:0;z-index:6;background:#fff}
+ .saved-empty{position:absolute;left:50%;top:calc(50% + 16px);margin:0;transform:translate(-50%,-10px)}
+}
+.saved-page-cursor{display:none}
+/* Desktop wheels use the actual value width, with the existing 8px component padding. */
+@media(min-width:768px){
+ .fitting-measurement-controls dd{position:relative;display:flex;align-items:center}
+ .fitting-measurement-wheel{width:max-content;max-width:100%;padding-left:8px;padding-right:8px;margin-left:-8px;flex:none}
+ .fitting-measurement-wheel [role=option]{width:max-content;min-width:100%}
+ .fitting-fit-notice{position:absolute;right:-8px;top:50%;transform:translateY(-50%);margin:0;padding:8px;white-space:nowrap;font:600 12px/13.2px AvenirNext,sans-serif;color:#171816;pointer-events:none}
+ .fitting-fit-notice[hidden]{display:none}
+ .fitting-item-row.is-gender-mismatch{gap:10px}
+ .fitting-item-copy{display:flex;flex-direction:column;min-width:0;flex:1;font:400 10px/13.2px AvenirNext,sans-serif}
+ .fitting-item-copy .fitting-item-name{display:block}
+ .fitting-item-hint{display:block;color:#666;font:400 10px/13.2px AvenirNext,sans-serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+ .fitting-item-actions{display:flex;gap:0;margin-left:auto;flex:none}
+ .fitting-item-actions button{border:0;background:transparent;padding:0 8px;color:#b2b2b2;font:400 10px/13.2px AvenirNext,sans-serif;min-height:0;height:28px}
+ .fitting-item-actions button:hover,.fitting-item-actions button:focus-visible{color:#171816}
+ .fitting-room.is-replacing .fitting-rail{clip-path:none;overflow:visible}
+ .fitting-room.is-replacing .fitting-rail .product-card{height:100%}
+ .fitting-room.is-replacing .fitting-rail .product-visual{height:100%}
+ .fitting-room.is-replacing .fitting-rail #fitting-track{height:100%}
+}
+@media(min-width:768px) and (hover:hover) and (pointer:fine){
+ .saved-screen .saved-card>.fitting-corners{opacity:0}
+ .saved-screen .saved-card:hover>.fitting-corners{opacity:1}
+ .desktop-square-cursor.is-saved-action{width:36px;height:36px;background:transparent!important}
+ .desktop-square-cursor.is-saved-action::after{display:none}
+ .desktop-square-cursor.is-saved-action .saved-page-cursor{display:block;width:36px;height:36px;overflow:visible;stroke-linecap:square;stroke-linejoin:miter}
+}

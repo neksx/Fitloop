@@ -1,0 +1,50 @@
+{
+  "woman-pearl": {
+    "source": "/Users/neksx/.codex/generated_images/01a19bec-6561-7ba0-92ac-990906f00a80/exec-a3d98cbb-7e08-4225-9c2a-e8b06b2f6386.png",
+    "output": "static-woman-pearl-v24.png",
+    "size": [
+      1024,
+      1536
+    ]
+  },
+  "woman-gradient": {
+    "source": "/Users/neksx/.codex/generated_images/01a19bec-6561-7ba0-92ac-990906f00a80/exec-901d1752-52dd-4f90-a431-8daa5faa08c0.png",
+    "output": "static-woman-gradient-v24.png",
+    "size": [
+      1024,
+      1536
+    ]
+  },
+  "woman-flare": {
+    "source": "/Users/neksx/.codex/generated_images/01a19bec-6561-7ba0-92ac-990906f00a80/exec-a5ad8c36-b16e-4367-997b-22d1c639c842.png",
+    "output": "static-woman-flare-v24.png",
+    "size": [
+      1024,
+      1536
+    ]
+  },
+  "man-pearl": {
+    "source": "/Users/neksx/.codex/generated_images/01a19bec-6561-7ba0-92ac-990906f00a80/exec-e2d1b995-4ff1-43b4-a9f5-f6ee3c393c6d.png",
+    "output": "static-man-pearl-v24.png",
+    "size": [
+      1024,
+      1536
+    ]
+  },
+  "man-gradient": {
+    "source": "/Users/neksx/.codex/generated_images/01a19bec-6561-7ba0-92ac-990906f00a80/exec-9d7bff11-a420-4239-8658-68c43eeec21f.png",
+    "output": "static-man-gradient-v24.png",
+    "size": [
+      1024,
+      1536
+    ]
+  },
+  "man-flare": {
+    "source": "/Users/neksx/.codex/generated_images/01a19bec-6561-7ba0-92ac-990906f00a80/exec-a09748a4-d2bc-4bf8-a1ad-9080a7d34c2a.png",
+    "output": "static-man-flare-v24.png",
+    "size": [
+      1024,
+      1536
+    ]
+  }
+}

@@ -1,0 +1,42 @@
+[
+  {
+    "border": "1px solid rgba(255, 255, 255, 0.1)",
+    "corner": "2px",
+    "fontSize": "16px",
+    "fontWeight": "600",
+    "height": "50px",
+    "selector": ".culture-ctas>.button",
+    "shadow": "none",
+    "svgDisplay": "none"
+  },
+  {
+    "border": "1px solid rgba(240, 240, 238, 0.34)",
+    "corner": "2px",
+    "fontSize": "14px",
+    "fontWeight": "400",
+    "height": "44px",
+    "selector": ".how-finale>.button",
+    "shadow": "rgba(255, 255, 255, 0.9) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.35) 0px -1px 0px 0px inset, rgba(45, 45, 43, 0.05) 0px 2px 10px 0px",
+    "svgDisplay": "none"
+  },
+  {
+    "border": "1px solid rgba(255, 255, 255, 0.1)",
+    "corner": "2px",
+    "fontSize": "16px",
+    "fontWeight": "600",
+    "height": "50px",
+    "selector": "#nav-saved-looks",
+    "shadow": "none",
+    "svgDisplay": "none"
+  },
+  {
+    "border": "1px solid rgba(255, 255, 255, 0.1)",
+    "corner": "2px",
+    "fontSize": "16px",
+    "fontWeight": "600",
+    "height": "50px",
+    "selector": "#nav-cta",
+    "shadow": "none",
+    "svgDisplay": "none"
+  }
+]

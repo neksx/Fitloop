@@ -1,0 +1,14 @@
+{
+  "asset": "hero-illustration-clean-v4.png",
+  "intrinsicSize": [
+    1672,
+    940
+  ],
+  "figureBounds": {
+    "x": 575,
+    "y": 0,
+    "width": 541,
+    "height": 900
+  },
+  "source": "Latest user attached illustration, edited with ImageGen to remove text and screenshot controls. Figure centered above bottom wardrobe; whole figure bounds fitted with 32px breathing room per side."
+}

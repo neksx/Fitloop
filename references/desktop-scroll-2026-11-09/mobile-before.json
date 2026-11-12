@@ -1,0 +1,92 @@
+{
+  "mobileCopy": [
+    "ADDYOURCLOTHES",
+    "Takea photooruploadthepiecesyou’dlike tostartwith.",
+    "CREATEACOMBINATION",
+    "Layyourpiecesout ontheboard.Try apairingyouhaven’twornbefore.",
+    "SAVEYOURLOOK",
+    "Give ita name.Nexttime,theanswerwill bewaiting."
+  ],
+  "originalProducts": 5,
+  "phase": "1",
+  "scroll": "0.0",
+  "stageAria": "true",
+  "styles": [
+    {
+      "background": "rgba(0, 0, 0, 0)",
+      "display": "block",
+      "font": "AvenirNext, sans-serif",
+      "height": 112,
+      "line": "26px",
+      "selector": ".services-image-stage",
+      "size": "16px",
+      "spacing": "normal",
+      "weight": "400",
+      "width": 112
+    },
+    {
+      "background": "rgb(255, 255, 255)",
+      "display": "block",
+      "font": "AvenirNext, sans-serif",
+      "height": 112,
+      "line": "26px",
+      "selector": ".service-product",
+      "size": "16px",
+      "spacing": "normal",
+      "weight": "400",
+      "width": 112
+    },
+    {
+      "background": "rgba(0, 0, 0, 0)",
+      "display": "flex",
+      "font": "AvenirNext, sans-serif",
+      "height": 12.5,
+      "line": "normal",
+      "selector": ".service-label-item",
+      "size": "9px",
+      "spacing": "normal",
+      "weight": "400",
+      "width": 112
+    },
+    {
+      "background": "rgba(0, 0, 0, 0)",
+      "display": "block",
+      "font": "AvenirNext, sans-serif",
+      "height": 30,
+      "line": "normal",
+      "selector": ".service-title",
+      "size": "11px",
+      "spacing": "1px",
+      "weight": "900",
+      "width": 69.1328125
+    },
+    {
+      "background": "rgba(0, 0, 0, 0)",
+      "display": "block",
+      "font": "AvenirNext, sans-serif",
+      "height": 90,
+      "line": "18px",
+      "selector": ".service-copy",
+      "size": "12px",
+      "spacing": "normal",
+      "weight": "400",
+      "width": 390
+    },
+    {
+      "background": "rgba(0, 0, 0, 0)",
+      "display": "flex",
+      "font": "AvenirNext, sans-serif",
+      "height": 44,
+      "line": "18px",
+      "selector": ".how-finale .button",
+      "size": "14px",
+      "spacing": "normal",
+      "weight": "400",
+      "width": 242
+    }
+  ],
+  "viewport": [
+    390,
+    844
+  ]
+}

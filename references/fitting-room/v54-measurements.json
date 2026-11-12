@@ -1,0 +1,106 @@
+{
+  "before": {
+    "cursor": {
+      "paths": [
+        {
+          "d": "M8.5.5H.5V8.5M27.5.5H35.5V8.5M35.5 27.5V35.5H27.5M8.5 35.5H.5V27.5",
+          "stroke": "rgb(178, 178, 178)",
+          "width": "1px"
+        },
+        {
+          "d": "M12.5 23.5 23.5 12.5M12.5 12.5H23.5V23.5",
+          "stroke": "rgb(23, 24, 22)",
+          "width": "1.5px"
+        }
+      ],
+      "rect": {
+        "bottom": 406,
+        "height": 36,
+        "left": 240.6640625,
+        "right": 276.6640625,
+        "top": 370,
+        "width": 36,
+        "x": 240.6640625,
+        "y": 370
+      }
+    },
+    "empty": {
+      "font": "12px / 20px AvenirNext, sans-serif",
+      "margin": "100px auto"
+    },
+    "status": {
+      "font": "10px / 13.2px AvenirNext, sans-serif",
+      "rect": {
+        "bottom": 664,
+        "height": 14,
+        "left": 40,
+        "right": 1400,
+        "top": 650,
+        "width": 1360,
+        "x": 40,
+        "y": 650
+      }
+    },
+    "viewport": [
+      1440,
+      660
+    ]
+  },
+  "empty": {
+    "emptyVisible": true,
+    "statusBottom": "40px",
+    "statusFont": "10px / 13.2px AvenirNext, sans-serif",
+    "statusRect": {
+      "bottom": 620,
+      "height": 14,
+      "left": 40,
+      "right": 40,
+      "top": 606,
+      "width": 0,
+      "x": 40,
+      "y": 606
+    },
+    "textCenterY": 346,
+    "textFont": "12px / 20px AvenirNext, sans-serif",
+    "textRect": {
+      "bottom": 356,
+      "height": 20,
+      "left": 620,
+      "right": 820,
+      "top": 336,
+      "width": 200,
+      "x": 620,
+      "y": 336
+    },
+    "viewport": [
+      1440,
+      660
+    ]
+  },
+  "undo": {
+    "emptyVisible": true,
+    "rect": {
+      "bottom": 620,
+      "height": 14,
+      "left": 40,
+      "right": 135.4453125,
+      "top": 606,
+      "width": 95.4453125,
+      "x": 40,
+      "y": 606
+    },
+    "screen": "3",
+    "text": "My deleted. UNDO"
+  },
+  "frameAfterClose": {
+    "hover": false,
+    "focusWithin": true,
+    "opacity": 0
+  },
+  "backgroundCursor": {
+    "width": 36,
+    "height": 36,
+    "arrow": "#171816",
+    "corners": "#b2b2b2"
+  }
+}

@@ -1,0 +1,171 @@
+{
+  "sourceFiles": [
+    "exec-32807165-95aa-4451-bbcb-d4a3e5526faa.png",
+    "exec-b612f8d0-f475-4a41-800f-7f9faaf9ef37.png"
+  ],
+  "views": [
+    {
+      "sheet": 0,
+      "cell": 0,
+      "axis": 221.5,
+      "top": 6.0,
+      "scale": 1.0,
+      "angle": 0,
+      "flip": false
+    },
+    {
+      "sheet": 0,
+      "cell": 1,
+      "axis": 214.5,
+      "top": 6.0,
+      "scale": 0.9979633401221996,
+      "angle": 25,
+      "flip": false
+    },
+    {
+      "sheet": 0,
+      "cell": 2,
+      "axis": 188.5,
+      "top": 5.0,
+      "scale": 0.9919028340080972,
+      "angle": 40,
+      "flip": false
+    },
+    {
+      "sheet": 0,
+      "cell": 3,
+      "axis": 166.5,
+      "top": 5.0,
+      "scale": 0.9919028340080972,
+      "angle": 55,
+      "flip": false
+    },
+    {
+      "sheet": 0,
+      "cell": 4,
+      "axis": 222.0,
+      "top": 1.0,
+      "scale": 0.98989898989899,
+      "angle": 85,
+      "flip": false
+    },
+    {
+      "sheet": 0,
+      "cell": 6,
+      "axis": 189.5,
+      "top": 2.0,
+      "scale": 1.0,
+      "angle": 105,
+      "flip": false
+    },
+    {
+      "sheet": 0,
+      "cell": 5,
+      "axis": 216.5,
+      "top": 1.0,
+      "scale": 0.9919028340080972,
+      "angle": 125,
+      "flip": false
+    },
+    {
+      "sheet": 0,
+      "cell": 7,
+      "axis": 172.5,
+      "top": 1.0,
+      "scale": 0.9939148073022313,
+      "angle": 145,
+      "flip": false
+    },
+    {
+      "sheet": 1,
+      "cell": 5,
+      "axis": 213.5,
+      "top": 0.0,
+      "scale": 0.9819639278557114,
+      "angle": 155,
+      "flip": false
+    },
+    {
+      "sheet": 1,
+      "cell": 4,
+      "axis": 221.0,
+      "top": 1.0,
+      "scale": 0.9859154929577465,
+      "angle": 180,
+      "flip": false
+    },
+    {
+      "sheet": 1,
+      "cell": 5,
+      "axis": 213.5,
+      "top": 0.0,
+      "scale": 0.9819639278557114,
+      "angle": 205,
+      "flip": true
+    },
+    {
+      "sheet": 0,
+      "cell": 7,
+      "axis": 172.5,
+      "top": 1.0,
+      "scale": 0.9939148073022313,
+      "angle": 215,
+      "flip": true
+    },
+    {
+      "sheet": 0,
+      "cell": 5,
+      "axis": 216.5,
+      "top": 1.0,
+      "scale": 0.9919028340080972,
+      "angle": 235,
+      "flip": true
+    },
+    {
+      "sheet": 0,
+      "cell": 6,
+      "axis": 189.5,
+      "top": 2.0,
+      "scale": 1.0,
+      "angle": 255,
+      "flip": true
+    },
+    {
+      "sheet": 0,
+      "cell": 4,
+      "axis": 222.0,
+      "top": 1.0,
+      "scale": 0.98989898989899,
+      "angle": 275,
+      "flip": true
+    },
+    {
+      "sheet": 0,
+      "cell": 3,
+      "axis": 166.5,
+      "top": 5.0,
+      "scale": 0.9919028340080972,
+      "angle": 305,
+      "flip": true
+    },
+    {
+      "sheet": 0,
+      "cell": 2,
+      "axis": 188.5,
+      "top": 5.0,
+      "scale": 0.9919028340080972,
+      "angle": 320,
+      "flip": true
+    },
+    {
+      "sheet": 0,
+      "cell": 1,
+      "axis": 214.5,
+      "top": 6.0,
+      "scale": 0.9979633401221996,
+      "angle": 335,
+      "flip": true
+    }
+  ],
+  "notes": "Original PNGs copied unchanged; only optical flow/contour numeric fields are produced. Opposite-side samples are runtime mirrored approximations, not an actual filmed turntable."
+}

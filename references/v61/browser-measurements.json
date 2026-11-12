@@ -1,0 +1,63 @@
+{
+  "buttons": [
+    {
+      "corner": {
+        "stroke": "2px",
+        "color": "rgb(255, 255, 255)",
+        "opacity": "1"
+      },
+      "font": "600 12px / 16px AvenirNext, sans-serif",
+      "height": "42px",
+      "id": "save-look"
+    },
+    {
+      "corner": {
+        "stroke": "2px",
+        "color": "rgb(255, 255, 255)",
+        "opacity": "1"
+      },
+      "font": "600 12px / 16px AvenirNext, sans-serif",
+      "height": "40px",
+      "id": "add-model"
+    }
+  ],
+  "row": [
+    {
+      "font": "10px / 13.2px AvenirNext, sans-serif",
+      "text": "Paint Splatter Jacket"
+    },
+    {
+      "font": "10px / 13.2px AvenirNext, sans-serif",
+      "text": "VIEW"
+    },
+    {
+      "font": "10px / 13.2px AvenirNext, sans-serif",
+      "text": "Ksubi Anti K Stage Dive\u2026"
+    },
+    {
+      "font": "10px / 13.2px AvenirNext, sans-serif",
+      "text": "VIEW"
+    }
+  ],
+  "tag": [
+    {
+      "focus": true,
+      "target": "137px",
+      "text": "154\u2013194 CM \u00b7 117\u2013175 KG",
+      "textOpacity": "1",
+      "width": 137
+    },
+    {
+      "focus": false,
+      "target": "137px",
+      "text": "154\u2013194 CM \u00b7 190\u2013283 KG",
+      "textOpacity": "0",
+      "width": 120.1875
+    }
+  ],
+  "titleOffset": "-1.040000081062317px",
+  "viewport": {
+    "height": 660,
+    "width": 1440
+  }
+}

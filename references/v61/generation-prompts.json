@@ -1,0 +1,28 @@
+{
+  "tool": "built-in image_gen",
+  "assets": [
+    {
+      "key": "woman",
+      "paths": [
+        "/Users/neksx/Documents/ChatGPT/AI/sites/fitloop-intro-hero/dist/assets/fitting-room/natural-pearl-v56.png",
+        "/Users/neksx/Documents/ChatGPT/AI/outputs/fitloop-ksubi-v61/ksubi-anti-k-gallery-0.jpg"
+      ],
+      "prompt": "Use case: identity-preserve. Asset type: production virtual fitting-room full-body portrait. Image 1 is the exact edit target and woman identity/pose/framing reference. Image 2 is the exact jeans product reference: Ksubi Anti K Stage Dive Trashed MPS25DJ030. Edit ONLY the trousers in image 1, replacing the black studded trousers with the jeans from image 2: light vintage faded blue denim, relaxed straight legs, two asymmetric distressed horizontal rips high on the thighs, natural stacked hems, correct waistband and seams. Preserve the woman's EXACT face, hair, body shape, front-facing neutral standing pose, hand positions, cropped black studded jacket, black shoes, scale and centered full-body framing of image 1. No redesign of the jacket or face. Keep the top of hair and soles at the same image coordinates, same 1024x1536 portrait canvas. Product material and rips must match image 2. Whole figure visible head to shoes, no cropping. Remove the background completely: actual transparent alpha, no ground, shadow, halo, lettering, objects or other people. Photorealistic natural catalog photo."
+    },
+    {
+      "key": "man",
+      "paths": [
+        "/Users/neksx/Documents/ChatGPT/AI/sites/fitloop-intro-hero/dist/assets/fitting-room/static-man-pearl-v24.png",
+        "/Users/neksx/Documents/ChatGPT/AI/outputs/fitloop-ksubi-v61/ksubi-anti-k-gallery-0.jpg"
+      ],
+      "prompt": "Use case: identity-preserve. Asset type: production virtual fitting-room full-body portrait. Image 1 is the exact edit target and man identity/pose/framing reference. Image 2 is the exact jeans product reference: Ksubi Anti K Stage Dive Trashed MPS25DJ030. Edit ONLY the trousers in image 1, replacing the black studded trousers with the jeans from image 2: light vintage faded blue denim, relaxed straight legs, two asymmetric distressed horizontal rips high on the thighs, natural stacked hems, correct waistband and seams. Preserve the man's EXACT face, hair, body shape, front-facing neutral standing pose, hand positions, cropped black studded jacket, black shoes, scale and centered full-body framing of image 1. No redesign of the jacket or face. Keep the top of hair and soles at the same image coordinates, same 1024x1536 portrait canvas. Product material and rips must match image 2. Whole figure visible head to shoes, no cropping. Remove the background completely: actual transparent alpha, no studio backdrop, ground, shadow, halo, lettering, objects or other people. Photorealistic natural catalog photo."
+    },
+    {
+      "key": "cutout",
+      "paths": [
+        "/Users/neksx/Documents/ChatGPT/AI/outputs/fitloop-ksubi-v61/ksubi-anti-k-gallery-0.jpg"
+      ],
+      "prompt": "Use case: background-extraction. Asset type: accurate ecommerce garment cutout. The image is the exact Ksubi Anti K Stage Dive Trashed MPS25DJ030 jeans reference. Extract/reconstruct ONLY these exact jeans as a straight front-facing ghost-mannequin product cutout, maintaining the vintage light blue wash, natural straight relaxed leg width, button fly waistband, seam details, two distressed horizontal tears on upper thighs at the exact positions, length and subtly stacked open hems. No person, body, hands, torso, skin, shoes, mannequin, tag or text. Complete jeans from waistband to both hems visible, naturally symmetric product pose. Center vertically and horizontally in a 1024x1536 canvas with small even margin. Actual transparent alpha background, no shadow or white fill. Photorealistic product photography; do not invent a different wash or extra tears."
+    }
+  ]
+}

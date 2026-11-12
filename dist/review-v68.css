@@ -1,0 +1,77 @@
+/* V68 — final desktop and mobile SVG review. Native Avenir and original icon paths. */
+.fitting-room:not(.fitting-leaving) .fitting-undo{opacity:1;pointer-events:auto}
+.fitting-room .fitting-undo:disabled{pointer-events:none}
+.culture-hero .product-card .product-visual{transform:scale(.84);transform-origin:50% 50%}
+.fitting-room .fitting-rail .product-visual{transform:scale(.92);transform-origin:50% 50%}
+.culture-hero .product-card .brand-badge{width:112px;height:42px;min-height:42px;padding:4px 6px;font:600 12px/16px AvenirNext,sans-serif;backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px)}
+.culture-hero .product-card .brand-badge>span{font:inherit;line-height:16px}
+.culture-hero .product-card:is(:hover,:focus-visible) .brand-badge{width:112px}
+.fitting-fit-notice .fit-alert,.fit-info{display:none}
+.sakura-overlay{position:absolute;inset:0;z-index:58;pointer-events:none;overflow:hidden;contain:strict}
+.sakura-overlay svg{width:100%;height:100%;display:block;overflow:hidden}
+.sakura-overlay path{pointer-events:none;will-change:transform}
+@media(max-width:767px){
+ .has-how-demo .services-image-stage{height:var(--demo-stage-height,210px)}
+ .has-how-demo .services-label{top:calc(50% - var(--demo-stage-height,210px)/2 - var(--service-label-gap))}
+ .has-how-demo .how-demo-room.sample-rail.fitting-rail{width:var(--service-square);height:428px;display:flex;flex-direction:column;gap:8px;background:transparent}
+ .has-how-demo .how-demo-room .product-card::after{display:none}
+ .has-how-demo .how-demo-model-cell{width:var(--service-square);height:210px}
+ /* 8px around the visual actions, 8px between, 44px minimum touch target. */
+ .has-how-demo .how-demo-card .product-card .fitting-card-action{top:auto;bottom:4px;width:50%;height:44px}
+ .has-how-demo .how-demo-card .product-card .fitting-card-action .brand-badge{top:50%;left:50%;width:calc(100% - 12px);height:36px;min-height:36px;font:600 9px/14px AvenirNext,sans-serif;padding:4px 0}
+ .has-how-demo .how-demo-room .fitting-card-action[data-action=refresh]{left:2px}
+ .has-how-demo .how-demo-room .fitting-card-action[data-action=replace]{right:2px}
+ .has-how-demo .how-demo-single .product-card .fitting-card-action[data-action=replace]{inset:auto 0 4px;height:44px;width:100%}
+ .has-how-demo .how-demo-single .product-card .fitting-card-action[data-action=replace] .brand-badge{width:calc(100% - 16px);height:36px;min-height:36px;font:600 12px/16px AvenirNext,sans-serif}
+ .fitting-room .fitting-rail .product-card .fitting-card-action{bottom:4px;height:44px;width:50%}
+ .fitting-room .fitting-rail .product-card .fitting-card-action[data-action=refresh]{left:2px}
+ .fitting-room .fitting-rail .product-card .fitting-card-action[data-action=replace]{right:2px}
+ .fitting-room .fitting-rail .product-card .fitting-card-action .brand-badge{left:50%;width:calc(100% - 12px);height:36px;min-height:36px;font:600 9px/14px AvenirNext,sans-serif;padding:4px 0}
+ .fitting-room .fitting-rail .product-card .fitting-card-action .brand-badge>span{font:inherit}
+ .fitting-room>.local-saved-return{left:28px;max-width:calc(50% - 44px)}
+ .white-screen .fitting-panel .fitting-save{left:-2px;width:calc(100% + 4px)}
+ .white-screen .fitting-save:is(:hover,:focus-visible,:active)::before{transform:translate(-5px,-5px)}
+ .white-screen .fitting-save:is(:hover,:focus-visible,:active)::after{transform:translate(5px,5px)}
+ .white-screen .fitting-save:is(:hover,:focus-visible,:active)>span::before{transform:translate(5px,-5px)}
+ .white-screen .fitting-save:is(:hover,:focus-visible,:active)>span::after{transform:translate(-5px,5px)}
+ /* The two-line nav label is centered on the 40px menu/logo row. */
+ .ct_cr-navbar .saved-nav-label{top:20px;transform:translateY(-50%);font:400 10px/14px AvenirNext,sans-serif}
+ .saved-nav-label>span{display:block;white-space:nowrap}
+ /* Actual desktop SVG: no font arrow, no scaled border, no filled CTA. */
+ .saved-screen .saved-card .saved-view{inset:auto 8px 8px auto;transform:none;width:44px;height:44px;min-height:44px;padding:4px;border:0;background:transparent!important;backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:none;opacity:1;pointer-events:auto}
+ .saved-screen .saved-card .saved-view::before,.saved-screen .saved-card .saved-view::after,.saved-screen .saved-card .saved-view-label{display:none}
+ .saved-screen .saved-view .saved-cursor{display:block;width:36px;height:36px;stroke-linecap:square;stroke-linejoin:miter;overflow:visible;transition:transform .2s ease}
+ .saved-screen .saved-cursor-corners{stroke:#b2b2b2;stroke-width:1px;vector-effect:non-scaling-stroke}
+ .saved-screen .saved-cursor-arrow{stroke:#171816;stroke-width:1px!important;vector-effect:non-scaling-stroke}
+ .saved-screen .saved-view:active .saved-cursor{transform:translateY(-2px)}
+ .saved-card .saved-portrait{bottom:60px}
+ /* Fit details grow in normal flow. Nothing covers BOTTOMS or the products below. */
+ .fitting-panel .fitting-measurement-controls{grid-auto-rows:auto;align-items:start}
+ .fitting-panel .fitting-measurement-controls>dt{align-self:start;padding-top:18px}
+ .fitting-panel .fitting-measurement-controls>dd{position:relative;min-height:52px;display:block}
+ .fitting-panel .fitting-fit-notice{position:absolute;display:block;top:2px;right:-8px;width:44px;height:44px;min-height:44px;padding:12px;border:0;background:transparent;color:#ac5b70;transform:none;pointer-events:auto;font:600 12px/20px AvenirNext,sans-serif}
+ .fitting-panel .fitting-fit-notice[hidden]{display:none}
+ .fitting-panel .fitting-fit-notice>.fit-label,.fitting-panel .fitting-fit-notice>.fit-range,.fitting-panel .fitting-fit-notice>.fitting-thin-corners{display:none}
+ .fitting-panel .fitting-fit-notice .fit-alert{position:relative;display:grid;width:20px;height:20px;place-items:center}
+ .fit-alert>.fitting-thin-corners{--corner-color:#b2b2b2;--corner-length:5px;inset:0}
+ .fitting-fit-notice .fit-alert .fitting-thin-corners i{transform:none!important}
+ .fitting-panel .fit-info:not([hidden]){display:block;position:relative;margin:60px 0 16px;padding:12px;background:#fff;font:400 10px/14px AvenirNext,sans-serif}
+ .fitting-panel .fit-info[hidden]{display:none}
+ .fit-info::before{content:'';position:absolute;right:13.5px;top:-24px;width:1px;height:24px;background:#b2b2b2}
+ .fit-info>.fitting-thin-corners{inset:0;--corner-color:#b2b2b2;--corner-length:6px}
+ .fit-info-heading{display:block;font:600 10px/14px AvenirNext,sans-serif;color:#ac5b70;white-space:nowrap;margin-bottom:12px}
+ .fit-info dl{display:grid;grid-template-columns:1fr auto;column-gap:8px;row-gap:8px;margin:0}
+ .fitting-panel .fit-info dt{padding:0;font:400 9px/14px AvenirNext,sans-serif;color:#666;transform:none}
+ .fitting-panel .fit-info dd{margin:0;font:600 10px/14px AvenirNext,sans-serif;white-space:nowrap}
+ .fitting-panel .is-fit-expanded>.fitting-measurement-wheel{position:absolute;top:0;left:0;right:44px}
+}
+@media(max-width:359px){
+ .ct_cr-navbar .saved-nav-label{font-size:9px;line-height:13px}
+ .fitting-room>.local-saved-return{left:24px;max-width:calc(50% - 40px)}
+ .fitting-panel .fit-info{margin-left:-12px}
+ .fitting-panel .fit-info dl{column-gap:4px}
+}
+@media(prefers-reduced-motion:reduce){.saved-screen .saved-view .saved-cursor{transition:none}}
+
+/* Match the visible desktop cursor after the native icon normalization. */
+.saved-cursor-arrow{stroke-width:1px!important;vector-effect:non-scaling-stroke}

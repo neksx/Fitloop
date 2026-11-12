@@ -1,0 +1,82 @@
+[
+  {
+    "fontFamily": "AvenirNext, sans-serif",
+    "fontSize": "16px",
+    "fontWeight": "600",
+    "gradientCenter": "50%",
+    "height": 50,
+    "letterSpacing": "normal",
+    "lineHeight": "20px",
+    "oldCorner": "none",
+    "outlineOpacity": ".12",
+    "padding": "14px 30px",
+    "selector": ".culture-ctas>.button",
+    "strokes": [
+      "1px",
+      "1px",
+      "1px",
+      "1px"
+    ],
+    "width": 242
+  },
+  {
+    "fontFamily": "AvenirNext, sans-serif",
+    "fontSize": "14px",
+    "fontWeight": "400",
+    "gradientCenter": "50%",
+    "height": 44,
+    "letterSpacing": "normal",
+    "lineHeight": "18px",
+    "oldCorner": "none",
+    "outlineOpacity": ".12",
+    "padding": "12px 24px",
+    "selector": ".how-finale>.button",
+    "strokes": [
+      "1px",
+      "1px",
+      "1px",
+      "1px"
+    ],
+    "width": 242
+  },
+  {
+    "fontFamily": "AvenirNext, sans-serif",
+    "fontSize": "14px",
+    "fontWeight": "600",
+    "gradientCenter": "50%",
+    "height": 38,
+    "letterSpacing": "normal",
+    "lineHeight": "20px",
+    "oldCorner": "none",
+    "outlineOpacity": ".12",
+    "padding": "8px 20px",
+    "selector": "#nav-saved-looks",
+    "strokes": [
+      "1px",
+      "1px",
+      "1px",
+      "1px"
+    ],
+    "width": 139.5703125
+  },
+  {
+    "fontFamily": "AvenirNext, sans-serif",
+    "fontSize": "14px",
+    "fontWeight": "600",
+    "gradientCenter": "50%",
+    "height": 38,
+    "letterSpacing": "normal",
+    "lineHeight": "20px",
+    "oldCorner": "none",
+    "outlineOpacity": ".12",
+    "padding": "8px 20px",
+    "selector": "#nav-cta",
+    "strokes": [
+      "1px",
+      "1px",
+      "1px",
+      "1px"
+    ],
+    "width": 129.5
+  }
+]

@@ -1,0 +1,143 @@
+/* Approved preview: native Avenir, slightly more air and the original export hover. */
+.local-worn-notice{white-space:pre-line;line-height:18px!important}
+@media(min-width:768px){
+ .fitting-fit-notice{display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;width:var(--fit-base-width,120.1875px);height:24px;min-height:0;padding:0 10px;background:transparent;border:0;overflow:visible;font:600 10px/13.2px AvenirNext,sans-serif;letter-spacing:normal;text-transform:uppercase;pointer-events:auto;transition:width .24s cubic-bezier(.22,1,.36,1)}
+ .fitting-fit-notice>.fitting-thin-corners{--corner-length:6px}
+ .fitting-fit-notice .fit-label,.fitting-fit-notice .fit-range{display:block;flex-shrink:0;white-space:nowrap;transition:opacity .18s ease,transform .28s ease}
+ .fitting-fit-notice .fit-range{position:absolute;left:10px;opacity:0;transform:translateY(2px)}
+ .fitting-fit-notice:is(:hover,:focus-visible){width:var(--fit-range-width)}
+ .fitting-fit-notice:is(:hover,:focus-visible) .fit-label{opacity:0;transform:translateY(-2px)}
+ .fitting-fit-notice:is(:hover,:focus-visible) .fit-range{opacity:1;transform:translateY(0)}
+ .fitting-fit-notice .fitting-thin-corners i{transition:transform .2s ease}
+ .fitting-fit-notice:is(:hover,:focus-visible) .fitting-thin-corners i:nth-child(1){transform:translate(-5px,-5px)}
+ .fitting-fit-notice:is(:hover,:focus-visible) .fitting-thin-corners i:nth-child(2){transform:translate(5px,-5px)}
+ .fitting-fit-notice:is(:hover,:focus-visible) .fitting-thin-corners i:nth-child(3){transform:translate(-5px,5px)}
+ .fitting-fit-notice:is(:hover,:focus-visible) .fitting-thin-corners i:nth-child(4){transform:translate(5px,5px)}
+ .fitting-split-divider{position:absolute;left:50%;top:90px;bottom:0;width:1px;background:#E6E8EA;transform:scaleY(0);transform-origin:center top;pointer-events:none;z-index:25}
+ .fitting-confirm{position:absolute;left:50%;top:0;width:50%;height:100%;border:0;padding:0;background:none;z-index:26;outline:none;cursor:none}
+ .fitting-confirm[hidden]{display:none}
+ .fitting-confirm-cursor{position:absolute;left:var(--confirm-x,50%);top:var(--confirm-y,50%);width:36px;height:36px;transform:translate(-50%,-50%);pointer-events:none;opacity:0;overflow:visible}
+ .fitting-confirm.has-pointer .fitting-confirm-cursor,.fitting-confirm:focus-visible .fitting-confirm-cursor{opacity:1}
+ .confirm-corners{stroke:#b2b2b2;transition:stroke .15s ease}
+ .confirm-tick{stroke:#171816;transition:stroke .15s ease}
+ .is-over-model .confirm-corners{stroke:#E6E8EA}.is-over-model .confirm-tick{stroke:#fff}
+ .is-replacing .fitting-person .fitting-corners{opacity:0!important}
+ .is-replacing .fitting-rail{transform-origin:left center;will-change:transform,clip-path}
+ .is-replacing .fitting-models{will-change:transform}
+}
+@media(max-width:767px){.fitting-split-divider,.fitting-confirm{display:none}}
+body.nav-on-white:not(.menu-is-open) .ct_cr-navbar__menuIcon svg{color:#666}
+.ct_cr-navbar__menuIcon svg{color:#fff}
+.white-screen .fitting-close,.white-screen .fitting-close svg{color:#b2b2b2}
+.fitting-item-row{text-transform:uppercase}
+.fitting-item-open{padding:0;border:0;background:none;text-align:left;font:inherit;color:inherit;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-transform:inherit}
+.fitting-item-row:not(.is-gender-mismatch) .fitting-item-open{flex:1}
+.fitting-available-sizes{display:flex;flex-wrap:wrap;gap:12px;font:400 12px/18px AvenirNext,sans-serif}
+.fitting-brand-size-link{margin-top:20px}
+.replacement-panel-motion .fitting-panel{transition:transform .44s cubic-bezier(.4,0,.2,1),opacity .24s ease,visibility 0s .44s}
+.replacement-panel-motion .fitting-panel.is-open{transition-delay:0s}
+@media(max-width:767px){.fitting-item-actions{display:flex;flex:none;margin-left:auto}.fitting-item-actions button{border:0;background:none;padding:0 6px;color:#b2b2b2;font:400 10px/13.2px AvenirNext,sans-serif;min-height:28px}}
+@media(prefers-reduced-motion:reduce){.fitting-fit-notice,.fitting-fit-notice *,.replacement-panel-motion .fitting-panel{transition:none!important}}
+
+/* V59: independent card cycling, legible advisories and a dedicated status footer. */
+::selection{background:#f4ccd9;color:#171816}
+.fitting-fit-notice{color:#ac5b70}
+.fitting-item-row.is-gender-mismatch{height:38px;min-height:38px}
+.fitting-item-row.is-gender-mismatch .fitting-item-copy{display:flex;flex-direction:column;min-width:0;flex:1;gap:3px;font:400 10px/13.2px AvenirNext,sans-serif}
+.fitting-item-row.is-gender-mismatch .fitting-item-hint{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font:600 10px/13.2px AvenirNext,sans-serif}
+.fitting-item-row.is-gender-mismatch .fitting-item-name{color:#8a8a8a}
+.fitting-item-row.is-gender-mismatch .fitting-item-hint{color:#171816;font-weight:600}
+.fitting-item-actions button{color:#171816}
+.fitting-home-return{left:144px;top:30px}
+@media(min-width:768px){
+ .fitting-panel[data-mode=look] #fitting-filters{bottom:calc(101px + var(--fitting-items-height,62px))}
+ .saved-screen{padding-bottom:44px}
+ .saved-status{bottom:10px;line-height:14px;min-height:14px}
+}
+
+/* V60: quieter type and compact light glass; hero and menu retain their styles. */
+.fitting-room{--fitting-save-height:50px}
+.fitting-item-row.is-gender-mismatch .fitting-item-hint{font-weight:400}
+.fitting-item-row:not(.is-gender-mismatch) .fitting-item-actions button{color:#b2b2b2}
+.fitting-item-row:not(.is-gender-mismatch) .fitting-item-actions button:is(:hover,:focus-visible){color:#666}
+.how-screen .how-finale>.button{
+ height:44px;min-height:44px;padding:12px 24px;font:400 14px/18px AvenirNext,sans-serif;
+ --glass-surface:linear-gradient(135deg,rgba(218,218,216,.62),rgba(188,188,185,.3) 48%,rgba(202,202,199,.42));
+ background:var(--glass-surface);color:#4b4b49;
+ backdrop-filter:blur(16px) saturate(0%);-webkit-backdrop-filter:blur(16px) saturate(0%);
+ background-size:180% 100%;background-position:15% 50%;border-color:rgba(168,167,164,.38);
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.9),inset 0 -1px 0 rgba(255,255,255,.35),0 2px 10px rgba(45,45,43,.05);
+ transition:background-position .65s cubic-bezier(.22,1,.36,1),box-shadow .3s ease;
+}
+.how-screen .how-finale>.button:is(:hover,:focus-visible){
+ background-image:var(--glass-surface);background-color:transparent;background-position:85% 50%;background-size:180% 100%;box-shadow:inset 0 1px 0 #fff,inset 0 -1px 0 rgba(255,255,255,.5),0 3px 12px rgba(45,45,43,.08);
+}
+.how-screen .how-finale>.button{--glass-surface:linear-gradient(135deg,rgba(246,246,244,.25),rgba(214,214,211,.1) 48%,rgba(246,246,244,.18));color:#fff;border-color:rgba(240,240,238,.34)}
+@media(min-width:768px){
+ .fitting-home-return{left:100px}
+ .fitting-panel[data-mode=look] .fitting-products-bar{bottom:calc(37px + var(--fitting-save-height))}
+ .fitting-panel[data-mode=look] #fitting-filters{bottom:calc(51px + var(--fitting-save-height) + var(--fitting-items-height,62px))}
+}
+@media(prefers-reduced-motion:reduce){.how-screen .how-finale>.button{transition:none}}
+
+/* ZCode desktop CTA changes; keep the existing mobile presentation. */
+@media(min-width:768px){
+.how-screen .how-finale>.button{font-weight:600}
+.ct_cr-navbar .ct_cr-navbar__actions .ct_cr-menu__shopCollection{
+ height:44px;min-height:44px;padding:12px 24px;width:220px;font:600 14px/18px AvenirNext,sans-serif;
+}
+
+}
+
+/* V61: one type scale for garment rows; compact single-line fit tags. */
+.fitting-products-bar .fitting-item-row :is(.fitting-item-name,.fitting-item-hint,.fitting-item-actions button){font-family:AvenirNext,sans-serif;font-size:10px;font-weight:400;line-height:13.2px;letter-spacing:normal}
+.fitting-panel[data-mode=look] .fitting-products-bar{transform:translateY(2px)}
+.fitting-panel h2{transform:translateX(var(--title-optical-offset,0px))}
+/* REFRESH source: rgba(38,38,38,.86), blur(5px), 600 12px/16px, 42px. */
+.fitting-room{--fitting-save-height:42px;--fitting-action-fill:rgba(38,38,38,.86)}
+.white-screen .fitting-save,.white-screen .fitting-model-factory .fitting-add{
+ isolation:isolate;background:transparent;border:1px solid rgba(255,255,255,.1);color:#fff;
+ font:600 12px/16px AvenirNext,sans-serif;backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px);
+}
+.white-screen .fitting-save{height:42px;min-height:42px;padding:4px 6px}
+.white-screen :is(.fitting-save,.fitting-model-factory .fitting-add):is(:hover,:focus-visible){background:transparent}
+.fitting-glass-art,.fitting-glass-pane{position:absolute;inset:0;pointer-events:none}
+.fitting-glass-art{z-index:-2;overflow:hidden;background:#dedede}
+.fitting-glass-art:before,.fitting-glass-art:after{content:'';position:absolute;pointer-events:none}
+.fitting-glass-art:before{left:15%;top:50%;width:112px;height:76px;border-radius:50%;background:radial-gradient(ellipse at 28% 22%,#fff 0%,#d8d8d6 17%,#777 36%,#171717 64%,#080808 80%,#636361 100%);box-shadow:10px 8px 18px #0007;transform:translateY(-50%) rotate(-22deg)}
+.fitting-glass-art:after{right:12%;top:50%;width:72px;height:60px;border-radius:50%;background:radial-gradient(ellipse at 30% 24%,#fff 0%,#eee 19%,#a5a5a3 40%,#323232 69%,#111 100%);box-shadow:8px 10px 16px #0005;transform:translateY(-50%) rotate(25deg)}
+.fitting-glass-pane{z-index:-1;background:var(--fitting-action-fill);backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px)}
+.fitting-add .fitting-glass-art:before{left:-12px;width:46px;height:38px}
+.fitting-add .fitting-glass-art:after{right:-20px;top:70%;width:34px;height:30px}
+.white-screen :is(.fitting-save,.fitting-add)::before,.white-screen :is(.fitting-save,.fitting-add)::after,.white-screen :is(.fitting-save,.fitting-add)>span::before,.white-screen :is(.fitting-save,.fitting-add)>span::after{z-index:2;width:12px;height:12px;border-width:2px;border-color:#fff;opacity:1;transition:transform .2s ease,border-color .2s ease}
+.white-screen :is(.fitting-save,.fitting-add)::before{left:-1px;top:-1px}
+.white-screen :is(.fitting-save,.fitting-add)::after{right:-1px;bottom:-1px}
+.white-screen :is(.fitting-save,.fitting-add)>span::before{right:-1px;top:-1px}
+.white-screen :is(.fitting-save,.fitting-add)>span::after{left:-1px;bottom:-1px}
+.white-screen :is(.fitting-save,.fitting-add):is(:hover,:focus-visible)::before,.white-screen :is(.fitting-save,.fitting-add):is(:hover,:focus-visible)::after,.white-screen :is(.fitting-save,.fitting-add):is(:hover,:focus-visible)>span::before,.white-screen :is(.fitting-save,.fitting-add):is(:hover,:focus-visible)>span::after{border-color:#b2b2b2;border-width:1px}
+.white-screen :is(.fitting-save,.fitting-add):is(:hover,:focus-visible)::before{transform:translate(-5px,-5px)}
+.white-screen :is(.fitting-save,.fitting-add):is(:hover,:focus-visible)::after{transform:translate(5px,5px)}
+.white-screen :is(.fitting-save,.fitting-add):is(:hover,:focus-visible)>span::before{transform:translate(5px,-5px)}
+.white-screen :is(.fitting-save,.fitting-add):is(:hover,:focus-visible)>span::after{transform:translate(-5px,5px)}
+/* Row frames extend 8px past the panel. Save extends 4px, so open its corners 4px. */
+.white-screen .fitting-save:is(:hover,:focus-visible)::before{transform:translate(-4px,-5px)}
+.white-screen .fitting-save:is(:hover,:focus-visible)::after{transform:translate(4px,5px)}
+.white-screen .fitting-save:is(:hover,:focus-visible)>span::before{transform:translate(4px,-5px)}
+.white-screen .fitting-save:is(:hover,:focus-visible)>span::after{transform:translate(-4px,5px)}
+#fitting-panel .fitting-panel-actions{margin-right:-4px}
+@media(prefers-reduced-motion:reduce){.white-screen :is(.fitting-save,.fitting-add)::before,.white-screen :is(.fitting-save,.fitting-add)::after,.white-screen :is(.fitting-save,.fitting-add)>span::before,.white-screen :is(.fitting-save,.fitting-add)>span::after{transition:none}}
+@media(min-width:768px){
+ .fitting-fit-notice{font-weight:500}
+ .fitting-fit-notice:is(:hover,:focus-visible){width:max(var(--fit-base-width,120.1875px),var(--fit-range-width))}
+ .fitting-fit-notice .fit-range{left:50%;right:auto;width:max-content;white-space:nowrap;text-align:center;line-height:13.2px;transform:translate(-50%,2px)}
+ .fitting-fit-notice:is(:hover,:focus-visible) .fit-range{transform:translate(-50%,0)}
+ .fitting-fit-notice:is(:hover,:focus-visible) .fitting-thin-corners i:nth-child(1){transform:translate(-2px,-2px)}
+ .fitting-fit-notice:is(:hover,:focus-visible) .fitting-thin-corners i:nth-child(2){transform:translate(2px,-2px)}
+ .fitting-fit-notice:is(:hover,:focus-visible) .fitting-thin-corners i:nth-child(3){transform:translate(-2px,2px)}
+ .fitting-fit-notice:is(:hover,:focus-visible) .fitting-thin-corners i:nth-child(4){transform:translate(2px,2px)}
+}
+@media(max-width:767px){
+ .fitting-fit-notice{display:none}
+ .fitting-room{--fitting-save-height:48px}
+ .white-screen .fitting-save{left:-4px;width:calc(100% + 8px);height:48px;min-height:48px;font-size:14px;line-height:20px}
+}

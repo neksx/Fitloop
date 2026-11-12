@@ -1,0 +1,200 @@
+[
+  {
+    "name": "jacket-1",
+    "source": "/Users/neksx/.codex/generated_images/01a18c94-e509-7e63-bc78-734a498ec3b8/exec-a713fe89-ca15-46bd-b8e6-1f82e4032ae9.png",
+    "size": [
+      1024,
+      1536
+    ],
+    "alpha": [
+      0,
+      254
+    ],
+    "corners": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "name": "jacket-2",
+    "source": "/Users/neksx/.codex/generated_images/01a18c94-e509-7e63-bc78-734a498ec3b8/exec-ccfb415f-3ceb-4d71-81b9-315efb9fc4c1.png",
+    "size": [
+      1024,
+      1536
+    ],
+    "alpha": [
+      0,
+      254
+    ],
+    "corners": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "name": "jacket-3",
+    "source": "/Users/neksx/.codex/generated_images/01a18c94-e509-7e63-bc78-734a498ec3b8/exec-bb6922d9-3740-4b2b-bd2c-a12fbb363054.png",
+    "size": [
+      1024,
+      1536
+    ],
+    "alpha": [
+      0,
+      254
+    ],
+    "corners": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "name": "pearl-1",
+    "source": "/Users/neksx/.codex/generated_images/01a18c94-e509-7e63-bc78-734a498ec3b8/exec-a53f14a5-743a-435f-9a14-081b7869fbf0.png",
+    "size": [
+      1024,
+      1536
+    ],
+    "alpha": [
+      0,
+      254
+    ],
+    "corners": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "name": "pearl-2",
+    "source": "/Users/neksx/.codex/generated_images/01a18c94-e509-7e63-bc78-734a498ec3b8/exec-26f5d5b8-b7e8-4526-9cda-98b8684bb93a.png",
+    "size": [
+      1024,
+      1536
+    ],
+    "alpha": [
+      0,
+      254
+    ],
+    "corners": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "name": "pearl-3",
+    "source": "/Users/neksx/.codex/generated_images/01a18c94-e509-7e63-bc78-734a498ec3b8/exec-4c1edfec-56c4-4b6b-9f4a-09fb96444537.png",
+    "size": [
+      1024,
+      1536
+    ],
+    "alpha": [
+      0,
+      254
+    ],
+    "corners": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "name": "gradient-1",
+    "source": "/Users/neksx/.codex/generated_images/01a18c94-e509-7e63-bc78-734a498ec3b8/exec-76eb87a0-4917-43ed-95f9-38fee0b35887.png",
+    "size": [
+      1024,
+      1536
+    ],
+    "alpha": [
+      0,
+      254
+    ],
+    "corners": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "name": "gradient-2",
+    "source": "/Users/neksx/.codex/generated_images/01a18c94-e509-7e63-bc78-734a498ec3b8/exec-7597ea6a-eab9-4e53-94f8-54f24f0d0547.png",
+    "size": [
+      1024,
+      1536
+    ],
+    "alpha": [
+      0,
+      254
+    ],
+    "corners": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "name": "gradient-3",
+    "source": "/Users/neksx/.codex/generated_images/01a18c94-e509-7e63-bc78-734a498ec3b8/exec-89c1dcd5-1e8b-4ca9-bc09-f408a0c56729.png",
+    "size": [
+      1024,
+      1536
+    ],
+    "alpha": [
+      0,
+      254
+    ],
+    "corners": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "name": "flare-1",
+    "source": "/Users/neksx/.codex/generated_images/01a18c94-e509-7e63-bc78-734a498ec3b8/exec-0a63c7a9-36e0-4054-b45c-4813aced6fa1.png",
+    "size": [
+      1024,
+      1536
+    ],
+    "alpha": [
+      0,
+      254
+    ],
+    "corners": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "name": "flare-2",
+    "source": "/Users/neksx/.codex/generated_images/01a18c94-e509-7e63-bc78-734a498ec3b8/exec-8f6378f6-ae4b-45e8-96b9-57433ed2c3bf.png",
+    "size": [
+      1024,
+      1536
+    ],
+    "alpha": [
+      0,
+      254
+    ],
+    "corners": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+]

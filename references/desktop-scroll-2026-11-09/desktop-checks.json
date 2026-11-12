@@ -1,0 +1,254 @@
+{
+  "baseline": {
+    "figure": "{\"x\":50.27764127764128,\"y\":42,\"w\":49.44471744471745,\"h\":156}",
+    "portrait": "woman-2",
+    "room": {
+      "h": 240,
+      "w": 300,
+      "x": 490,
+      "y": 285
+    },
+    "roomActive": "true",
+    "scroll": "1120.0"
+  },
+  "replace": {
+    "id": "4",
+    "notice": false,
+    "portrait": "woman-2"
+  },
+  "refresh": {
+    "figure": "{\"x\":51.3490099009901,\"y\":42,\"w\":47.301980198019805,\"h\":156}",
+    "id": "4",
+    "notice": false,
+    "portrait": "woman-tie-dye-2"
+  },
+  "divider": {
+    "color": "rgb(230, 232, 234)",
+    "height": "240px",
+    "width": "1px",
+    "z": "6"
+  },
+  "cycle": [
+    {
+      "card": {
+        "h": 240,
+        "w": 150,
+        "x": 490,
+        "y": 240
+      },
+      "cardCenter": {
+        "x": 565,
+        "y": 360
+      },
+      "id": "5",
+      "inkCenter": {
+        "x": 564.999995,
+        "y": 359.99995025
+      },
+      "matrix": "matrix(0.0862745, 0, 0, 0.0862745, 3.39216, -19.9569)",
+      "notice": false,
+      "opacity": "1",
+      "svg": {
+        "h": 240,
+        "w": 150,
+        "x": 490,
+        "y": 240
+      },
+      "svgCount": 1,
+      "transform": "none"
+    },
+    {
+      "card": {
+        "h": 240,
+        "w": 150,
+        "x": 490,
+        "y": 240
+      },
+      "cardCenter": {
+        "x": 565,
+        "y": 360
+      },
+      "id": "6",
+      "inkCenter": {
+        "x": 565.00002485,
+        "y": 360.00003535
+      },
+      "matrix": "matrix(0.0797013, 0, 0, 0.0797013, 8.48929, -7.1957)",
+      "notice": false,
+      "opacity": "1",
+      "svg": {
+        "h": 240,
+        "w": 150,
+        "x": 490,
+        "y": 240
+      },
+      "svgCount": 1,
+      "transform": "none",
+      "realNotice": false
+    },
+    {
+      "card": {
+        "h": 240,
+        "w": 150,
+        "x": 490,
+        "y": 240
+      },
+      "cardCenter": {
+        "x": 565,
+        "y": 360
+      },
+      "id": "7",
+      "inkCenter": {
+        "x": 565.00003365,
+        "y": 360.00008445000003
+      },
+      "matrix": "matrix(0.0882801, 0, 0, 0.0882801, 1.15373, -19.8645)",
+      "notice": false,
+      "opacity": "1",
+      "svg": {
+        "h": 240,
+        "w": 150,
+        "x": 490,
+        "y": 240
+      },
+      "svgCount": 1,
+      "transform": "none",
+      "realNotice": false
+    },
+    {
+      "card": {
+        "h": 240,
+        "w": 150,
+        "x": 490,
+        "y": 240
+      },
+      "cardCenter": {
+        "x": 565,
+        "y": 360
+      },
+      "id": "8",
+      "inkCenter": {
+        "x": 564.99999875,
+        "y": 360.00001499999996
+      },
+      "matrix": "matrix(0.0988925, 0, 0, 0.0988925, 24.2187, 11.0838)",
+      "notice": false,
+      "opacity": "1",
+      "svg": {
+        "h": 240,
+        "w": 150,
+        "x": 490,
+        "y": 240
+      },
+      "svgCount": 1,
+      "transform": "none",
+      "realNotice": false
+    },
+    {
+      "card": {
+        "h": 240,
+        "w": 150,
+        "x": 490,
+        "y": 240
+      },
+      "cardCenter": {
+        "x": 565,
+        "y": 360
+      },
+      "id": "0",
+      "inkCenter": {
+        "x": 564.999915,
+        "y": 359.9998525
+      },
+      "matrix": "matrix(0.11729, 0, 0, 0.11729, 14.7715, -0.0788675)",
+      "notice": false,
+      "opacity": "1",
+      "svg": {
+        "h": 240,
+        "w": 150,
+        "x": 490,
+        "y": 240
+      },
+      "svgCount": 1,
+      "transform": "none",
+      "realNotice": false
+    },
+    {
+      "card": {
+        "h": 240,
+        "w": 150,
+        "x": 490,
+        "y": 240
+      },
+      "cardCenter": {
+        "x": 565,
+        "y": 360
+      },
+      "id": "4",
+      "inkCenter": {
+        "x": 564.9999998,
+        "y": 360.00001795000003
+      },
+      "matrix": "matrix(0.0815047, 0, 0, 0.0815047, 7.02508, -11.7586)",
+      "notice": false,
+      "opacity": "1",
+      "svg": {
+        "h": 240,
+        "w": 150,
+        "x": 490,
+        "y": 240
+      },
+      "svgCount": 1,
+      "transform": "none",
+      "realNotice": false
+    },
+    {
+      "card": {
+        "h": 240,
+        "w": 150,
+        "x": 490,
+        "y": 240
+      },
+      "cardCenter": {
+        "x": 565,
+        "y": 360
+      },
+      "id": "5",
+      "inkCenter": {
+        "x": 564.999995,
+        "y": 359.99995025
+      },
+      "matrix": "matrix(0.0862745, 0, 0, 0.0862745, 3.39216, -19.9569)",
+      "notice": false,
+      "opacity": "1",
+      "svg": {
+        "h": 240,
+        "w": 150,
+        "x": 490,
+        "y": 240
+      },
+      "svgCount": 1,
+      "transform": "none",
+      "realNotice": false
+    }
+  ],
+  "saved": {
+    "figure": {
+      "h": 156,
+      "w": 47.301980198019805,
+      "x": 93.3490099009901,
+      "y": 42
+    },
+    "frame": {
+      "h": 240,
+      "w": 234,
+      "x": 523,
+      "y": 283
+    },
+    "nameFont": "10px",
+    "nameGap": 10,
+    "portrait": "woman-tie-dye-2",
+    "statusFont": "10px",
+    "statusGap": 16
+  }
+}

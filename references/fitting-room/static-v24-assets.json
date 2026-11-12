@@ -1,0 +1,35 @@
+{
+  "pearl": {
+    "source": "/Users/neksx/.codex/generated_images/01a19bec-6561-7ba0-92ac-990906f00a80/exec-67f4cb64-f2f1-4729-a6d5-c6a7dd0053c7.png",
+    "size": [
+      1024,
+      1536
+    ],
+    "axis": 512.0,
+    "top": 20,
+    "height": 1488,
+    "output": "static-pearl-v24.png"
+  },
+  "gradient": {
+    "source": "/Users/neksx/.codex/generated_images/01a19bec-6561-7ba0-92ac-990906f00a80/exec-2ee8232d-bc69-4ec3-9987-067ba5c50a93.png",
+    "size": [
+      1024,
+      1536
+    ],
+    "axis": 513.5,
+    "top": 21,
+    "height": 1487,
+    "output": "static-gradient-v24.png"
+  },
+  "flare": {
+    "source": "/Users/neksx/.codex/generated_images/01a19bec-6561-7ba0-92ac-990906f00a80/exec-01b99703-bfc4-4883-a770-fd8def4a6c9c.png",
+    "size": [
+      1024,
+      1536
+    ],
+    "axis": 514.0,
+    "top": 21,
+    "height": 1487,
+    "output": "static-flare-v24.png"
+  }
+}

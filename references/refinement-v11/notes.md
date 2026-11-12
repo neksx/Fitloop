@@ -1,0 +1,1 @@
+All24 repeated hover labels replaced with Зробити поєднання, split into two centered lines. Existing corner frame and hover animation retained;14px/18px desktop and12px/16px mobile fit the50px-high frame. No change to product destinations.

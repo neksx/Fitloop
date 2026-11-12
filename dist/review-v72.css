@@ -1,0 +1,11 @@
+/* Local review v72 — mobile fitting controls. */
+@media(max-width:767px){
+ .fitting-room.fitting-panel-open>.fitting-model-factory{visibility:visible;pointer-events:auto}
+ .menu-is-open .fitting-room>.fitting-model-factory{visibility:hidden;pointer-events:none}
+ .fitting-room .look-switcher{display:grid;grid-template-columns:minmax(0,1fr) auto auto;column-gap:8px;padding:7px 8px;align-items:center}
+ .fitting-room #look-name{width:var(--look-name-width,36px);max-width:100%;min-width:0;justify-self:start;font-size:10px}
+ .fitting-room #look-name:focus{font-size:10px}
+ .fitting-room .look-switcher .look-count{margin:0;justify-self:end}
+ .fitting-room #look-thumbnails{width:calc(var(--visible-thumbnails,1)*24px + (var(--visible-thumbnails,1) - 1)*4px);max-width:none;gap:4px;overflow:hidden;scrollbar-width:none}
+ .fitting-room #look-thumbnails .look-thumbnail{width:24px;height:24px;flex:0 0 24px}
+}

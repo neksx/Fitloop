@@ -1,0 +1,123 @@
+{
+  "scope": "FITLOOP V61 product IDs 9, 10, 11 gallery background removal",
+  "records": [
+    {
+      "input": "/Users/neksx/Documents/ChatGPT/AI/sites/fitloop-intro-hero/dist/assets/fitting-room/women-baggy-embossed-logo-0.jpg",
+      "catalogPath": "assets/fitting-room/women-baggy-embossed-logo-0.jpg",
+      "tool": "image_gen.imagegen",
+      "transparent_background": true,
+      "prompt": "Use case: background-extraction. Asset type: production ecommerce gallery photo. Input image 1 is the exact edit target. Remove ONLY the studio backdrop, floor and cast shadows, replacing them with real fully transparent alpha. Preserve the exact photographed person and garments, pose, body crop, camera angle, framing, position, proportions, denim wash, texture, logos, rhinestones, frayed hems, hangtags, hands, skin and shoes. Do not recompose, recrop, resize the subject, add missing body parts, redesign the product, smooth fabric or change colors. Keep the same 2:3 portrait composition and relative subject placement; do not fill the crop with extra content. Subject appearance should remain as close as possible to the input. Maintain natural fine edges with no pale/gray halo; transparent space includes gaps between legs/arms. No replacement background, gradient, floor, shadow, extra objects or text. Output transparent PNG.",
+      "generatedOriginal": "/Users/neksx/.codex/generated_images/01a1ad22-70e4-7293-b937-ea623e1c6369/exec-284d7f3c-9ce7-4d02-b086-0866560d8eb9.png",
+      "output": "/Users/neksx/Documents/ChatGPT/AI/outputs/fitloop-gallery-backgrounds-v61/bottoms/women-baggy-embossed-logo-0-transparent-v61.png",
+      "attempts": 1
+    },
+    {
+      "input": "/Users/neksx/Documents/ChatGPT/AI/sites/fitloop-intro-hero/dist/assets/fitting-room/women-baggy-embossed-logo-1.jpg",
+      "catalogPath": "assets/fitting-room/women-baggy-embossed-logo-1.jpg",
+      "tool": "image_gen.imagegen",
+      "transparent_background": true,
+      "prompt": "Use case: background-extraction. Asset type: production ecommerce gallery photo. Input image 1 is the exact edit target. Remove ONLY the studio backdrop, floor and cast shadows, replacing them with real fully transparent alpha. Preserve the exact photographed person and garments, pose, body crop, camera angle, framing, position, proportions, denim wash, texture, logos, rhinestones, frayed hems, hangtags, hands, skin and shoes. Do not recompose, recrop, resize the subject, add missing body parts, redesign the product, smooth fabric or change colors. Keep the same 2:3 portrait composition and relative subject placement; do not fill the crop with extra content. Subject appearance should remain as close as possible to the input. Maintain natural fine edges with no pale/gray halo; transparent space includes gaps between legs/arms. No replacement background, gradient, floor, shadow, extra objects or text. Output transparent PNG.",
+      "generatedOriginal": "/Users/neksx/.codex/generated_images/01a1ad22-70e4-7293-b937-ea623e1c6369/exec-a0eff301-b901-476f-a55d-d3fb39a86cb3.png",
+      "output": "/Users/neksx/Documents/ChatGPT/AI/outputs/fitloop-gallery-backgrounds-v61/bottoms/women-baggy-embossed-logo-1-transparent-v61.png",
+      "attempts": 1
+    },
+    {
+      "input": "/Users/neksx/Documents/ChatGPT/AI/sites/fitloop-intro-hero/dist/assets/fitting-room/women-baggy-embossed-logo-2.jpg",
+      "catalogPath": "assets/fitting-room/women-baggy-embossed-logo-2.jpg",
+      "tool": "image_gen.imagegen",
+      "transparent_background": true,
+      "prompt": "Use case: background-extraction. Asset type: production ecommerce gallery photo. Input image 1 is the exact edit target. Remove ONLY the studio backdrop, floor and cast shadows, replacing them with real fully transparent alpha. Preserve the exact photographed person and garments, pose, body crop, camera angle, framing, position, proportions, denim wash, texture, logos, rhinestones, frayed hems, hangtags, hands, skin and shoes. Do not recompose, recrop, resize the subject, add missing body parts, redesign the product, smooth fabric or change colors. Keep the same 2:3 portrait composition and relative subject placement; do not fill the crop with extra content. Subject appearance should remain as close as possible to the input. Maintain natural fine edges with no pale/gray halo; transparent space includes gaps between legs/arms. No replacement background, gradient, floor, shadow, extra objects or text. Output transparent PNG.",
+      "generatedOriginal": "/Users/neksx/.codex/generated_images/01a1ad22-70e4-7293-b937-ea623e1c6369/exec-212d91c7-8a5b-47e7-b7b1-4f765e025092.png",
+      "output": "/Users/neksx/Documents/ChatGPT/AI/outputs/fitloop-gallery-backgrounds-v61/bottoms/women-baggy-embossed-logo-2-transparent-v61.png",
+      "attempts": 1
+    },
+    {
+      "input": "/Users/neksx/Documents/ChatGPT/AI/sites/fitloop-intro-hero/dist/assets/fitting-room/women-baggy-embossed-logo-3.jpg",
+      "catalogPath": "assets/fitting-room/women-baggy-embossed-logo-3.jpg",
+      "tool": "image_gen.imagegen",
+      "transparent_background": true,
+      "prompt": "Use case: background-extraction. Asset type: production ecommerce gallery photo. Input image 1 is the exact edit target. Remove ONLY the studio backdrop, floor and cast shadows, replacing them with real fully transparent alpha. Preserve the exact photographed person and garments, pose, body crop, camera angle, framing, position, proportions, denim wash, texture, logos, rhinestones, frayed hems, hangtags, hands, skin and shoes. Do not recompose, recrop, resize the subject, add missing body parts, redesign the product, smooth fabric or change colors. Keep the same 2:3 portrait composition and relative subject placement; do not fill the crop with extra content. Subject appearance should remain as close as possible to the input. Maintain natural fine edges with no pale/gray halo; transparent space includes gaps between legs/arms. No replacement background, gradient, floor, shadow, extra objects or text. Output transparent PNG.",
+      "generatedOriginal": "/Users/neksx/.codex/generated_images/01a1ad22-70e4-7293-b937-ea623e1c6369/exec-70f833e7-07ca-44a9-a3c2-97bbb229d43b.png",
+      "output": "/Users/neksx/Documents/ChatGPT/AI/outputs/fitloop-gallery-backgrounds-v61/bottoms/women-baggy-embossed-logo-3-transparent-v61.png",
+      "attempts": 1
+    },
+    {
+      "input": "/Users/neksx/Documents/ChatGPT/AI/sites/fitloop-intro-hero/dist/assets/fitting-room/women-logo-bling-mini-skirt-light-indigo-1.jpg",
+      "catalogPath": "assets/fitting-room/women-logo-bling-mini-skirt-light-indigo-1.jpg",
+      "tool": "image_gen.imagegen",
+      "transparent_background": true,
+      "prompt": "Use case: background-extraction. Asset type: production ecommerce gallery photo. Input image 1 is the exact edit target. Remove ONLY the studio backdrop, floor and cast shadows, replacing them with real fully transparent alpha. Preserve the exact photographed person and garments, pose, body crop, camera angle, framing, position, proportions, denim wash, texture, logos, rhinestones, frayed hems, hangtags, hands, skin and shoes. Do not recompose, recrop, resize the subject, add missing body parts, redesign the product, smooth fabric or change colors. Keep the same 2:3 portrait composition and relative subject placement; do not fill the crop with extra content. Subject appearance should remain as close as possible to the input. Maintain natural fine edges with no pale/gray halo; transparent space includes gaps between legs/arms. No replacement background, gradient, floor, shadow, extra objects or text. Output transparent PNG.",
+      "generatedOriginal": "/Users/neksx/.codex/generated_images/01a1ad22-70e4-7293-b937-ea623e1c6369/exec-ac24f603-485a-41d6-ab7c-603ac162088e.png",
+      "output": "/Users/neksx/Documents/ChatGPT/AI/outputs/fitloop-gallery-backgrounds-v61/bottoms/women-logo-bling-mini-skirt-light-indigo-1-transparent-v61.png",
+      "attempts": 1
+    },
+    {
+      "input": "/Users/neksx/Documents/ChatGPT/AI/sites/fitloop-intro-hero/dist/assets/fitting-room/women-logo-bling-mini-skirt-light-indigo-2.jpg",
+      "catalogPath": "assets/fitting-room/women-logo-bling-mini-skirt-light-indigo-2.jpg",
+      "tool": "image_gen.imagegen",
+      "transparent_background": true,
+      "prompt": "Use case: background-extraction. Asset type: production ecommerce gallery photo. Input image 1 is the exact edit target. Remove ONLY the studio backdrop, floor and cast shadows, replacing them with real fully transparent alpha. Preserve the exact photographed person and garments, pose, body crop, camera angle, framing, position, proportions, denim wash, texture, logos, rhinestones, frayed hems, hangtags, hands, skin and shoes. Do not recompose, recrop, resize the subject, add missing body parts, redesign the product, smooth fabric or change colors. Keep the same 2:3 portrait composition and relative subject placement; do not fill the crop with extra content. Subject appearance should remain as close as possible to the input. Maintain natural fine edges with no pale/gray halo; transparent space includes gaps between legs/arms. No replacement background, gradient, floor, shadow, extra objects or text. Output transparent PNG.",
+      "generatedOriginal": "/Users/neksx/.codex/generated_images/01a1ad22-70e4-7293-b937-ea623e1c6369/exec-e7d60f6a-c77e-4f74-9441-9fbd062672bd.png",
+      "output": "/Users/neksx/Documents/ChatGPT/AI/outputs/fitloop-gallery-backgrounds-v61/bottoms/women-logo-bling-mini-skirt-light-indigo-2-transparent-v61.png",
+      "attempts": 1
+    },
+    {
+      "input": "/Users/neksx/Documents/ChatGPT/AI/sites/fitloop-intro-hero/dist/assets/fitting-room/women-logo-bling-mini-skirt-light-indigo-3.jpg",
+      "catalogPath": "assets/fitting-room/women-logo-bling-mini-skirt-light-indigo-3.jpg",
+      "tool": "image_gen.imagegen",
+      "transparent_background": true,
+      "prompt": "Use case: background-extraction. Asset type: production ecommerce gallery photo. Input image 1 is the exact edit target. Remove ONLY the studio backdrop, floor and cast shadows, replacing them with real fully transparent alpha. Preserve the exact photographed person and garments, pose, body crop, camera angle, framing, position, proportions, denim wash, texture, logos, rhinestones, frayed hems, hangtags, hands, skin and shoes. Do not recompose, recrop, resize the subject, add missing body parts, redesign the product, smooth fabric or change colors. Keep the same 2:3 portrait composition and relative subject placement; do not fill the crop with extra content. Subject appearance should remain as close as possible to the input. Maintain natural fine edges with no pale/gray halo; transparent space includes gaps between legs/arms. No replacement background, gradient, floor, shadow, extra objects or text. Output transparent PNG.",
+      "generatedOriginal": "/Users/neksx/.codex/generated_images/01a1ad22-70e4-7293-b937-ea623e1c6369/exec-605d6ba4-f986-468e-9563-c7affce56f1a.png",
+      "output": "/Users/neksx/Documents/ChatGPT/AI/outputs/fitloop-gallery-backgrounds-v61/bottoms/women-logo-bling-mini-skirt-light-indigo-3-transparent-v61.png",
+      "attempts": 2
+    },
+    {
+      "input": "/Users/neksx/Documents/ChatGPT/AI/sites/fitloop-intro-hero/dist/assets/fitting-room/women-logo-bling-cut-off-short-light-indigo-1.jpg",
+      "catalogPath": "assets/fitting-room/women-logo-bling-cut-off-short-light-indigo-1.jpg",
+      "tool": "image_gen.imagegen",
+      "transparent_background": true,
+      "prompt": "Use case: background-extraction. Asset type: production ecommerce gallery photo. Input image 1 is the exact edit target. Remove ONLY the studio backdrop, floor and cast shadows, replacing them with real fully transparent alpha. Preserve the exact photographed person and garments, pose, body crop, camera angle, framing, position, proportions, denim wash, texture, logos, rhinestones, frayed hems, hangtags, hands, skin and shoes. Do not recompose, recrop, resize the subject, add missing body parts, redesign the product, smooth fabric or change colors. Keep the same 2:3 portrait composition and relative subject placement; do not fill the crop with extra content. Subject appearance should remain as close as possible to the input. Maintain natural fine edges with no pale/gray halo; transparent space includes gaps between legs/arms. No replacement background, gradient, floor, shadow, extra objects or text. Output transparent PNG.",
+      "generatedOriginal": "/Users/neksx/.codex/generated_images/01a1ad22-70e4-7293-b937-ea623e1c6369/exec-90eb64cf-7415-40dd-a273-d0de04449f93.png",
+      "output": "/Users/neksx/Documents/ChatGPT/AI/outputs/fitloop-gallery-backgrounds-v61/bottoms/women-logo-bling-cut-off-short-light-indigo-1-transparent-v61.png",
+      "attempts": 1
+    },
+    {
+      "input": "/Users/neksx/Documents/ChatGPT/AI/sites/fitloop-intro-hero/dist/assets/fitting-room/women-logo-bling-cut-off-short-light-indigo-2.jpg",
+      "catalogPath": "assets/fitting-room/women-logo-bling-cut-off-short-light-indigo-2.jpg",
+      "tool": "image_gen.imagegen",
+      "transparent_background": true,
+      "prompt": "Use case: background-extraction. Asset type: production ecommerce gallery photo. Input image 1 is the exact edit target. Remove ONLY the studio backdrop, floor and cast shadows, replacing them with real fully transparent alpha. Preserve the exact photographed person and garments, pose, body crop, camera angle, framing, position, proportions, denim wash, texture, logos, rhinestones, frayed hems, hangtags, hands, skin and shoes. Do not recompose, recrop, resize the subject, add missing body parts, redesign the product, smooth fabric or change colors. Keep the same 2:3 portrait composition and relative subject placement; do not fill the crop with extra content. Subject appearance should remain as close as possible to the input. Maintain natural fine edges with no pale/gray halo; transparent space includes gaps between legs/arms. No replacement background, gradient, floor, shadow, extra objects or text. Output transparent PNG.",
+      "generatedOriginal": "/Users/neksx/.codex/generated_images/01a1ad22-70e4-7293-b937-ea623e1c6369/exec-7451716f-d3a1-44d8-ba1d-677a80efbb7d.png",
+      "output": "/Users/neksx/Documents/ChatGPT/AI/outputs/fitloop-gallery-backgrounds-v61/bottoms/women-logo-bling-cut-off-short-light-indigo-2-transparent-v61.png",
+      "attempts": 1
+    },
+    {
+      "input": "/Users/neksx/Documents/ChatGPT/AI/sites/fitloop-intro-hero/dist/assets/fitting-room/women-logo-bling-cut-off-short-light-indigo-3.jpg",
+      "catalogPath": "assets/fitting-room/women-logo-bling-cut-off-short-light-indigo-3.jpg",
+      "tool": "image_gen.imagegen",
+      "transparent_background": true,
+      "prompt": "Use case: background-extraction. Asset type: production ecommerce gallery photo. Input image 1 is the exact edit target. Remove ONLY the studio backdrop, floor and cast shadows, replacing them with real fully transparent alpha. Preserve the exact photographed person and garments, pose, body crop, camera angle, framing, position, proportions, denim wash, texture, logos, rhinestones, frayed hems, hangtags, hands, skin and shoes. Do not recompose, recrop, resize the subject, add missing body parts, redesign the product, smooth fabric or change colors. Keep the same 2:3 portrait composition and relative subject placement; do not fill the crop with extra content. Subject appearance should remain as close as possible to the input. Maintain natural fine edges with no pale/gray halo; transparent space includes gaps between legs/arms. No replacement background, gradient, floor, shadow, extra objects or text. Output transparent PNG.",
+      "generatedOriginal": "/Users/neksx/.codex/generated_images/01a1ad22-70e4-7293-b937-ea623e1c6369/exec-5c69db0b-9755-4c4c-8639-e393191c8864.png",
+      "output": "/Users/neksx/Documents/ChatGPT/AI/outputs/fitloop-gallery-backgrounds-v61/bottoms/women-logo-bling-cut-off-short-light-indigo-3-transparent-v61.png",
+      "attempts": 1
+    }
+  ],
+  "skipped": [
+    {
+      "path": "dist/assets/fitting-room/women-baggy-embossed-cutout-v58.png",
+      "reason": "Existing transparent PNG."
+    },
+    {
+      "path": "dist/assets/fitting-room/women-logo-bling-mini-skirt-light-indigo-0.jpg",
+      "reason": "Pure white catalog background; parent requested keeping already white shots."
+    },
+    {
+      "path": "dist/assets/fitting-room/women-logo-bling-cut-off-short-light-indigo-0.jpg",
+      "reason": "Pure white catalog background; parent requested keeping already white shots."
+    }
+  ],
+  "validation": {
+    "allOutputs": "1024x1536 PNG, real alpha channel; alpha min0/max254. All inspected flattened on white. See qa.json and *-qa-white.png.",
+    "limitations": "Generative extraction may subtly change microtexture or brand/rhinestone detail; original 1668x2502 files are retained. Two shorts outputs have one corner pixel alpha1/255, visually transparent."
+  }
+}

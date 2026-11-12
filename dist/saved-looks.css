@@ -1,0 +1,97 @@
+/* Reuse the third-section components, dimensions and font assets. */
+.saved-screen{background:#fff;color:#171816;overflow-y:auto;overscroll-behavior:contain;font-family:AvenirNext,sans-serif;padding:110px 40px 40px;scroll-padding-top:110px}
+.saved-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px 24px}
+.saved-card{position:relative;height:calc(100vh - 140px);min-height:520px;padding:12px;background:transparent}
+.saved-card>.fitting-corners{inset:0;opacity:1}
+.saved-card:is(:hover,:focus-within)>.fitting-corners{opacity:1}
+.saved-card-header{position:relative;display:flex;align-items:center;justify-content:space-between;gap:16px;z-index:2;height:20px}
+.saved-name{position:relative;display:flex;align-items:center;justify-content:center;min-height:20px;padding:0 8px;font:600 10px/13.2px AvenirNext,sans-serif;max-width:65%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.saved-name>.fitting-thin-corners{--corner-length:6px}
+.saved-portrait{position:absolute;inset:36px 12px 12px;pointer-events:none;transform-origin:center bottom}
+.saved-portrait canvas{display:block;width:100%;height:100%;object-fit:contain}
+.saved-card:is(:hover,:focus-within) .saved-portrait{animation:saved-sway 6s ease-in-out infinite}
+.saved-screen .saved-view{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:170px;min-height:50px;padding:14px 30px;font-size:14px;line-height:20px;background:rgba(153,153,153,.92);border-color:transparent;backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px);opacity:0;pointer-events:none;transition:opacity .2s ease-in-out,background-color .2s ease-in-out;z-index:3}
+.saved-card:is(:hover,:focus-within) .saved-view{opacity:1;pointer-events:auto}
+.saved-screen .saved-view:is(:hover,:focus-visible){background:rgba(153,153,153,.96)}
+.saved-nav-label{display:none;position:absolute;left:56px;top:50%;transform:translateY(-50%);font:400 10px/13.2px AvenirNext,sans-serif;color:#171816;letter-spacing:0;white-space:nowrap}
+body[data-screen="3"]:not(.menu-is-open) .saved-nav-label{display:block}
+.saved-empty{text-align:center;margin:100px auto;font:400 12px/20px AvenirNext,sans-serif}.saved-empty a{margin:24px auto;width:200px}
+.saved-status{font:400 10px/13.2px AvenirNext,sans-serif;min-height:14px;margin-top:20px}.saved-undo{margin-left:8px;text-decoration:underline}
+@keyframes saved-sway{0%,100%{transform:translate3d(0,0,0) rotate(-.15deg)}50%{transform:translate3d(1px,-1px,0) rotate(.15deg)}}
+@media(prefers-reduced-motion:reduce){.saved-card:is(:hover,:focus-within) .saved-portrait{animation:none}.saved-view{transition:none!important}}
+.saved-screen .saved-view::before,.saved-screen .saved-view::after,.saved-screen .saved-view>span::before,.saved-screen .saved-view>span::after{border-color:#b2b2b2}
+/* Touch keeps the card frame visible; button marks have time to open before navigation. */
+.saved-screen .saved-view::before,.saved-screen .saved-view::after,.saved-screen .saved-view>span::before,.saved-screen .saved-view>span::after{opacity:0;transform:translate(0,0);transition:opacity .28s ease,transform .38s cubic-bezier(.22,1,.36,1)}
+.saved-screen .saved-view:is(:active,.is-opening)::before,.saved-screen .saved-view:is(:active,.is-opening)::after,.saved-screen .saved-view:is(:active,.is-opening)>span::before,.saved-screen .saved-view:is(:active,.is-opening)>span::after{opacity:1}
+.saved-screen .saved-view:is(:active,.is-opening)::before{transform:translate(-5px,-5px)}
+.saved-screen .saved-view:is(:active,.is-opening)::after{transform:translate(5px,5px)}
+.saved-screen .saved-view:is(:active,.is-opening)>span::before{transform:translate(5px,-5px)}
+.saved-screen .saved-view:is(:active,.is-opening)>span::after{transform:translate(-5px,5px)}
+@media(min-width:768px) and (hover:hover) and (pointer:fine){
+ .saved-card>.fitting-corners{opacity:0}
+ .saved-card:is(:hover,:focus-within)>.fitting-corners{opacity:1}
+ .saved-screen .saved-view:is(:hover,:focus-visible)::before,.saved-screen .saved-view:is(:hover,:focus-visible)::after,.saved-screen .saved-view:is(:hover,:focus-visible)>span::before,.saved-screen .saved-view:is(:hover,:focus-visible)>span::after{opacity:1}
+ .saved-screen .saved-view:is(:hover,:focus-visible)::before{transform:translate(-5px,-5px)}
+ .saved-screen .saved-view:is(:hover,:focus-visible)::after{transform:translate(5px,5px)}
+ .saved-screen .saved-view:is(:hover,:focus-visible)>span::before{transform:translate(5px,-5px)}
+ .saved-screen .saved-view:is(:hover,:focus-visible)>span::after{transform:translate(-5px,5px)}
+}
+@media(prefers-reduced-motion:reduce){
+ .saved-screen .saved-view::before,.saved-screen .saved-view::after,.saved-screen .saved-view>span::before,.saved-screen .saved-view>span::after{transition:none}
+}
+/* Keep scrolled card actions below the native navigation, including Save playback. */
+.saved-screen::before{content:'';position:fixed;left:0;right:0;top:0;height:90px;z-index:5;background:#fff;pointer-events:none}
+@media(max-width:767px){.saved-screen::before{height:76px}}
+
+/* Approved 36px SVG cursor: desktop only; the existing touch button stays intact. */
+.saved-cursor{display:none}
+@media(min-width:768px) and (hover:hover) and (pointer:fine){
+ .saved-screen .saved-card .saved-view{inset:36px 0 0;transform:none;width:auto;height:auto;min-height:0;padding:0;border:0;border-radius:0;background:transparent!important;backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:none;cursor:none;overflow:visible}
+ .saved-screen .saved-card .saved-view::before,.saved-screen .saved-card .saved-view::after,.saved-screen .saved-card .saved-view-label{display:none}
+ .saved-screen .saved-view .saved-cursor{display:block;position:absolute;left:var(--saved-cursor-x,50%);top:var(--saved-cursor-y,50%);width:36px;height:36px;transform:translate(-50%,-50%);pointer-events:none;overflow:visible;stroke-linecap:square;stroke-linejoin:miter}
+ .saved-cursor-corners{stroke:#B2B2B2;transition:stroke .15s ease}
+ .saved-cursor-arrow{stroke:#171816;transition:stroke .15s ease}
+ .saved-view.is-over-model .saved-cursor-corners{stroke:#E6E8EA}
+ .saved-view.is-over-model .saved-cursor-arrow{stroke:#FFFFFF}
+}
+@media(prefers-reduced-motion:reduce){.saved-cursor-corners,.saved-cursor-arrow{transition:none}}
+
+/* V45: approved SVG export controls; header geometry matches the fitting panel. */
+.saved-card-header .fitting-panel-actions{gap:10px;transform:translateX(-2px)}
+.saved-card-header .fitting-panel-actions .saved-delete{transform:none}
+.saved-export-toggle[aria-expanded=true]>.fitting-thin-corners{opacity:1}
+.saved-export-options{position:absolute;left:50%;top:calc(50% + 14px);transform:translate(-50%,-50%) translateY(8px);z-index:4;display:flex;flex-direction:column;align-items:center;gap:16px;opacity:0;pointer-events:none;transition:opacity .25s ease,transform .4s ease}
+.saved-card.is-export-open .saved-export-options{opacity:1;transform:translate(-50%,-50%);pointer-events:auto;transition-delay:.28s}
+.saved-card .saved-portrait{transition:transform .65s cubic-bezier(.4,0,.2,1),opacity .65s ease}
+.saved-card.export-active .saved-portrait{animation:none;transform-origin:50% 50%}
+.saved-card.is-export-open .saved-portrait{transform:translateX(-126px) scale(.5);opacity:.4}
+.saved-screen .saved-card.export-active .saved-view{opacity:0;pointer-events:none}
+.saved-card.export-active>.fitting-corners{opacity:1}
+.saved-export-action{position:relative;display:flex;align-items:center;justify-content:center;flex:none;width:88.2239583333px;height:24px;min-width:0;min-height:0;padding:0 12px;border:0;background:#fff;color:#171816;font:600 10px/13.2px AvenirNext,sans-serif;letter-spacing:normal;text-transform:none;cursor:pointer;transition:opacity .25s ease}
+.saved-export-action>.fitting-thin-corners{inset:0;--corner-length:6px;--corner-color:#b2b2b2;opacity:1}
+.saved-export-action>.fitting-thin-corners i{transition:transform .2s ease}
+.saved-export-action:is(:hover,:focus-visible,:active,.is-success)>.fitting-thin-corners i:nth-child(1){transform:translate(-5px,-5px)}
+.saved-export-action:is(:hover,:focus-visible,:active,.is-success)>.fitting-thin-corners i:nth-child(2){transform:translate(5px,-5px)}
+.saved-export-action:is(:hover,:focus-visible,:active,.is-success)>.fitting-thin-corners i:nth-child(3){transform:translate(-5px,5px)}
+.saved-export-action:is(:hover,:focus-visible,:active,.is-success)>.fitting-thin-corners i:nth-child(4){transform:translate(5px,5px)}
+.saved-export-content{display:flex;align-items:center;justify-content:center;gap:6px;white-space:nowrap;transition:opacity .18s ease,transform .28s ease}
+.saved-export-content svg{display:block;width:10px;height:10px;flex:none}
+.saved-export-result{position:absolute;left:50%;top:50%;width:12px;height:12px;transform:translate(-50%,calc(-50% + 2px));opacity:0;transition:opacity .18s ease,transform .28s ease}
+.saved-export-result path{stroke-dasharray:16;stroke-dashoffset:16;transition:stroke-dashoffset .25s ease}
+.saved-export-action.is-success .saved-export-content{opacity:0;transform:translateY(-2px)}
+.saved-export-action.is-success .saved-export-result{opacity:1;transform:translate(-50%,-50%)}
+.saved-export-action.is-success .saved-export-result path{stroke-dashoffset:0}
+.saved-export-action.is-muted{opacity:.28;pointer-events:none}
+.saved-export-action:focus-visible{outline:none}
+.saved-view-transition .saved-nav-label{opacity:0;transition:opacity .25s ease}
+@media(prefers-reduced-motion:reduce){.saved-card .saved-portrait,.saved-export-options,.saved-export-action,.saved-export-content,.saved-export-result,.saved-export-result path,.saved-export-action>.fitting-thin-corners i{transition:none!important}}
+
+/* V46: desktop-only portrait handoff; preserve mobile for its later design pass. */
+@media(min-width:768px){
+ .saved-export-action:disabled:not(.is-muted){opacity:1;color:#171816}
+ .saved-export-action:disabled:not(.is-muted)>.fitting-thin-corners{--corner-color:#b2b2b2;opacity:1}
+ .saved-model-flight{position:fixed;z-index:55;pointer-events:none;object-fit:fill;max-width:none;transform-origin:center;will-change:left,top,width,height}
+ .saved-model-handoff .saved-nav-label{visibility:hidden}
+ .saved-model-handoff .saved-portrait,.saved-model-handoff .fitting-motion,.saved-model-handoff .fitting-photo{animation-play-state:paused!important}
+ .saved-model-handoff .local-saved-return{visibility:hidden}
+}

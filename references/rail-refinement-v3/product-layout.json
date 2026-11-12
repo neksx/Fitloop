@@ -1,0 +1,33 @@
+{
+  "source_image_size": [
+    900,
+    1349
+  ],
+  "garment_bounding_boxes": {
+    "purple-pearl-cropped-jacket-black.jpg": [
+      71,
+      352,
+      833,
+      955
+    ],
+    "purple-p018-textured-pearl-black.jpg": [
+      248,
+      281,
+      652,
+      1065
+    ],
+    "purple-p005-coated-gradient.jpg": [
+      282,
+      281,
+      618,
+      1067
+    ],
+    "purple-p004-upside-down-flare.jpg": [
+      251,
+      283,
+      647,
+      1066
+    ]
+  },
+  "layout": "Each original bitmap is placed in an SVG viewport centered on its observed garment bounds. Longest garment edge occupies 82% of the square. Original image bytes/colors remain unchanged."
+}

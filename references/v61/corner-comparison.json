@@ -1,0 +1,166 @@
+{
+  "add": [
+    {
+      "borderBottomWidth": "0px",
+      "borderLeftWidth": "2px",
+      "borderRightWidth": "0px",
+      "borderTopColor": "rgb(255, 255, 255)",
+      "borderTopWidth": "2px",
+      "height": "12px",
+      "left": "-1px",
+      "opacity": "1",
+      "top": "-1px",
+      "transform": "none",
+      "width": "12px"
+    },
+    {
+      "borderBottomWidth": "2px",
+      "borderLeftWidth": "0px",
+      "borderRightWidth": "2px",
+      "borderTopColor": "rgb(255, 255, 255)",
+      "borderTopWidth": "0px",
+      "bottom": "-1px",
+      "height": "12px",
+      "opacity": "1",
+      "right": "-1px",
+      "transform": "none",
+      "width": "12px"
+    },
+    {
+      "borderBottomWidth": "0px",
+      "borderLeftWidth": "0px",
+      "borderRightWidth": "2px",
+      "borderTopColor": "rgb(255, 255, 255)",
+      "borderTopWidth": "2px",
+      "height": "12px",
+      "opacity": "1",
+      "right": "-1px",
+      "top": "-1px",
+      "transform": "none",
+      "width": "12px"
+    },
+    {
+      "borderBottomWidth": "2px",
+      "borderLeftWidth": "2px",
+      "borderRightWidth": "0px",
+      "borderTopColor": "rgb(255, 255, 255)",
+      "borderTopWidth": "0px",
+      "bottom": "-1px",
+      "height": "12px",
+      "left": "-1px",
+      "opacity": "1",
+      "transform": "none",
+      "width": "12px"
+    }
+  ],
+  "addMatches": true,
+  "reference": [
+    {
+      "borderBottomWidth": "0px",
+      "borderLeftWidth": "2px",
+      "borderRightWidth": "0px",
+      "borderTopColor": "rgb(255, 255, 255)",
+      "borderTopWidth": "2px",
+      "height": "12px",
+      "left": "-1px",
+      "opacity": "1",
+      "top": "-1px",
+      "transform": "none",
+      "width": "12px"
+    },
+    {
+      "borderBottomWidth": "2px",
+      "borderLeftWidth": "0px",
+      "borderRightWidth": "2px",
+      "borderTopColor": "rgb(255, 255, 255)",
+      "borderTopWidth": "0px",
+      "bottom": "-1px",
+      "height": "12px",
+      "opacity": "1",
+      "right": "-1px",
+      "transform": "none",
+      "width": "12px"
+    },
+    {
+      "borderBottomWidth": "0px",
+      "borderLeftWidth": "0px",
+      "borderRightWidth": "2px",
+      "borderTopColor": "rgb(255, 255, 255)",
+      "borderTopWidth": "2px",
+      "height": "12px",
+      "opacity": "1",
+      "right": "-1px",
+      "top": "-1px",
+      "transform": "none",
+      "width": "12px"
+    },
+    {
+      "borderBottomWidth": "2px",
+      "borderLeftWidth": "2px",
+      "borderRightWidth": "0px",
+      "borderTopColor": "rgb(255, 255, 255)",
+      "borderTopWidth": "0px",
+      "bottom": "-1px",
+      "height": "12px",
+      "left": "-1px",
+      "opacity": "1",
+      "transform": "none",
+      "width": "12px"
+    }
+  ],
+  "save": [
+    {
+      "borderBottomWidth": "0px",
+      "borderLeftWidth": "2px",
+      "borderRightWidth": "0px",
+      "borderTopColor": "rgb(255, 255, 255)",
+      "borderTopWidth": "2px",
+      "height": "12px",
+      "left": "-1px",
+      "opacity": "1",
+      "top": "-1px",
+      "transform": "none",
+      "width": "12px"
+    },
+    {
+      "borderBottomWidth": "2px",
+      "borderLeftWidth": "0px",
+      "borderRightWidth": "2px",
+      "borderTopColor": "rgb(255, 255, 255)",
+      "borderTopWidth": "0px",
+      "bottom": "-1px",
+      "height": "12px",
+      "opacity": "1",
+      "right": "-1px",
+      "transform": "none",
+      "width": "12px"
+    },
+    {
+      "borderBottomWidth": "0px",
+      "borderLeftWidth": "0px",
+      "borderRightWidth": "2px",
+      "borderTopColor": "rgb(255, 255, 255)",
+      "borderTopWidth": "2px",
+      "height": "12px",
+      "opacity": "1",
+      "right": "-1px",
+      "top": "-1px",
+      "transform": "none",
+      "width": "12px"
+    },
+    {
+      "borderBottomWidth": "2px",
+      "borderLeftWidth": "2px",
+      "borderRightWidth": "0px",
+      "borderTopColor": "rgb(255, 255, 255)",
+      "borderTopWidth": "0px",
+      "bottom": "-1px",
+      "height": "12px",
+      "left": "-1px",
+      "opacity": "1",
+      "transform": "none",
+      "width": "12px"
+    }
+  ],
+  "saveMatches": true
+}

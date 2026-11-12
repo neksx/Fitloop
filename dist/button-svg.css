@@ -1,0 +1,23 @@
+.button-svg-surface,.button-svg-corner{display:none}
+@media(min-width:0px){
+.button-svg-surface,.button-svg-corner{display:block}
+/* Inline vector button chrome; dimensions and type remain in their owning components. */
+.svg-glass-button{isolation:isolate;background:none!important;border-color:transparent!important;box-shadow:none!important;backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px)}
+.svg-glass-button::before,.svg-glass-button::after,.svg-glass-button span::before,.svg-glass-button span::after{content:none!important;display:none!important}
+.svg-glass-button>span{position:relative;z-index:1}
+.svg-glass-button:focus-visible{outline:none}
+.button-svg-surface{position:absolute;z-index:0;left:-1px;top:-1px;width:calc(100% + 2px);height:calc(100% + 2px);pointer-events:none;overflow:visible}
+.button-svg-fill{transition:fill-opacity .2s ease}
+.button-svg-light{opacity:.55;transition:opacity .2s ease}
+.svg-glass-button:is(:hover,:focus-visible) .button-svg-fill{fill-opacity:.2}
+.svg-glass-button:is(:hover,:focus-visible) .button-svg-light{opacity:.72}
+.button-svg-corner{position:absolute;z-index:2;width:13px;height:13px;overflow:visible;pointer-events:none;transition:transform .2s ease}
+.button-svg-corner path{stroke-width:1px;vector-effect:non-scaling-stroke}
+.button-svg-tl{left:-1px;top:-1px}.button-svg-tr{right:-1px;top:-1px}.button-svg-bl{left:-1px;bottom:-1px}.button-svg-br{right:-1px;bottom:-1px}
+.svg-glass-button:is(:hover,:focus-visible) .button-svg-tl{transform:translate(-5px,-5px)}
+.svg-glass-button:is(:hover,:focus-visible) .button-svg-tr{transform:translate(5px,-5px)}
+.svg-glass-button:is(:hover,:focus-visible) .button-svg-bl{transform:translate(-5px,5px)}
+.svg-glass-button:is(:hover,:focus-visible) .button-svg-br{transform:translate(5px,5px)}
+@media(prefers-reduced-motion:reduce){.button-svg-corner,.button-svg-fill,.button-svg-light{transition:none}}
+
+}

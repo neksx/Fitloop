@@ -1,0 +1,51 @@
+/* Oakley hero alignment; menu/grid/CTA rules are copied in oakley-components.css. */
+html{scroll-padding-top:0}body{background:#b9bcbd;font-family:AvenirNext,sans-serif;font-size:16px;line-height:26px;color:#efefef}
+.culture-hero{--wardrobe-height:160px;height:100svh;min-height:700px;max-height:none;background:#b9bcbd;isolation:isolate}.culture-hero:after{display:block;background:rgba(0,0,0,.2);inset:0 0 var(--wardrobe-height);z-index:1;pointer-events:none}
+.background-stage{position:absolute;inset:0 0 var(--wardrobe-height);overflow:hidden;z-index:0;background:#fff}.background-motion{position:absolute;inset:0;transform-origin:center bottom;will-change:transform}.glass-background{position:absolute;max-width:none;user-select:none;pointer-events:none;filter:blur(20px)}
+.experience-ready .background-motion{animation:glass-afterglow 9s ease-in-out infinite}
+@keyframes glass-afterglow{0%,100%{transform:translate(0,0) scale(1.025) rotate(0)}25%{transform:translate(-6px,3px) scale(1.04) rotate(-.35deg)}53%{transform:translate(4px,-4px) scale(1.03) rotate(.3deg)}76%{transform:translate(-2px,2px) scale(1.045) rotate(-.2deg)}}
+/* Same full-height centered flex container, body width/margins and type as the reference. */
+.culture-contents{position:relative;z-index:2;display:flex;height:calc(100% - var(--wardrobe-height));width:100%;text-align:center;flex-direction:column;justify-content:center;align-items:center}.culture-title{position:static;transform:none;width:auto;max-width:none}.culture-body{margin:40px 0;width:50%}.culture-ctas{width:242px}.culture-body .desktop-break{display:initial}.culture-body p{text-shadow:0 1px 8px #0008}
+.experience-ready .culture-title,.experience-ready .culture-body{animation:reference-from-top .5s ease-out both}.experience-ready .culture-ctas{animation:reference-from-bottom .5s ease-out both}
+@keyframes reference-from-top{from{opacity:0;transform:translateY(-15px)}to{opacity:1;transform:translateY(0)}}@keyframes reference-from-bottom{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+/* Brand substitution only: original navbar logo slot is 55×19; SVG menu/close icons are unchanged. */
+.ct_cr-navbar__menuIcon{padding:1px 6px;font:400 16px/26px AvenirNext,sans-serif}.nav-wordmark{display:inline-flex;align-items:center;justify-content:center;width:55px;height:19px;font:900 11px/19px AvenirNext,sans-serif;letter-spacing:.2px;color:white}.ct_cr-navbar .ct_cr-menu__shopCollection.is-visible{opacity:1;pointer-events:auto}.ct_cr-navbar .ct_cr-menu__shopCollection{min-height:0}.ct_cr-menu__itemsList__item__link{color:#fff}.intro-running .ct_cr-navbar{opacity:0}
+/* Custom requested bottom strip: same four white, centered product fields, moving right to left. */
+.wardrobe-rail{position:absolute;z-index:5;left:0;right:0;bottom:0;height:160px;background:#fff;border-top:1px solid #b8bec6;overflow:hidden}.wardrobe-track{position:absolute;inset:0;overflow:hidden;touch-action:pan-y;outline-offset:-4px}
+.product-card{position:absolute;top:0;left:0;height:100%;aspect-ratio:1;display:flex;align-items:center;justify-content:center;overflow:hidden;will-change:transform;background:#fff;color:#171816}.product-card:after{content:'';position:absolute;right:0;top:0;bottom:0;width:1px;background:#b8bec6;pointer-events:none}.product-visual{position:absolute;inset:0;display:block;width:100%;height:100%;pointer-events:none;user-select:none;overflow:hidden}
+.culture-hero .brand-badge{position:absolute;z-index:3;left:50%;top:50%;transform:translate(-50%,-50%);width:50px;min-width:0;min-height:50px;height:50px;padding:14px 0;opacity:0;background:rgba(38,38,38,.86);border-color:#ffffff1a;pointer-events:none;text-transform:none;transition:width .35s cubic-bezier(.19,1,.22,1),opacity .25s ease}.brand-badge>span{white-space:nowrap;opacity:0;transition:opacity .2s ease}.product-card:hover .brand-badge,.product-card:focus-visible .brand-badge{width:128px;opacity:1}.product-card:hover .brand-badge>span,.product-card:focus-visible .brand-badge>span{opacity:1;transition-delay:.08s}
+.product-card:hover .brand-badge:before,.product-card:focus-visible .brand-badge:before,.product-card:hover .brand-badge:after,.product-card:focus-visible .brand-badge:after,.product-card:hover .brand-badge>span:before,.product-card:focus-visible .brand-badge>span:before,.product-card:hover .brand-badge>span:after,.product-card:focus-visible .brand-badge>span:after{transform:none}
+.motion-toggle{position:absolute;z-index:6;left:10px;bottom:10px;display:flex;align-items:center;gap:12px;background:#ffffffdf;border:1px solid #dfe2e6;padding:8px 10px;font:600 10px/1 AvenirNext,sans-serif;letter-spacing:.04em;color:#171816}.motion-toggle span{font-size:14px}
+.loading_sequence_item:nth-child(n){background-image:url('assets/hero-illustration-clean-v4.png');background-position:50% center}
+@media(max-width:767px){.culture-hero{--wardrobe-height:112px}.culture-body{margin:24px 0;width:90%}.wardrobe-rail{height:112px}.motion-toggle{left:4px;bottom:5px;gap:5px;padding:7px 5px;font-size:8px}.motion-toggle span{font-size:12px}.culture-hero .brand-badge{padding:14px 0;font-size:12px}.product-card:hover .brand-badge,.product-card:focus-visible .brand-badge{width:88px}}
+@media(prefers-reduced-motion:reduce){.background-motion{animation:none!important;transform:none!important;will-change:auto}.product-card{will-change:auto}}
+
+/* Grid ends above the strip; full-height vertical separators on white. */
+.ct_cr-grid{position:absolute;height:calc(100% - var(--wardrobe-height));overflow:hidden}.ct_cr-grid .v-line{height:100%}.ct_cr-grid .h-line{bottom:0}
+.wardrobe-rail{border:0;box-shadow:none}.product-card{border:0;box-shadow:none}.product-card:after{top:0;bottom:0;background:#E6E8EA}.nav-logo{display:inline-block;width:55px;height:19px}
+
+/* White canvas and a larger, bottom-anchored figure. */
+body,.culture-hero,.background-stage,.background-motion,.wardrobe-rail,.product-card{background:#FFFFFF}.culture-hero:after{background:transparent}
+
+/* Requested unified grid/separator color. */
+.ct_cr-grid .line,.product-card:after{background-color:#E6E8EA}
+
+/* Equal subtle contrast on white and dark art: exclusion maps #191715 to #E6E8EA on white. */
+.ct_cr-grid{mix-blend-mode:exclusion;transition:opacity .2s ease-in-out}.ct_cr-grid .line{background-color:#191715}.menu-is-open .ct_cr-grid{opacity:.3}
+/* Menu lines stay visible, with a restrained gray contrast rather than exclusion blending. */
+.menu-is-open .ct_cr-grid{mix-blend-mode:normal;opacity:1}.menu-is-open .ct_cr-grid .line{background-color:rgba(230,232,234,.14)}
+/* Dimming only during intro; post-intro hero remains white. */
+.culture-hero:after{background:transparent}.loading_sequence_mask{background:rgba(0,0,0,.26)}
+.loading-caption,.loading-skip{text-shadow:0 1px 5px rgba(0,0,0,.18)}
+
+/* Localized hover action: two lines within the existing animated frame. */
+.culture-hero .brand-badge{padding:6px 8px;font-size:14px;line-height:18px}.brand-badge>span{white-space:normal;text-align:center;line-height:18px}
+@media(max-width:767px){.culture-hero .brand-badge{padding:6px;font-size:12px;line-height:16px}.brand-badge>span{line-height:16px}}
+
+/* Menu actions reuse the native14px CTA, padding, glass and SVG-free corner styling. */
+.ct_cr-navbar__actions{visibility:hidden;pointer-events:none}
+.menu-is-open .ct_cr-navbar__actions{visibility:visible;pointer-events:auto}
+@media(min-width:768px){
+ .ct_cr-navbar__actions{position:absolute;right:0;top:50%;transform:translateY(-50%);display:flex;align-items:center;gap:12px}
+ .ct_cr-navbar .ct_cr-navbar__actions .ct_cr-menu__shopCollection{position:relative;right:auto;flex:none;white-space:nowrap}
+}

@@ -1,0 +1,202 @@
+{
+  "sourceFiles": {
+    "pearl": [
+      "/Users/neksx/Documents/ChatGPT/AI/sites/fitloop-intro-hero/dist/assets/fitting-room/model-pearl-v22-s0.png",
+      "/Users/neksx/Documents/ChatGPT/AI/sites/fitloop-intro-hero/dist/assets/fitting-room/model-pearl-v22-s1.png",
+      "/Users/neksx/.codex/generated_images/01a19bec-6561-7ba0-92ac-990906f00a80/exec-7c8f1e11-04cf-49bd-9e69-a5b980a84df3.png"
+    ],
+    "flare": [
+      "/Users/neksx/.codex/generated_images/01a19bec-6561-7ba0-92ac-990906f00a80/exec-b0ba0edc-e2f2-4462-a85a-12a913da5e91.png",
+      "/Users/neksx/.codex/generated_images/01a19bec-6561-7ba0-92ac-990906f00a80/exec-276c68c0-4034-4dca-a6ef-4815df55f82e.png",
+      "/Users/neksx/.codex/generated_images/01a19bec-6561-7ba0-92ac-990906f00a80/exec-a419b76e-6ac1-4359-80e3-14021beddc07.png"
+    ],
+    "gradient": [
+      "/Users/neksx/.codex/generated_images/01a19bec-6561-7ba0-92ac-990906f00a80/exec-967d0f2a-0d69-4e88-a673-322b2f220b40.png",
+      "/Users/neksx/.codex/generated_images/01a19bec-6561-7ba0-92ac-990906f00a80/exec-ed7ba8dc-eba4-44ea-9322-e69be3e95301.png",
+      "/Users/neksx/.codex/generated_images/01a19bec-6561-7ba0-92ac-990906f00a80/exec-a059f867-eb1d-4091-9ec3-7392923bdf2c.png"
+    ]
+  },
+  "views": [
+    {
+      "sheet": 0,
+      "cell": 0,
+      "axis": 221.5,
+      "top": 6.0,
+      "scale": 1.0,
+      "angle": 0,
+      "flip": false
+    },
+    {
+      "sheet": 0,
+      "cell": 1,
+      "axis": 214.5,
+      "top": 6.0,
+      "scale": 0.9979633401221996,
+      "angle": 25,
+      "flip": false
+    },
+    {
+      "sheet": 0,
+      "cell": 2,
+      "axis": 188.5,
+      "top": 5.0,
+      "scale": 0.9919028340080972,
+      "angle": 40,
+      "flip": false
+    },
+    {
+      "sheet": 0,
+      "cell": 3,
+      "axis": 166.5,
+      "top": 5.0,
+      "scale": 0.9919028340080972,
+      "angle": 55,
+      "flip": false
+    },
+    {
+      "sheet": 0,
+      "cell": 4,
+      "axis": 222.0,
+      "top": 1.0,
+      "scale": 0.98989898989899,
+      "angle": 85,
+      "flip": false
+    },
+    {
+      "sheet": 0,
+      "cell": 6,
+      "axis": 189.5,
+      "top": 2.0,
+      "scale": 1.0,
+      "angle": 105,
+      "flip": false
+    },
+    {
+      "sheet": 0,
+      "cell": 5,
+      "axis": 216.5,
+      "top": 1.0,
+      "scale": 0.9919028340080972,
+      "angle": 125,
+      "flip": false
+    },
+    {
+      "sheet": 0,
+      "cell": 7,
+      "axis": 172.5,
+      "top": 1.0,
+      "scale": 0.9939148073022313,
+      "angle": 145,
+      "flip": false
+    },
+    {
+      "sheet": 1,
+      "cell": 5,
+      "axis": 213.5,
+      "top": 0.0,
+      "scale": 0.9819639278557114,
+      "angle": 155,
+      "flip": false
+    },
+    {
+      "sheet": 2,
+      "cell": 7,
+      "axis": 187.0,
+      "top": 1.0,
+      "scale": 0.9939148073022313,
+      "angle": 165,
+      "flip": false
+    },
+    {
+      "sheet": 1,
+      "cell": 4,
+      "axis": 221.0,
+      "top": 1.0,
+      "scale": 0.9859154929577465,
+      "angle": 180,
+      "flip": false
+    },
+    {
+      "sheet": 2,
+      "cell": 7,
+      "axis": 187.0,
+      "top": 1.0,
+      "scale": 0.9939148073022313,
+      "angle": 195,
+      "flip": true
+    },
+    {
+      "sheet": 1,
+      "cell": 5,
+      "axis": 213.5,
+      "top": 0.0,
+      "scale": 0.9819639278557114,
+      "angle": 205,
+      "flip": true
+    },
+    {
+      "sheet": 0,
+      "cell": 7,
+      "axis": 172.5,
+      "top": 1.0,
+      "scale": 0.9939148073022313,
+      "angle": 215,
+      "flip": true
+    },
+    {
+      "sheet": 0,
+      "cell": 5,
+      "axis": 216.5,
+      "top": 1.0,
+      "scale": 0.9919028340080972,
+      "angle": 235,
+      "flip": true
+    },
+    {
+      "sheet": 0,
+      "cell": 6,
+      "axis": 189.5,
+      "top": 2.0,
+      "scale": 1.0,
+      "angle": 255,
+      "flip": true
+    },
+    {
+      "sheet": 0,
+      "cell": 4,
+      "axis": 222.0,
+      "top": 1.0,
+      "scale": 0.98989898989899,
+      "angle": 275,
+      "flip": true
+    },
+    {
+      "sheet": 0,
+      "cell": 3,
+      "axis": 166.5,
+      "top": 5.0,
+      "scale": 0.9919028340080972,
+      "angle": 305,
+      "flip": true
+    },
+    {
+      "sheet": 0,
+      "cell": 2,
+      "axis": 188.5,
+      "top": 5.0,
+      "scale": 0.9919028340080972,
+      "angle": 320,
+      "flip": true
+    },
+    {
+      "sheet": 0,
+      "cell": 1,
+      "axis": 214.5,
+      "top": 6.0,
+      "scale": 0.9979633401221996,
+      "angle": 335,
+      "flip": true
+    }
+  ],
+  "method": "Built-in Image Generation edits copied unchanged.20 views include11 distinct photographic anchors and9 runtime reflected views. Numeric optical flow and contour analysis only; no source PNG editing."
+}

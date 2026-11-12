@@ -1,0 +1,85 @@
+{
+  "cards": [
+    "Show actions for Pearl Cropped Jacket",
+    "Show actions for P018 Textured Pearl",
+    "Show actions for P005 Coated Gradient",
+    "Show actions for P004 Upside Down Flare",
+    "Show actions for Tie Dye Jacket",
+    "Show actions for Leather Tech Anorak Jacket"
+  ],
+  "models": 2,
+  "notices": [
+    {
+      "font": "600 12px / 13.2px AvenirNext, sans-serif",
+      "padding": "8px",
+      "right": 0
+    },
+    {
+      "font": "600 12px / 13.2px AvenirNext, sans-serif",
+      "padding": "8px",
+      "right": 0
+    }
+  ],
+  "portrait": {
+    "liveTransition": "idle",
+    "portraitKey": "man-leather-anorak-1"
+  },
+  "rows": [
+    {
+      "font": "10px / 13.2px AvenirNext, sans-serif",
+      "padding": "2px 0px",
+      "rect": {
+        "bottom": 779,
+        "height": 28,
+        "left": 60,
+        "right": 466.6640625,
+        "top": 751,
+        "width": 406.6640625,
+        "x": 60,
+        "y": 751
+      },
+      "text": "Leather Tech Anorak Jac…VIEW"
+    },
+    {
+      "font": "10px / 13.2px AvenirNext, sans-serif",
+      "padding": "2px 0px",
+      "rect": {
+        "bottom": 813,
+        "height": 28,
+        "left": 60,
+        "right": 466.6640625,
+        "top": 785,
+        "width": 406.6640625,
+        "x": 60,
+        "y": 785
+      },
+      "text": "P018 Textured PearlVIEW"
+    }
+  ],
+  "viewport": [
+    1440,
+    900
+  ],
+  "wheels": [
+    {
+      "field": "gender",
+      "width": 57.6015625
+    },
+    {
+      "field": "height",
+      "width": 60.359375
+    },
+    {
+      "field": "weight",
+      "width": 50.7890625
+    },
+    {
+      "field": "jacketSize",
+      "width": 34.0859375
+    },
+    {
+      "field": "pantSize",
+      "width": 30.640625
+    }
+  ]
+}

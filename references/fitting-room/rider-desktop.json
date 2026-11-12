@@ -1,0 +1,96 @@
+{
+  "colors": {
+    "--color-divider": "#e6e6e6",
+    "--color-hover": "#666",
+    "--color-medium-grey": "#b2b2b2",
+    "--color-off-black": "#0a0a0a",
+    "--color-off-white": "#f6f6f6"
+  },
+  "measures": [
+    {
+      "class": "Subtitle_wrapper__JMILT composition_base__XQo6f",
+      "fontSize": "8px",
+      "lineHeight": "8.8px",
+      "padding": "0px",
+      "rect": {
+        "bottom": 152.796875,
+        "height": 8.796875,
+        "left": 30,
+        "right": 370.171875,
+        "top": 144,
+        "width": 340.171875,
+        "x": 30,
+        "y": 144
+      }
+    },
+    {
+      "class": "PageTitle_wrapper__tZqEr composition_heading__SmUUC",
+      "fontSize": "30px",
+      "lineHeight": "30px",
+      "padding": "0px",
+      "rect": {
+        "bottom": 190.796875,
+        "height": 30,
+        "left": 30,
+        "right": 370.171875,
+        "top": 160.796875,
+        "width": 340.171875,
+        "x": 30,
+        "y": 160.796875
+      }
+    },
+    {
+      "class": "ItemBar_outer__jsffw VideoProgressBar_wrapper__8_dlv",
+      "fontSize": "8px",
+      "lineHeight": "8.8px",
+      "padding": "2px",
+      "rect": {
+        "bottom": 259,
+        "height": 28,
+        "left": 20,
+        "right": 260.65625,
+        "top": 231,
+        "width": 240.65625,
+        "x": 20,
+        "y": 231
+      }
+    },
+    {
+      "class": "PageInfoLine_wrapper__TB_1S",
+      "fontSize": "8px",
+      "lineHeight": "8.8px",
+      "padding": "0px",
+      "rect": {
+        "bottom": 307.796875,
+        "height": 8.796875,
+        "left": 30,
+        "right": 370.171875,
+        "top": 299,
+        "width": 340.171875,
+        "x": 30,
+        "y": 299
+      }
+    },
+    {
+      "class": "PageInfoLine_wrapper__TB_1S",
+      "fontSize": "8px",
+      "lineHeight": "8.8px",
+      "padding": "0px",
+      "rect": {
+        "bottom": 336.59375,
+        "height": 8.796875,
+        "left": 30,
+        "right": 370.171875,
+        "top": 327.796875,
+        "width": 340.171875,
+        "x": 30,
+        "y": 327.796875
+      }
+    }
+  ],
+  "pageInfo": "<div class=\"PageInfo_outer__nntOE PageInfo_hasBottomLeftBar__BR4gE\"><div class=\"PageInfo_wrapper__cUoPG\"><div class=\"PageInfo_top__fCCae\"><div class=\"AdaptableWrapper_wrapper__bToAF Headings_wrapper__75B9v PageInfo_headings__cvUvj AdaptableWrapper_vertical__vg4Zq AdaptableWrapper_enabled__4cyJp\" style=\"height: 47px;\"><div class=\"AdaptableWrapper_inner__3Z2hJ\"><div class=\"Headings_subtitle__XELi0\"><h5 class=\"Subtitle_wrapper__JMILT composition_base__XQo6f\" style=\"opacity: 1; transform: none;\">Look 10 / 11</h5></div><div class=\"Headings_title__JWnpi\"><h1 class=\"PageTitle_wrapper__tZqEr composition_heading__SmUUC\" style=\"opacity: 1; transform: none;\">THE EXPLORER</h1></div></div></div></div><div class=\"PageInfo_bar__0AqVI\"><div class=\"AdaptableWrapper_wrapper__bToAF PageInfo_innerBar__x30Wq AdaptableWrapper_enabled__4cyJp\" style=\"width: 241px;\"><div class=\"AdaptableWrapper_inner__3Z2hJ\"><div class=\"GroupBar_wrapper__BPid0\"><div class=\"ItemBar_outer__jsffw VideoProgressBar_wrapper__8_dlv\"><div class=\"ItemBar_wrapper__mjCTr undefined\"><div class=\"ItemBar_secondWrapper__mipps\"><span class=\"ItemBar_left__AnQt1\"><span class=\"ItemBar_content__1e_xu\" style=\"visibility: visible;\"><span>118° / 360°</span></span></span></div><span></span></div><span class=\"ItemBar_tail__Uv6Xh\"><div class=\"VideoProgressBar_barWrapper__XrATx\" style=\"visibility: visible;\"><div class=\"VideoProgressBar_bar__DpQcT\" style=\"--progress: 0.3318853333333333; --mask-r: 0; z-index: 1; --mask-l: 0;\"><picture class=\"VideoProgressBar_barImage__a0oZ5 ResponsiveImage_image__qQ74F\"><source srcset=\"https://cdn.sanity.io/images/mzz4iq4t/production/010915b0cb17ab86ce516556c160a83f12c73cfa-1562x116.jpg?w=256&amp;q=70&amp;auto=format&amp;fit=scale 256w, https://cdn.sanity.io/images/mzz4iq4t/production/010915b0cb17ab86ce516556c160a83f12c73cfa-1562x116.jpg?w=512&amp;q=70&amp;auto=format&amp;fit=scale 512w, https://cdn.sanity.io/images/mzz4iq4t/production/010915b0cb17ab86ce516556c160a83f12c73cfa-1562x116.jpg?w=1024&amp;q=70&amp;auto=format&amp;fit=scale 1024w, https://cdn.sanity.io/images/mzz4iq4t/production/010915b0cb17ab86ce516556c160a83f12c73cfa-1562x116.jpg?w=1536&amp;q=70&amp;auto=format&amp;fit=scale 1536w, https://cdn.sanity.io/images/mzz4iq4t/production/010915b0cb17ab86ce516556c160a83f12c73cfa-1562x116.jpg?w=2048&amp;q=70&amp;auto=format&amp;fit=scale 2048w\" media=\"(max-width: 900px)\"><source srcset=\"https://cdn.sanity.io/images/mzz4iq4t/production/5418cf59aa1b3e6b931dd14ed3a95ef3426b6fe5-480x96.jpg?w=256&amp;q=70&amp;auto=format&amp;fit=scale 256w, https://cdn.sanity.io/images/mzz4iq4t/production/5418cf59aa1b3e6b931dd14ed3a95ef3426b6fe5-480x96.jpg?w=512&amp;q=70&amp;auto=format&amp;fit=scale 512w, https://cdn.sanity.io/images/mzz4iq4t/production/5418cf59aa1b3e6b931dd14ed3a95ef3426b6fe5-480x96.jpg?w=1024&amp;q=70&amp;auto=format&amp;fit=scale 1024w, https://cdn.sanity.io/images/mzz4iq4t/production/5418cf59aa1b3e6b931dd14ed3a95ef3426b6fe5-480x96.jpg?w=1536&amp;q=70&amp;auto=format&amp;fit=scale 1536w, https://cdn.sanity.io/images/mzz4iq4t/production/5418cf59aa1b3e6b931dd14ed3a95ef3426b6fe5-480x96.jpg?w=2048&amp;q=70&amp;auto=format&amp;fit=scale 2048w\" media=\"(min-width: 901px)\"><img alt=\"Image\" sizes=\"100vw\" srcset=\"https://cdn.sanity.io/images/mzz4iq4t/production/5418cf59aa1b3e6b931dd14ed3a95ef3426b6fe5-480x96.jpg?w=256&amp;q=70&amp;auto=format&amp;fit=scale 256w, https://cdn.sanity.io/images/mzz4iq4t/production/5418cf59aa1b3e6b931dd14ed3a95ef3426b6fe5-480x96.jpg?w=512&amp;q=70&amp;auto=format&amp;fit=scale 512w, https://cdn.sanity.io/images/mzz4iq4t/production/5418cf59aa1b3e6b931dd14ed3a95ef3426b6fe5-480x96.jpg?w=1024&amp;q=70&amp;auto=format&amp;fit=scale 1024w, https://cdn.sanity.io/images/mzz4iq4t/production/5418cf59aa1b3e6b931dd14ed3a95ef3426b6fe5-480x96.jpg?w=1536&amp;q=70&amp;auto=format&amp;fit=scale 1536w, https://cdn.sanity.io/images/mzz4iq4t/production/5418cf59aa1b3e6b931dd14ed3a95ef3426b6fe5-480x96.jpg?w=2048&amp;q=70&amp;auto=format&amp;fit=scale 2048w\" src=\"https://cdn.sanity.io/images/mzz4iq4t/production/5418cf59aa1b3e6b931dd14ed3a95ef3426b6fe5-480x96.jpg\" loading=\"eager\" draggable=\"false\"></picture><div class=\"VideoProgressBar_progressTracker__Wxk_K\"></div></div></div></span></div></div></div></div></div><div class=\"PageInfo_inner__EjNFq\"><div class=\"PageInfo_content__z6erx PageInfo_hasBar__YTsQz\"><div class=\"PageInfoLine_wrapper__TB_1S\"><span class=\"PageInfoLine_label__Rq2Gj\" style=\"visibility: visible;\"> Size </span><span class=\"PageInfoLine_content__xcMmk composition_body__fapdK PageInfoLine_bold__WQq_L\" style=\"visibility: visible;\">  170cm  </span></div><div class=\"PageInfoLine_wrapper__TB_1S\"><span class=\"PageInfoLine_label__Rq2Gj\" style=\"visibility: visible;\"> Pant </span><span class=\"PageInfoLine_content__xcMmk composition_body__fapdK PageInfoLine_bold__WQq_L\" style=\"visibility: visible;\">  1  </span></div></div></div></div></div>",
+  "viewport": [
+    1280,
+    900
+  ]
+}

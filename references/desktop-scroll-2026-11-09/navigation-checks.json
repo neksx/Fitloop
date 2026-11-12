@@ -1,0 +1,17 @@
+{
+  "reverse": {
+    "phase": "finale",
+    "portraitRetained": "woman-tie-dye-2",
+    "screen": "1"
+  },
+  "mobileResize": {
+    "aria": "true",
+    "desktopCards": 0,
+    "hasDesktopClass": false,
+    "viewport": [
+      390,
+      844
+    ]
+  },
+  "mobileEqual": true
+}

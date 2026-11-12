@@ -1,0 +1,13 @@
+{
+  "active": "save-look",
+  "focus": true,
+  "hoverCorner": {
+    "color": "rgb(178, 178, 178)",
+    "stroke": "1px",
+    "transform": "matrix(1, 0, 0, 1, -5, -5)"
+  },
+  "referenceRow": {
+    "color": "rgb(178, 178, 178)",
+    "stroke": "1px"
+  }
+}

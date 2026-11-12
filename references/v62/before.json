@@ -1,0 +1,54 @@
+[
+  {
+    "border": "1px solid rgba(255, 255, 255, 0.1)",
+    "cornerStroke": "2px",
+    "fontFamily": "AvenirNext, sans-serif",
+    "fontSize": "16px",
+    "fontWeight": "600",
+    "height": 50,
+    "letterSpacing": "normal",
+    "lineHeight": "20px",
+    "padding": "14px 30px",
+    "selector": ".culture-ctas>.button",
+    "width": 242
+  },
+  {
+    "border": "1px solid rgba(240, 240, 238, 0.34)",
+    "cornerStroke": "2px",
+    "fontFamily": "AvenirNext, sans-serif",
+    "fontSize": "14px",
+    "fontWeight": "400",
+    "height": 44,
+    "letterSpacing": "normal",
+    "lineHeight": "18px",
+    "padding": "12px 24px",
+    "selector": ".how-finale>.button",
+    "width": 242
+  },
+  {
+    "border": "1px solid rgba(255, 255, 255, 0.1)",
+    "cornerStroke": "2px",
+    "fontFamily": "AvenirNext, sans-serif",
+    "fontSize": "14px",
+    "fontWeight": "600",
+    "height": 38,
+    "letterSpacing": "normal",
+    "lineHeight": "20px",
+    "padding": "8px 20px",
+    "selector": "#nav-saved-looks",
+    "width": 139.5703125
+  },
+  {
+    "border": "1px solid rgba(255, 255, 255, 0.1)",
+    "cornerStroke": "2px",
+    "fontFamily": "AvenirNext, sans-serif",
+    "fontSize": "14px",
+    "fontWeight": "600",
+    "height": 38,
+    "letterSpacing": "normal",
+    "lineHeight": "20px",
+    "padding": "8px 20px",
+    "selector": "#nav-cta",
+    "width": 129.5
+  }
+]

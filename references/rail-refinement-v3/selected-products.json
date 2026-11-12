@@ -1,0 +1,30 @@
+[
+  {
+    "brand": "PURPLE BRAND",
+    "name": "Pearl Cropped Jacket",
+    "filename": "purple-pearl-cropped-jacket-black.jpg",
+    "image_url": "https://cdn.shopify.com/s/files/1/1544/1395/files/jacket2.jpg?v=1790208083",
+    "page_url": "https://purple-brand.com/products/pearl-cropped-jacket-black"
+  },
+  {
+    "brand": "PURPLE BRAND",
+    "name": "P018 Textured Pearl",
+    "filename": "purple-p018-textured-pearl-black.jpg",
+    "image_url": "https://cdn.shopify.com/s/files/1/1544/1395/files/FW26_P018-TPBL426_BEADED-BLACK.jpg?v=1785254945",
+    "page_url": "https://purple-brand.com/products/p018-textured-pearl-black"
+  },
+  {
+    "brand": "PURPLE BRAND",
+    "name": "P005 Coated Gradient",
+    "filename": "purple-p005-coated-gradient.jpg",
+    "image_url": "https://cdn.shopify.com/s/files/1/1544/1395/files/FW26_P005-IBCG426_COATED-GRADIENT_MID-INDIGO.jpg?v=1785254236",
+    "page_url": "https://purple-brand.com/products/p005-coated-gradient"
+  },
+  {
+    "brand": "PURPLE BRAND",
+    "name": "P004 Upside Down Flare",
+    "filename": "purple-p004-upside-down-flare.jpg",
+    "image_url": "https://cdn.shopify.com/s/files/1/1544/1395/files/FW26_P004-UDFI426_UPSIDE-DOWN-FLAIR_AOP.jpg?v=1781534950",
+    "page_url": "https://purple-brand.com/products/p004-upside-down-flare"
+  }
+]

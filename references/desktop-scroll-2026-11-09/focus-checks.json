@@ -1,0 +1,58 @@
+{
+  "buttonBefore": {
+    "flowScroll": 0,
+    "h": 240,
+    "overflow": [
+      "clip",
+      "clip",
+      "clip"
+    ],
+    "sectionScroll": 0,
+    "stageScroll": 0,
+    "y": 285
+  },
+  "buttonAfter": {
+    "flowScroll": 0,
+    "h": 240,
+    "overflow": [
+      "clip",
+      "clip",
+      "clip"
+    ],
+    "sectionScroll": 0,
+    "stageScroll": 0,
+    "y": 285
+  },
+  "nameBefore": {
+    "flowScroll": 0,
+    "h": 240,
+    "overflow": [
+      "clip",
+      "clip",
+      "clip"
+    ],
+    "sectionScroll": 0,
+    "stageScroll": 0,
+    "y": 285
+  },
+  "nameAfter": {
+    "flowScroll": 0,
+    "h": 240,
+    "overflow": [
+      "clip",
+      "clip",
+      "clip"
+    ],
+    "sectionScroll": 0,
+    "stageScroll": 0,
+    "y": 285
+  },
+  "mobile": {
+    "cards": 0,
+    "overflow": [
+      "hidden",
+      "hidden",
+      "hidden"
+    ]
+  }
+}

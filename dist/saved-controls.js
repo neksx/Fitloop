@@ -1,0 +1,30 @@
+'use strict';
+(() => {
+ const saved=document.querySelector('#saved'),grid=saved?.querySelector('.saved-grid'),label=document.querySelector('.saved-nav-label'),nativeAdd=document.querySelector('#add-model');
+ if(!saved||!grid||!label||!nativeAdd)return;
+ const mobile=matchMedia('(max-width:767px)');
+ const divider=document.createElement('span');divider.className='saved-back-divider';divider.setAttribute('aria-hidden','true');label.append(divider);
+ const back=document.createElement('a');back.className='saved-page-back';back.textContent='BACK';back.href='#next';
+ const placeBack=()=>{(mobile.matches?document.body:label).append(back);};placeBack();mobile.addEventListener('change',placeBack);
+ const updateBack=()=>{const origin=document.body.dataset.savedOrigin;back.href=['#hero','#how','#next'].includes(origin)?origin:'#next';};
+ back.addEventListener('click',event=>{event.preventDefault();event.stopPropagation();window.FitloopSavedTransition?.cancelPending();updateBack();window.FitloopSections?.navigate(back.getAttribute('href'));});
+ const cell=document.createElement('div');cell.className='saved-add-cell';
+ const scope=document.createElement('div');scope.className='saved-add-scope white-screen fitting-arrived';
+ const host=nativeAdd.parentElement.cloneNode(true),button=host.querySelector('button');button.id='saved-add-model';button.setAttribute('aria-expanded','false');host.removeAttribute('style');scope.append(host);cell.append(scope);
+ let pendingCreate=false;
+ const beginCreate=()=>{if(pendingCreate)return;pendingCreate=true;window.FitloopSavedTransition?.cancelPending();window.FitloopSections?.navigate('#next');};
+ button.addEventListener('click',beginCreate);
+ saved.addEventListener('fitloop-create-from-saved',beginCreate);
+ saved.querySelector('.saved-empty a')?.addEventListener('click',event=>{event.preventDefault();event.stopPropagation();beginCreate();});
+ const placeAdd=()=>{
+  if(!grid.contains(cell))grid.append(cell);
+  const cards=[...grid.querySelectorAll('.saved-card')],last=cards.at(-1),b=last?.getBoundingClientRect(),c=cell.getBoundingClientRect();
+  saved.classList.toggle('saved-collection-empty',cards.length===0);
+  cell.style.setProperty('--saved-add-cell-height',`${last?.offsetHeight||0}px`);
+  const onSameRow=b&&Math.abs(c.top-b.top)<2&&c.left>b.left;
+  cell.style.setProperty('--saved-add-offset',`${onSameRow?Math.max(0,60-(c.left-b.right)):0}px`);
+ };
+ new MutationObserver(placeAdd).observe(grid,{childList:true});new ResizeObserver(placeAdd).observe(saved);window.addEventListener('resize',placeAdd);placeAdd();
+ document.addEventListener('fitloop-screen',event=>{updateBack();placeAdd();if(pendingCreate){if(event.detail?.index===2){pendingCreate=false;window.FitloopFitting.openCreate();}else if(event.detail?.index!==3)pendingCreate=false;}});
+ updateBack();
+})();

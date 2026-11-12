@@ -1,0 +1,97 @@
+{
+  "back": {
+    "blockedCards": 0,
+    "hash": "#next",
+    "panelOpen": true,
+    "screen": "2",
+    "selectedFilter": "All",
+    "split": false
+  },
+  "mobile": {
+    "measurements": 5,
+    "mode": "look",
+    "overflow": false,
+    "portrait": "man-leather-anorak-4",
+    "saveText": "SAVE MY LOOK"
+  },
+  "splitCycle": {
+    "changed": [
+      {
+        "copy": "12",
+        "id": "4"
+      }
+    ],
+    "portraitUnchanged": true
+  },
+  "protectedBefore": [
+    {
+      "background": "rgba(255, 255, 255, 0.2) none repeat scroll 0% 0% / auto padding-box border-box",
+      "border": "1px solid rgba(255, 255, 255, 0.1)",
+      "fontFamily": "AvenirNext, sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "600",
+      "height": "38px",
+      "key": "nav-saved-looks",
+      "lineHeight": "20px",
+      "padding": "8px 20px"
+    },
+    {
+      "background": "rgba(255, 255, 255, 0.2) none repeat scroll 0% 0% / auto padding-box border-box",
+      "border": "1px solid rgba(255, 255, 255, 0.1)",
+      "fontFamily": "AvenirNext, sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "600",
+      "height": "38px",
+      "key": "nav-cta",
+      "lineHeight": "20px",
+      "padding": "8px 20px"
+    },
+    {
+      "background": "rgba(255, 255, 255, 0.2) none repeat scroll 0% 0% / auto padding-box border-box",
+      "border": "1px solid rgba(255, 255, 255, 0.1)",
+      "fontFamily": "AvenirNext, sans-serif",
+      "fontSize": "16px",
+      "fontWeight": "600",
+      "height": "50px",
+      "key": "hero",
+      "lineHeight": "20px",
+      "padding": "14px 30px"
+    }
+  ],
+  "protectedAfter": [
+    {
+      "background": "rgba(255, 255, 255, 0.2) none repeat scroll 0% 0% / auto padding-box border-box",
+      "border": "1px solid rgba(255, 255, 255, 0.1)",
+      "fontFamily": "AvenirNext, sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "600",
+      "height": "38px",
+      "key": "nav-saved-looks",
+      "lineHeight": "20px",
+      "padding": "8px 20px"
+    },
+    {
+      "background": "rgba(255, 255, 255, 0.2) none repeat scroll 0% 0% / auto padding-box border-box",
+      "border": "1px solid rgba(255, 255, 255, 0.1)",
+      "fontFamily": "AvenirNext, sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "600",
+      "height": "38px",
+      "key": "nav-cta",
+      "lineHeight": "20px",
+      "padding": "8px 20px"
+    },
+    {
+      "background": "rgba(255, 255, 255, 0.2) none repeat scroll 0% 0% / auto padding-box border-box",
+      "border": "1px solid rgba(255, 255, 255, 0.1)",
+      "fontFamily": "AvenirNext, sans-serif",
+      "fontSize": "16px",
+      "fontWeight": "600",
+      "height": "50px",
+      "key": "hero",
+      "lineHeight": "20px",
+      "padding": "14px 30px"
+    }
+  ],
+  "protectedButtonsUnchanged": true
+}

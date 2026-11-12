@@ -1,0 +1,574 @@
+ /* =========================================================
+ SERVICES
+========================================================= */
+.services {
+ --services-bg: #0b0b0b;
+ --services-fg: #ffffff;  /* =====================================================
+ ORIGINAL OPENING CONTROLS
+ ===================================================== */
+ /* כמה זמן התמונה הגדולה נשארת סגורה */
+ --services-hold-distance: 35vh;
+ /* כמה מהתמונה הגדולה נשאר מכל צד אחרי הפתיחה */
+ --services-edge-visible: 250px;
+ /* משך פתיחת התמונה הגדולה */
+ --services-split-distance: 120vh;
+ /* רווחים */
+ --services-side-gap: 20px;
+ --services-bottom-gap: 20px;
+ --services-header-gap: 20px;
+ /* פרלקס כניסה */
+ --services-entry-parallax: 45px;
+ /*
+ * פרלקס פנימי ביציאה — הפוך מהכניסה.
+ * כרגע אותו עומק כמו הכניסה.
+ */
+ --services-exit-parallax: 45px;
+ /* מחושב אוטומטית */
+ --services-top: 90px;  /* =====================================================
+ SERVICES FLOW
+ ===================================================== */
+ /*
+ * מתי התמונה הקטנה מתחילה לעלות
+ * בתוך תהליך הפתיחה של התמונה הגדולה.
+ *
+ * 0.60 = מתחילה כש-60% מהפתיחה הסתיימו.
+ *
+ * היא תמיד מגיעה למרכז בדיוק
+ * כשהפתיחה הגדולה מגיעה ל-100%.
+ */
+ --services-image-entry-start: 0.50;
+ /*
+ * רגע שקט אחרי שהתמונה הגדולה נפתחה
+ * והתמונה הקטנה כבר במרכז, לפני שהטקסט מתחיל לעלות.
+ *
+ * הגדילי = יותר זמן לבד לתמונות
+ * הקטיני = הטקסט מתחיל מוקדם יותר
+ */
+ --services-text-delay-distance: 30vh;  /*
+ * כמה גלילה מקבל כל SERVICE.
+ */
+ --services-item-distance: 125vh;  /* =====================================================
+ SERVICES EXIT — EXACT REVERSE OF OPENING
+ ===================================================== */
+ /*
+ * משך הסגירה של התמונה הגדולה בסוף.
+ * ה-Fade Out של התמונה הקטנה מחושב אוטומטית
+ * כהיפוך מדויק של ה-Fade In בכניסה.
+ */
+ --services-exit-close-distance: 120vh;  /* =====================================================
+ SERVICE IMAGE
+ ===================================================== */
+ --service-image-width: 150px;
+ --service-image-height: 200px;
+ /*
+ * כותרת SERVICES מעל התמונה הקטנה.
+ * כאן משנים את המרחק בין הכותרת לתמונה.
+ */
+ --service-label-gap: 15px;
+ --service-label-size: 10px;
+ --service-label-weight: 500;
+ /*
+ * משך מעבר התמונה בין SERVICE ל-SERVICE.
+ * המעבר מחובר לגלילה ונחשף מלמטה למעלה,
+ * בלי קפיצה ובלי Fade.
+ */
+ --service-image-swap-distance: 30vh;  /* =====================================================
+ BIG TITLE
+ ===================================================== */
+ --service-title-size: 10px;
+ --service-title-weight: 500;  /* =====================================================
+ COPY
+ ===================================================== */
+ --service-copy-size: 11px;
+ --service-copy-line-height: 1.5;
+ /*
+ * המרחק בין הכותרת הגדולה לטקסט שמתחתיה.
+ * זה המשתנה שצריך לשנות כדי לקרב / להרחיק ביניהם.
+ */
+ --service-title-copy-gap: 50px;  /* =====================================================
+ TEXT AVOID IMAGE
+ ===================================================== */
+ --service-image-clearance: 35px;
+ /*
+ * מרחק סימטרי אחד סביב כל היחידה:
+ * מתחילים להיפתח במרחק הזה מתחת לתמונה,
+ * ומסיימים להיסגר באותו מרחק מעל SERVICES.
+ */
+ --service-avoid-distance: 100px;
+ --service-word-gap: 0.25em;  position: relative;
+ width: 100%;
+ margin: 0;
+ padding: 0;
+ color: var(--services-fg);
+ background: var(--services-bg);
+}  /* =========================================================
+ ACCESSIBILITY — SEMANTIC SECTION TITLE
+ VISUALLY HIDDEN / NO LAYOUT CHANGE
+========================================================= */
+.services .services-section-title-sr-only {
+ position: absolute !important;
+ width: 1px !important;
+ height: 1px !important;
+ padding: 0 !important;
+ margin: -1px !important;
+ overflow: hidden !important;
+ clip: rect(0, 0, 0, 0) !important;
+ clip-path: inset(50%) !important;
+ white-space: nowrap !important;
+ border: 0 !important;
+}  /* =========================================================
+ SCROLL SHELL
+========================================================= */
+.services-shell {
+ position: relative;
+ width: 100%;
+ height:
+ calc(
+ 100vh +
+ var(--services-hold-distance) +
+ var(--services-split-distance) +
+ var(--services-text-delay-distance) +
+ (
+ var(--services-item-distance) * 3
+ ) +
+ var(--services-exit-close-distance)
+ );
+}  /* =========================================================
+ 100VH STICKY STAGE
+========================================================= */
+.services-stage {
+ position: sticky;
+ top: 0;
+ width: 100%;
+ height: 100vh;
+ overflow: hidden;
+ background: var(--services-bg);
+}  /* =========================================================
+ ORIGINAL LARGE PHOTO FRAME
+========================================================= */
+.services-frame {
+ position: absolute;
+ left: var(--services-side-gap);
+ right: var(--services-side-gap);
+ top: var(--services-top);
+ bottom: var(--services-bottom-gap);
+ overflow: hidden;
+ z-index: 20;
+}  /* =========================================================
+ ORIGINAL TWO HALVES
+========================================================= */
+.services-half {
+ position: absolute;
+ top: 0;
+ width: 50%;
+ height: 100%;
+ overflow: hidden;
+ will-change: transform;
+}  .services-half--left {
+ left: 0;
+}  .services-half--right {
+ right: 0;
+}  /* =========================================================
+ ORIGINAL LARGE IMAGE
+========================================================= */
+.services-half img {
+ position: absolute;
+ top:
+ calc(
+ var(--services-entry-parallax) * -1
+ );
+ display: block;
+ width: 200%;
+ height:
+ calc(
+ 100% +
+ (
+ var(--services-entry-parallax) * 2
+ )
+ );
+ max-width: none;
+ object-fit: cover;
+ pointer-events: none;
+ user-select: none;
+ -webkit-user-drag: none;
+ will-change: transform;
+}  .services-half--left img {
+ left: 0;
+}  .services-half--right img {
+ right: 0;
+}  /* =========================================================
+ SERVICES FLOW
+========================================================= */
+.services-flow {
+ position: absolute;
+ inset: 0;
+ overflow: hidden;
+ visibility: hidden;
+ z-index: 30;
+ pointer-events: none;
+}  /* =========================================================
+ STICKY SERVICE LABEL
+ STAYS FIXED ABOVE THE SMALL IMAGE
+========================================================= */
+.services-label {
+ position: absolute;
+ left: 50%;
+ top:
+ calc(
+ 50% -
+ (
+ var(--service-image-height) / 2
+ ) -
+ var(--service-label-gap)
+ );
+ margin: 0;
+ font-family:
+ "Courier New",
+ Courier,
+ monospace;
+ font-size:
+ var(--service-label-size);
+ font-weight:
+ var(--service-label-weight);
+ line-height: 1;
+ letter-spacing: 0.045em;
+ text-transform: uppercase;
+ white-space: nowrap;
+ color: var(--services-fg);
+ transform:
+ translate3d(
+ -50%,
+ -100%,
+ 0
+ );
+ z-index: 6;
+ pointer-events: none;
+ clip-path:
+ inset(0 0 100% 0);
+ will-change:
+ clip-path;
+}  /* =========================================================
+ STICKY SERVICE IMAGE
+ ONE FIXED FRAME — ALL THREE IMAGES ARE EXACTLY SAME SIZE
+========================================================= */
+.services-image-stage {
+ position: absolute;
+ left: 50%;
+ top: 50%;
+ width:
+ var(--service-image-width);
+ height:
+ var(--service-image-height);
+ max-width: none !important;
+ max-height: none !important;
+ overflow: hidden;
+ transform:
+ translate3d(
+ -50%,
+ -50%,
+ 0
+ );
+ z-index: 5;
+ pointer-events: auto;
+ clip-path:
+ inset(0 0 100% 0);
+ will-change:
+ clip-path,
+ transform;
+}  .services-current-image {
+ position: absolute;
+ inset: 0;
+ width: 100% !important;
+ height: 100% !important;
+ max-width: none !important;
+ max-height: none !important;
+ display: block;
+ object-fit: cover;
+ object-position: center;
+ pointer-events: none;
+ opacity: 0;
+ will-change:
+ opacity;
+}  .services-current-image:nth-child(1) {
+ z-index: 1;
+ opacity: 1;
+}  .services-current-image:nth-child(2) {
+ z-index: 2;
+ opacity: 0;
+}  .services-current-image:nth-child(3) {
+ z-index: 3;
+ opacity: 0;
+}  /* =========================================================
+ SMALL IMAGE HOVER WAVE CANVAS
+========================================================= */
+.services-image-wave {
+ position: absolute;
+ inset: 0;
+ width: 100%;
+ height: 100%;
+ display: block;
+ pointer-events: none;
+ opacity: 0;
+ z-index: 10;
+}  /* =========================================================
+ SERVICE TEXT BLOCK
+========================================================= */
+.service-block {
+ position: absolute;
+ left: 0;
+ top: 0;
+ width: 100%;
+ height: 100%;
+ pointer-events: none;
+}  /* =========================================================
+ BIG TITLE
+========================================================= */
+.service-title {
+ position: absolute;
+ left: 50%;
+ width: max-content;
+ margin: 0;
+ font-family:
+ "Courier New",
+ Courier,
+ monospace;
+ font-size:
+ var(--service-title-size);
+ font-weight:
+ var(--service-title-weight);
+ line-height: 1.4;
+ letter-spacing: 0.045em;
+ text-transform: uppercase;
+ white-space: nowrap;
+ color: var(--services-fg);
+ transform:
+ translate3d(
+ -50%,
+ -50%,
+ 0
+ );
+ z-index: 2;
+ will-change: top;
+}  /* =========================================================
+ BIG TITLE — SPLIT AROUND IMAGE
+========================================================= */
+.service-title-line {
+ display: flex;
+ justify-content: center;
+ align-items: baseline;
+ --left-shift: 0px;
+ --right-shift: 0px;
+}  .service-title-line
+.service-text-half--left {
+ padding-right: 0;
+}  .service-title-line
+.service-text-half--right {
+ padding-left: 0;
+}  /* =========================================================
+ SMALL COPY
+========================================================= */
+.service-copy {
+ position: absolute;
+ left: 0;
+ width: 100%;
+ margin: 0;
+ font-family:
+ "IBM Plex Mono",
+ "Courier New",
+ monospace;
+ font-size:
+ var(--service-copy-size);
+ font-weight: 400;
+ line-height:
+ var(--service-copy-line-height);
+ letter-spacing: -0.015em;
+ color: var(--services-fg);
+ z-index: 7;
+ will-change: top;
+}  /* =========================================================
+ COPY LINE
+========================================================= */
+.service-line {
+ position: relative;
+ display: flex;
+ justify-content: center;
+ align-items: baseline;
+ width: max-content;
+ margin-left: auto;
+ margin-right: auto;
+ white-space: nowrap;
+ --left-shift: 0px;
+ --right-shift: 0px;
+}  /* =========================================================
+ COPY HALVES
+========================================================= */
+.service-text-half {
+ display: inline-block;
+ will-change: transform;
+}  .service-text-half--left {
+ text-align: right;
+ padding-right:
+ var(--service-word-gap);
+ transform:
+ translate3d(
+ calc(
+ -1 *
+ var(--left-shift)
+ ),
+ 0,
+ 0
+ );
+}  .service-text-half--right {
+ text-align: left;
+ padding-left:
+ var(--service-word-gap);
+ transform:
+ translate3d(
+ var(--right-shift),
+ 0,
+ 0
+ );
+}  /* =========================================================
+ TABLET ONLY — 768px → 1024px
+ LARGE SERVICES IMAGE — OPEN WIDER
+ ONLY CHANGES HOW MUCH OF THE LARGE IMAGE REMAINS AT THE EDGES
+ MOBILE / DESKTOP / WIDE UNTOUCHED
+========================================================= */
+@media (min-width: 768px) and (max-width: 1024px) {
+ .services {
+ --service-title-copy-gap: 28px;
+ --services-side-gap: 16px;
+ --services-edge-visible: 20px;
+ /* TABLET ONLY — THREE SMALL SERVICE IMAGES */
+ --service-image-width: 120px;
+ --service-image-height: 160px;
+ /* TABLET ONLY — TEXT CLOSER TO THE SMALL IMAGE */
+ --service-image-clearance: 25px;
+ }
+}
+/* =========================================================
+ MOBILE
+========================================================= */
+@media (max-width: 767px) {
+ .services {
+ --services-side-gap: 20px;
+ --services-bottom-gap: 20px;
+ --services-hold-distance: 25vh;
+ --services-split-distance: 90vh;
+ /* MOBILE ONLY — HOW MUCH OF THE LARGE IMAGE REMAINS AT EACH SIDE */
+ /* Smaller value = larger open space in the middle */
+ --services-edge-visible: 15px;
+ --services-entry-parallax: 30px;
+ --services-exit-parallax: 30px;
+ --services-image-entry-start: 0.58;
+ --services-text-delay-distance: 24vh;
+ --services-item-distance: 120vh;
+--services-exit-close-distance: 90vh;
+ --service-image-width: 120px;
+ --service-image-height: 160px;
+ --service-label-gap: 15px;
+ --service-label-size: 9px;
+ --service-image-swap-distance: 24vh;
+ --service-title-size: 10px;
+ --service-copy-size: 9px;
+ --service-title-copy-gap: 28px;
+ --service-image-clearance: 24px;
+ --service-avoid-distance: 90px;
+ --service-word-gap: 0.2em;
+ }  /*
+ * MOBILE ONLY — SHORTER COPY LINES.
+ * Desktop copy remains exactly as-is.
+ */
+ .service-copy {
+ left: 50%;
+ width: min(82vw, 330px);
+ transform: translateX(-50%);
+ text-align: center;
+ /* MOBILE ONLY — copy passes underneath the small image */
+ z-index: 4;
+ }  .service-line {
+ display: block;
+ width: 100%;
+ margin-left: 0;
+ margin-right: 0;
+ white-space: nowrap;
+ text-align: center;
+ }  .service-text-half {
+ display: inline;
+ }  .service-text-half--left,
+ .service-text-half--right {
+ padding-left: 0;
+ padding-right: 0;
+ }  /*
+ * MOBILE ONLY — SAME PIN ENGINE AS THE OTHER MOBILE SECTIONS.
+ * The stage enters normally, pins for the complete opening /
+ * three-service / closing sequence, then releases normally.
+ */
+ .services-shell {
+ overflow: visible;
+ }  /*
+ * MOBILE ONLY — LARGE OPENING IMAGE IS FULL SCREEN.
+ * The frame itself does not carry the desktop/header margins.
+ * The existing inner-image parallax remains untouched.
+ * After the split, --services-edge-visible still controls
+ * exactly how much image remains visible at both sides.
+ */
+ .services-frame {
+ left: 0;
+ right: 0;
+ top: 0;
+ bottom: 0;
+ }  /*
+ * MOBILE ONLY — KEEP THE TWO LARGE-IMAGE HALVES
+ * ON THEIR OWN COMPOSITED LAYERS.
+ * This changes no size or position; it only prevents the
+ * split / reverse-split from visually snapping between frames.
+ */
+ .services-half,
+ .services-half img {
+ -webkit-backface-visibility: hidden;
+ backface-visibility: hidden;
+ }  .services-half {
+ transform: translate3d(0, 0, 0);
+ }  /*
+ * MOBILE ONLY — PRE-COMPOSITE THE SMALL IMAGE LAYER.
+ * No position / size / timing change.
+ */
+ .services-flow,
+ .services-image-stage,
+ .services-label {
+ -webkit-backface-visibility: hidden;
+ backface-visibility: hidden;
+ will-change: clip-path, transform;
+ }  .services-image-stage {
+ transform: translate3d(-50%, -50%, 0);
+ }  .services-stage {
+ position: absolute !important;
+ top: 0;
+ left: 0;
+ right: 0;
+ width: 100%;
+ height: 100vh;
+ min-height: 100vh;
+ max-height: 100vh;
+ overflow: hidden;
+ }  .services-stage.services-mobile-pin-engine {
+ position: fixed !important;
+ top: 0 !important;
+ left: 0;
+ right: 0;
+ width: 100%;
+ height: 100vh;
+ z-index: 50;
+ will-change: transform;
+ }
+}  /* =========================================================
+ REDUCED MOTION
+========================================================= */
+@media (prefers-reduced-motion: reduce) and (max-width: 767px) {
+ .services-half,
+ .services-half img,
+ .service-text-half {
+ transform: none !important;
+ }
+} 
