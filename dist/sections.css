@@ -12,7 +12,7 @@ html,body{height:100%;overflow:hidden;overscroll-behavior:none}#main{position:fi
 .opening-frame{transform-origin:100% 0%;will-change:transform}.how-screen.is-exiting .opening-frame{z-index:40}.how-screen.is-exiting .services-flow,.how-screen.is-exiting .how-finale{opacity:0!important;pointer-events:none}.white-screen{background:#FFFFFF;touch-action:none}.ct_cr-navbar{filter:invert(var(--nav-ink,0))}.menu-is-open .ct_cr-navbar{filter:none}#next-title{outline:none}
 
 /* White arrival uses an opaque full-viewport surface, without moving section edges. */
-.white-wash{position:absolute;inset:0;background:#fff;z-index:45;opacity:0;pointer-events:none}.white-handoff .page-screen{transition:none!important}.ct_cr-navbar__menuIcon{filter:invert(var(--nav-ink,0));backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px)}.menu-is-open .ct_cr-navbar__menuIcon{filter:none}
+.white-wash{position:absolute;inset:0;background:#fff;z-index:45;opacity:0;pointer-events:none}.white-handoff .page-screen,.how-screen.is-returning{transition:none!important}.ct_cr-navbar__menuIcon{filter:invert(var(--nav-ink,0));backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px)}.menu-is-open .ct_cr-navbar__menuIcon{filter:none}
 
 /* Shared typography from the approved hero. Step title sizes are retained by explicit request. */
 .culture-title h1,.service-title{font-family:AvenirNext,sans-serif;font-weight:900;font-style:normal;line-height:normal;letter-spacing:1px;color:#fff;text-transform:uppercase}

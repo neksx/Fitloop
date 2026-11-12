@@ -329,10 +329,10 @@
  function access(){const menu=document.body.classList.contains('menu-is-open');screens.forEach((e,i)=>{e.inert=i!==active||menu;e.setAttribute('aria-hidden',String(i!==active));});finale.inert=active!==1||menu||finale.getAttribute('aria-hidden')==='true';}
  function ready(){return !document.body.classList.contains('save-flow-running')&&document.body.classList.contains('experience-ready')&&!document.body.classList.contains('intro-running');}
  const wait=ms=>new Promise(resolve=>setTimeout(resolve,ms));
- function split(to){const from=opening;if(reduced.matches){renderOpening(to);return Promise.resolve();}return new Promise(resolve=>{let start;function tick(t){start??=t;const p=clamp((t-start)/1450);renderOpening(from+(to-from)*p);if(p<1)requestAnimationFrame(tick);else resolve();}requestAnimationFrame(tick);});}
+ function split(to,duration=1450){const from=opening;if(reduced.matches){renderOpening(to);return Promise.resolve();}return new Promise(resolve=>{let start;function tick(t){start??=t;const p=clamp((t-start)/duration);renderOpening(from+(to-from)*p);if(p<1)requestAnimationFrame(tick);else resolve();}requestAnimationFrame(tick);});}
  // The closed photograph zooms into its white upper-right corner.
  function renderZoom(p){zoom=p;document.body.classList.toggle('nav-on-white',p>=.55);const eased=smooth(p),scale=Math.pow(64,eased);frame.style.transform=`translate3d(0,${-frame.offsetTop*eased}px,0) scale(${scale})`;document.body.style.setProperty('--nav-ink',String(eased));section.querySelector('.white-wash').style.opacity=String(smooth((p-.55)/.45));}
- function zoomTo(to){const from=zoom;if(reduced.matches){renderZoom(to);return Promise.resolve();}return new Promise(resolve=>{let start;function run(t){start??=t;const p=clamp((t-start)/1100);renderZoom(from+(to-from)*p);if(p<1)requestAnimationFrame(run);else resolve();}requestAnimationFrame(run);});}
+ function zoomTo(to,duration=1100){const from=zoom;if(reduced.matches){renderZoom(to);return Promise.resolve();}return new Promise(resolve=>{let start;function run(t){start??=t;const p=clamp((t-start)/duration);renderZoom(from+(to-from)*p);if(p<1)requestAnimationFrame(run);else resolve();}requestAnimationFrame(run);});}
  async function whiteHandoff(from,to){document.body.classList.add('white-handoff');screens[to].classList.add('is-active');screens[from].classList.remove('is-active');await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));document.body.classList.remove('white-handoff');}
  async function show(index){
   if(index<0||index>=screens.length||index===active||locked||!ready()||document.body.classList.contains('menu-is-open'))return;
@@ -359,14 +359,19 @@
     await whiteHandoff(1,2);section.dataset.exitPhase='white';
    }else if(index===1&&previous===2){
     current=target=metrics().total;
-    if(screens[2].classList.contains('fitting-no-model')){
+    if(reduced.matches){
      section.classList.remove('is-exiting');
      renderOpening(1);renderZoom(0);renderFlow(current);
      await whiteHandoff(2,1);
     }else{
+     section.classList.add('is-exiting','is-returning');
      renderFlow(current);renderOpening(0);renderZoom(1);
-     section.classList.add('is-exiting');await whiteHandoff(2,1);
-     section.dataset.exitPhase='unzooming';await zoomTo(0);await split(1);
+     section.classList.add('is-active');screens[2].classList.remove('is-active');
+     section.dataset.exitPhase='unzooming';await zoomTo(0,850);
+     finale.animate([{opacity:0,transform:'translateY(12px)'},{opacity:1,transform:'translateY(0)'}],
+      {duration:900,delay:150,easing:'cubic-bezier(.22,1,.36,1)',fill:'backwards'});
+     section.classList.remove('is-exiting');
+     section.dataset.exitPhase='opening';await split(1,1100);
      current=target=metrics().total;
     }
    }else if(index===1){
@@ -382,7 +387,7 @@
    if(index===3&&previous!==3)document.body.dataset.savedOrigin=screenHashes[previous];
    active=index;document.body.dataset.screen=String(index);locked=false;wheelBlocked=index===2;navbar.inert=false;access();
    if(index===1){
-    section.classList.remove('is-exiting');
+    section.classList.remove('is-exiting','is-returning');
     delete section.dataset.exitPhase;
     renderFlow(current);
    }
