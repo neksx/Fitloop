@@ -1,0 +1,29 @@
+name: Import FitLoop v86
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Import verified archive
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          repo="$GITHUB_REPOSITORY"
+          release_id="$(gh api "repos/$repo/releases" --jq '.[] | select(.draft and .name == "FitLoop v86 import") | .id')"
+          [[ "$release_id" =~ ^[0-9]+$ ]]
+          asset_id="$(gh api "repos/$repo/releases/$release_id/assets" --jq '.[] | select(.name == "fitloop-github-v86.zip") | .id')"
+          [[ "$asset_id" =~ ^[0-9]+$ ]]
+          archive="$RUNNER_TEMP/fitloop-github-v86.zip"
+          gh api -H 'Accept: application/octet-stream' "repos/$repo/releases/assets/$asset_id" > "$archive"
+          printf '%s  %s\n' 091dbe6be7fe882a95d56783736d98fa716b712be18dd9d4f02a3cf2be4994b0 "$archive" | sha256sum -c -
+          unzip -q "$archive" -d "$RUNNER_TEMP"
+          rsync -a --exclude='/.github/' "$RUNNER_TEMP/fitloop-github-v86/" ./
+          git add -A
+          git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' commit -m 'Import FitLoop v86'
+          git push origin HEAD:main
+          gh api -X DELETE "repos/$repo/releases/$release_id"
