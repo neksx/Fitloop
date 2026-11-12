@@ -572,7 +572,7 @@
   closeRailActions();document.dispatchEvent(new Event('fitloop-close-factory'));
   if(panel.classList.contains('is-open'))closePanel();
   const arrived=section.classList.contains('fitting-arrived');
-  if(!arrived||reduced.matches){cancelArrival();return;}
+  if(!hasCreated||!arrived||reduced.matches){cancelArrival();return;}
   section.classList.add('fitting-leaving');stage.inert=true;selector.inert=true;rail.inert=true;
   const center=stage.getBoundingClientRect(),cx=center.x+center.width/2,cy=center.y+center.height/2;
   const controls=Promise.all([selector,rail].map((element,i)=>{const rect=element.getBoundingClientRect();return animateArrival(element,[{opacity:1,transform:'none'},{opacity:0,transform:`translate(${cx-rect.x-rect.width/2}px,${cy-rect.y-rect.height/2}px) scale(.12)`}],{duration:450,delay:i*40,easing:'cubic-bezier(.76,0,.24,1)'});}));

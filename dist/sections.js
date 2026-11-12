@@ -358,9 +358,17 @@
     section.dataset.exitPhase='zooming';await zoomTo(1);
     await whiteHandoff(1,2);section.dataset.exitPhase='white';
    }else if(index===1&&previous===2){
-    current=target=metrics().total;renderFlow(current);renderOpening(0);renderZoom(1);
-    section.classList.add('is-exiting');await whiteHandoff(2,1);
-    section.dataset.exitPhase='unzooming';await zoomTo(0);await split(1);section.classList.remove('is-exiting');delete section.dataset.exitPhase;current=target=metrics().total;
+    current=target=metrics().total;
+    if(screens[2].classList.contains('fitting-no-model')){
+     section.classList.remove('is-exiting');
+     renderOpening(1);renderZoom(0);renderFlow(current);
+     await whiteHandoff(2,1);
+    }else{
+     renderFlow(current);renderOpening(0);renderZoom(1);
+     section.classList.add('is-exiting');await whiteHandoff(2,1);
+     section.dataset.exitPhase='unzooming';await zoomTo(0);await split(1);
+     current=target=metrics().total;
+    }
    }else if(index===1){
     current=target=0;renderFlow(0);renderZoom(0);section.classList.remove('is-exiting');renderOpening(0);section.classList.add('is-active');screens[previous].classList.remove('is-active');section.setAttribute('aria-hidden','false');if(!reduced.matches)await wait(650);await split(1);
    }else if(index===0){
@@ -373,7 +381,11 @@
   }finally{
    if(index===3&&previous!==3)document.body.dataset.savedOrigin=screenHashes[previous];
    active=index;document.body.dataset.screen=String(index);locked=false;wheelBlocked=index===2;navbar.inert=false;access();
-   if(index===1)renderFlow(current);
+   if(index===1){
+    section.classList.remove('is-exiting');
+    delete section.dataset.exitPhase;
+    renderFlow(current);
+   }
    history.replaceState(null,'',location.pathname+location.search+screenHashes[index]);document.getElementById(headingIds[index]).focus({preventScroll:true});
    if(index===2)document.querySelector('.section-announcer').textContent='Your fitting room.';
    document.dispatchEvent(new CustomEvent('fitloop-screen',{detail:{index}}));

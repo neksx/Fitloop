@@ -95,3 +95,12 @@ test('touch input during the opening preserves the first frame and resumes after
   events.touchmove({target,touches:[{clientX:100,clientY:80}],preventDefault(){}});
   assert.equal(c.state.target,20);
 });
+
+
+test('the manual entry point loads the same scripts and styles as the main page', () => {
+  const resources = file => {
+    const html = fs.readFileSync(new URL(`../dist/${file}`, `file://${__filename}`), 'utf8');
+    return Array.from(html.matchAll(/<(?:script src|link rel="stylesheet" href)="([^"]+)"/g), match => match[1]);
+  };
+  assert.deepEqual(resources('manual/index.html'), resources('index.html'));
+});

@@ -4,11 +4,11 @@ const vm=require('node:vm');
 const test=require('node:test');
 const source=fs.readFileSync(new URL('../dist/fitting.js',`file://${__filename}`),'utf8');
 const exit=source.slice(source.indexOf(' async function exitFitting('),source.indexOf(' let pendingSavedEdit='));
-function fixture(reduced=false,replacing=false){
+function fixture(reduced=false,replacing=false,hasCreated=true){
  const calls=[],classes=new Set(['fitting-arrived']);
  const node=name=>({name,inert:false,getBoundingClientRect:()=>({x:0,y:90,width:400,height:400})});
  const models=node('models'),intro=node('intro'),stage=node('stage'),selector=node('selector'),rail=node('rail'),undo=node('undo'),factory=node('factory');
- const context=vm.createContext({models,intro,stage,selector,rail,undo,replacementState:replacing?{restorePanel:true}:null,closeReplacement:async()=>{calls.push({name:'split',restorePanel:context.replacementState.restorePanel});context.replacementState=null;},reduced:{matches:reduced},
+ const context=vm.createContext({hasCreated,models,intro,stage,selector,rail,undo,replacementState:replacing?{restorePanel:true}:null,closeReplacement:async()=>{calls.push({name:'split',restorePanel:context.replacementState.restorePanel});context.replacementState=null;},reduced:{matches:reduced},
   panel:{classList:{contains:()=>false}},section:{classList:{contains:c=>classes.has(c),add:c=>classes.add(c),remove:c=>classes.delete(c)},querySelector:()=>factory},
   closeRailActions(){},closePanel(){},document:{dispatchEvent(){}},Event:class{},matchMedia:()=>({matches:true}),
   cancelArrival(){calls.push({name:'cancel'});},
@@ -30,4 +30,11 @@ test('reduced-motion logo exit cancels arrival instead of playing another scale 
 
 test('home exit reverses an open replacement before the normal exit without reopening the profile',async()=>{
  const f=fixture(false,true);await f.run(0);assert.equal(f.calls[0].name,'split');assert.equal(f.calls[0].restorePanel,false);assert.equal(f.calls.filter(c=>c.name==='models').length,1);
+});
+
+
+test('BACK from the empty fitting room skips the model and intro exit animations',async()=>{
+ const f=fixture(false,false,false);
+ await f.run(1);
+ assert.deepEqual(f.calls,[{name:'cancel'}]);
 });
