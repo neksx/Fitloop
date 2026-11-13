@@ -265,6 +265,34 @@ async function streamReply(bubble, history) {
   }
 }
 
+function modelCommand(message) {
+  const text = message.toLowerCase().trim().replace(/[.!]+$/, '');
+  const genderWords = [...text.matchAll(/(?:жінк\p{L}*|жіноч\p{L}*|дівчин\p{L}*|чоловік\p{L}*|чоловіч\p{L}*|\b(?:woman|female|man|male)\b)/gu)];
+  const lastGender = genderWords.at(-1)?.[0];
+  const gender = lastGender && (/^(?:жін|дів|woman|female)/u.test(lastGender) ? 'woman' : 'man');
+  const create = /^(?:(?:будь ласка[, ]+)?(?:створи|створити|додай|добав|зроби|create|add)\s)/u.test(text);
+  const change = /^(?:(?:будь ласка[, ]+)?(?:зміни|змінити|заміни|поміняй|перемкни|постав|switch|change|turn)\s)/u.test(text);
+  if (/^(?:(?:будь ласка[, ]+)?(?:видали|видалити|прибери|удали) (?:активну |поточну |цю |мою )?модель|(?:delete|remove) (?:the |my |this )?(?:active |current )?model)$/u.test(text)) return { action: 'delete' };
+  if (gender && change && !/^(?:створи|додай|добав|create|add) /u.test(text) && /(?:модел| на |\bmodel\b|\bto\b)/u.test(text)) return { action: 'gender', gender };
+  if (gender && create && /(?:модел\p{L}*|\bmodel\b|(?:створи|додай|create|add) (?:a )?(?:жінку|чоловіка|woman|man))$/u.test(text)) return { action: 'create', gender };
+  return null;
+}
+
+async function runModelCommand(command, message) {
+  const uk = /[а-яіїєґ]/iu.test(message);
+  const { action, gender } = command;
+  try {
+    const changed = await window.FitloopFitting.changeModelFromStylist(action, gender);
+    if (action === 'delete') return uk ? 'Видалив активну модель.' : 'I removed the active model.';
+    if (action === 'create') return uk ? 'Створив нову модель.' : 'I created a new model.';
+    if (!changed) return uk ? 'Активна модель уже має цю стать.' : 'The active model already uses that gender.';
+    return uk ? 'Змінив стать активної моделі.' : 'I updated the active model.';
+  } catch (error) {
+    if (error.message === 'no_model') return uk ? 'Спочатку додай модель.' : 'Add a model first.';
+    return uk ? 'Не вдалося змінити модель. Закрий налаштування примірочної та спробуй ще раз.' : 'I couldn’t update the model. Close the fitting room settings and try again.';
+  }
+}
+
 async function sendMessage(message, preset) {
   const from = preset?.getBoundingClientRect();
   if (preset && !reducedMotion.matches) {
@@ -304,7 +332,8 @@ async function sendMessage(message, preset) {
   animate(reply, [{ opacity: 0, transform: 'translateY(5px)' }, { opacity: 1, transform: 'none' }], 300);
   messages.setAttribute('aria-busy', 'true');
   try {
-    const result = await streamReply(bubble, history);
+    const command = modelCommand(message);
+    const result = command ? { text: await runModelCommand(command, message) } : await streamReply(bubble, history);
     bubble.textContent = [result.text, result.error].filter(Boolean).join('\n\n');
     reply.classList.toggle('reply-error', Boolean(result.error));
   } catch {

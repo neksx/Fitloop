@@ -20,9 +20,9 @@
   <link rel="stylesheet" href="glass.css?v=36">
   <link rel="stylesheet" href="sections.css?v=88"><link rel="stylesheet" href="fitting.css?v=37">
   <script src="experience.js?v=86" defer></script>
-  <script src="sections.js?v=88" defer></script><script src="fitting-catalog.js?v=61" defer></script><script src="fitting-state.js?v=61" defer></script><script src="fitting-motion.js?v=71" defer></script><script src="how-demo.js?v=85" defer></script><script src="fitting-sizing.js?v=65" defer></script><script src="fitting.js?v=87" defer></script><script src="fitting-factory.js?v=65" defer></script>
+  <script src="sections.js?v=89" defer></script><script src="fitting-catalog.js?v=61" defer></script><script src="fitting-state.js?v=61" defer></script><script src="fitting-motion.js?v=71" defer></script><script src="how-demo.js?v=85" defer></script><script src="fitting-sizing.js?v=65" defer></script><script src="fitting.js?v=88" defer></script><script src="fitting-factory.js?v=65" defer></script>
   <noscript><style>.loading{display:none!important}.product-card{position:relative!important;display:block}.wardrobe-track{overflow:auto!important}</style></noscript>
-<link rel="stylesheet" href="saved-looks.css?v=46"><script src="saved-looks.js?v=79" defer></script><script src="saved-transition.js?v=52" defer></script><link rel="stylesheet" href="save-flow.css?v=61"><script src="save-flow.js?v=61" defer></script><link rel="stylesheet" href="responsive.css?v=39"><link rel="stylesheet" href="local-review.css?v=57"><script src="desktop-cursor.js?v=79" defer></script><link rel="stylesheet" href="refinements-v57.css?v=64-zcode-20261109"><script src="icons-v57.js?v=57" defer></script><link rel="stylesheet" href="button-svg.css?v=65"><link rel="stylesheet" href="how-demo.css?v=65"><link rel="stylesheet" href="review-v65.css?v=67"><link rel="stylesheet" href="review-v68.css?v=69"><script src="sakura.js?v=68" defer></script><link rel="stylesheet" href="review-v72.css?v=72"><link rel="stylesheet" href="approved-local.css?v=87"><script src="saved-controls.js?v=79" defer></script></head>
+<link rel="stylesheet" href="saved-looks.css?v=46"><script src="saved-looks.js?v=79" defer></script><script src="saved-transition.js?v=52" defer></script><link rel="stylesheet" href="save-flow.css?v=61"><script src="save-flow.js?v=61" defer></script><link rel="stylesheet" href="responsive.css?v=39"><link rel="stylesheet" href="local-review.css?v=57"><script src="desktop-cursor.js?v=79" defer></script><link rel="stylesheet" href="refinements-v57.css?v=64-zcode-20261109"><script src="icons-v57.js?v=57" defer></script><link rel="stylesheet" href="button-svg.css?v=65"><link rel="stylesheet" href="how-demo.css?v=65"><link rel="stylesheet" href="review-v65.css?v=67"><link rel="stylesheet" href="review-v68.css?v=69"><script src="sakura.js?v=68" defer></script><link rel="stylesheet" href="review-v72.css?v=72"><link rel="stylesheet" href="approved-local.css?v=87"><script src="saved-controls.js?v=79" defer></script><link rel="stylesheet" href="stylist.css?v=1"><script src="stylist.js?v=2" defer></script><meta name="fitloop-stylist-api" content="https://fitloop-stylist.nocomentsx.workers.dev/api/stylist"></head>
 <body>
 <div class="loading" id="loading" aria-label="FITLOOP introduction" aria-busy="true"><div class="loading_sequence"><div class="loading_sequence_items"><div class="loading_sequence_item"></div><div class="loading_sequence_item"></div><div class="loading_sequence_item"></div></div><div class="loading_sequence_mask"></div></div><div class="loading_logo"><span>FITLOOP</span></div><div class="loading_counter"><div class="loading_counter_inner"><span class="loading_counter_value">00</span><span class="loading_counter_brand" aria-hidden="true">FITLOOP</span></div></div><span class="loading-caption">A NEW PERSPECTIVE ON WHAT YOU OWN</span><button class="loading-skip" id="skip-intro">SKIP INTRO</button></div>
 <a class="skip" href="#main">Skip to content</a>
@@ -43,7 +43,34 @@
 <div class="fitting-stage"><div class="fitting-intro"><h2>HOW WOULD YOU<br>PAIR IT?</h2></div><div class="fitting-models" id="fitting-models" aria-label="Your looks"></div></div>
 <aside class="fitting-panel" id="fitting-panel" aria-label="Look details" aria-hidden="true" inert><header><div><div id="fitting-panel-kicker" class="fitting-panel-kicker"></div><h2 id="fitting-panel-title">YOUR LOOK</h2></div><button class="button fitting-close" aria-label="Close look details"><span><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 18" fill="none"><rect width="24.0714" height="2.00585" rx="1" transform="matrix(0.728988 0.684526 -0.683417 0.730028 1.76843 0.0559998)" fill="white"></rect><rect width="24.0716" height="2.00583" rx="1" transform="matrix(0.726524 -0.687141 0.686035 0.727568 0.710758 16.5406)" fill="white"></rect></svg></span></button></header><div class="fitting-panel-scroll"><div id="fitting-panel-content"></div><div id="fitting-filters" role="group" aria-label="Wardrobe categories"></div><div class="fitting-products-bar" id="fitting-products-bar"></div></div><button class="button fitting-save" id="save-look"><i class="fitting-glass-art" aria-hidden="true"></i><i class="fitting-glass-pane" aria-hidden="true"></i><span>SAVE MY LOOK</span></button></aside>
 <div class="wardrobe-rail fitting-rail" aria-label="Clothes for your look"><div class="wardrobe-track" id="fitting-track" role="region" aria-label="Clothes moving from right to left. Select a garment to pause and show actions."></div></div><span class="sr-only" id="fitting-status" role="status" aria-live="polite"></span>
-</section><section class="page-screen saved-screen" id="saved" aria-labelledby="saved-title" aria-hidden="true" inert><h2 class="sr-only" id="saved-title" tabindex="-1">My saved looks</h2><div class="saved-grid"></div><div class="saved-empty" hidden><p>No saved looks yet.</p><a href="#next" class="ct_cr-cta"><span>CREATE A LOOK</span></a></div><div class="saved-status" role="status" aria-live="polite"></div></section></main>
+<div class="stylist-scope"><button class="launcher brackets is-first-visit" type="button" aria-label="Open AI Stylist" aria-controls="stylist" aria-expanded="false">
+    <span class="launcher-label" aria-hidden="true">AI Stylist</span>
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2c1.2 6 4 8.8 10 10-6 1.2-8.8 4-10 10-1.2-6-4-8.8-10-10 6-1.2 8.8-4 10-10Z"/></svg>
+  </button>
+  <section class="stylist brackets" id="stylist" aria-labelledby="stylist-title" inert>
+    <header class="stylist-header">
+      <button class="back header-action brackets" type="button" aria-label="Undo last chat change" title="Undo" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 5-5 5 5 5M3 10h12a5 5 0 0 1 0 10h-4"/></svg></button>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2c1.2 6 4 8.8 10 10-6 1.2-8.8 4-10 10-1.2-6-4-8.8-10-10 6-1.2 8.8-4 10-10Z"/></svg>
+      <h1 id="stylist-title">AI Stylist</h1>
+      <button class="close header-action brackets" type="button" aria-label="Collapse AI Stylist"><svg viewBox="0 0 20 18" aria-hidden="true"><path d="m2 1 16 16M18 1 2 17"/></svg></button>
+    </header>
+    <div class="conversation">
+      <div class="suggestions">
+        <h2>What would you like to wear?</h2>
+        <div class="presets">
+          <button class="preset brackets" type="button">Build a look from my wardrobe <svg viewBox="0 0 12 12" aria-hidden="true"><path d="m3 9 6-6M5.5 3H9v3.5"/></svg></button>
+          <button class="preset brackets" type="button">Find black Ksubi jeans <svg viewBox="0 0 12 12" aria-hidden="true"><path d="m3 9 6-6M5.5 3H9v3.5"/></svg></button>
+          <button class="preset brackets" type="button">Style my Purple jacket <svg viewBox="0 0 12 12" aria-hidden="true"><path d="m3 9 6-6M5.5 3H9v3.5"/></svg></button>
+        </div>
+      </div>
+      <div class="messages" role="log" hidden></div>
+    </div>
+    <form class="composer">
+      <label class="field"><input aria-label="Message" placeholder="Describe a look or paste a product link" autocomplete="off"></label>
+      <button class="send brackets" type="submit" aria-label="Send message" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></button>
+    </form>
+  </section>
+</div></section><section class="page-screen saved-screen" id="saved" aria-labelledby="saved-title" aria-hidden="true" inert><h2 class="sr-only" id="saved-title" tabindex="-1">My saved looks</h2><div class="saved-grid"></div><div class="saved-empty" hidden><p>No saved looks yet.</p><a href="#next" class="ct_cr-cta"><span>CREATE A LOOK</span></a></div><div class="saved-status" role="status" aria-live="polite"></div></section></main>
 
 <div class="section-announcer" role="status" aria-live="polite"></div>
 </body>
