@@ -1,0 +1,178 @@
+.stylist-scope { position: absolute; inset: 0; z-index: 59; pointer-events: none; --margin: 40px; --rail: var(--fitting-rail, 104px); --panel-width: var(--look-switcher-fixed-width, 316px); --line: #e4e4e6; --ease: cubic-bezier(.22,.72,.24,1); color: #171816; font: 400 12px/1.4 AvenirNext, sans-serif; }
+.stylist-scope .brackets {
+  --corner: #b2b2b2;
+  --arm: 6px;
+  position: relative;
+}
+.stylist-scope .brackets::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(var(--corner), var(--corner)) top left / var(--arm) 1px,
+    linear-gradient(var(--corner), var(--corner)) top left / 1px var(--arm),
+    linear-gradient(var(--corner), var(--corner)) top right / var(--arm) 1px,
+    linear-gradient(var(--corner), var(--corner)) top right / 1px var(--arm),
+    linear-gradient(var(--corner), var(--corner)) bottom left / var(--arm) 1px,
+    linear-gradient(var(--corner), var(--corner)) bottom left / 1px var(--arm),
+    linear-gradient(var(--corner), var(--corner)) bottom right / var(--arm) 1px,
+    linear-gradient(var(--corner), var(--corner)) bottom right / 1px var(--arm);
+  background-repeat: no-repeat;
+  transition: inset 240ms ease, opacity 180ms ease;
+}
+.stylist-scope .launcher, .stylist-scope .stylist { position: absolute; right: var(--margin); bottom: calc(var(--rail) + 18px); z-index: 2; }
+.stylist-scope .launcher {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 7px;
+  transition: width 360ms cubic-bezier(.22,1,.36,1), opacity 180ms ease, transform 260ms var(--ease), visibility 180ms;
+}
+.stylist-scope .launcher svg { width: 18px; flex: none; }
+.stylist-scope .launcher-label { flex: 1; min-width: 0; overflow: hidden; white-space: nowrap; font-size: 10px; opacity: 0; transition: opacity 180ms ease; }
+.stylist-scope .launcher.is-first-visit:is(:hover, :focus-visible) { width: 81px; }
+.stylist-scope .launcher.is-first-visit:is(:hover, :focus-visible) .launcher-label { opacity: 1; }
+.stylist-scope .launcher:is(:hover, :focus-visible)::before { inset: -3px; }
+.stylist-scope .launcher:active::before { inset: -5px; }
+.stylist-scope .launcher[aria-expanded="true"] { opacity: 0; visibility: hidden; transform: scale(.88); }
+.stylist-scope .stylist {
+  --arm: 10px;
+  width: var(--panel-width);
+  height: min(288px, calc(100dvh - var(--rail) - 42px));
+  display: flex;
+  flex-direction: column;
+  padding: 0 8px 7px;
+  /* Soft silver reflections under the same surface as the chat controls. */
+  background:
+    linear-gradient(116deg, transparent 30%, rgb(255 255 255 / 18%) 48%, transparent 66%),
+    radial-gradient(ellipse 74% 55% at 98% 10%, rgb(172 177 187 / 4%), transparent 74%),
+    radial-gradient(ellipse 63% 62% at 20% 95%, rgb(199 192 201 / 6%), transparent 76%),
+    rgb(255 255 255 / 50%);
+  backdrop-filter: blur(1.25px) saturate(1.1);
+  opacity: 0;
+  visibility: hidden;
+  transform-origin: bottom right;
+  transform: translateY(6px) scale(.985);
+  transition: transform 340ms var(--ease), opacity 260ms ease, visibility 340ms;
+}
+.stylist-scope .stylist.is-open { visibility: visible; opacity: 1; transform: none; }
+.stylist-scope .stylist-header { display: flex; align-items: center; gap: 7px; min-height: 40px; flex: none; border-bottom: 1px solid var(--line); }
+.stylist-scope .back[hidden] + svg { margin-left: 3px; }
+.stylist-scope .stylist-header > svg { width: 16px; height: 16px; }
+.stylist-scope .stylist-header h1, .stylist-scope .suggestions h2 { font-weight: 600; margin: 0; }
+.stylist-scope .stylist-header h1 { font-size: 11px; }
+.stylist-scope .header-action { --arm: 5px; display: grid; place-items: center; width: 24px; height: 24px; color: #b2b2b2; transition: color 180ms ease; flex: none; }
+.stylist-scope .header-action svg { width: 14px; height: 14px; }
+.stylist-scope .back svg { width: 17px; height: 17px; stroke-width: 1.6; }
+.stylist-scope .close { margin-left: auto; }
+.stylist-scope .close svg { stroke-width: 1.35; }
+.stylist-scope .header-action::before { opacity: 0; inset: 2px; }
+.stylist-scope .header-action:is(:hover, :focus-visible)::before { opacity: 1; inset: -1px -2px; }
+.stylist-scope .conversation { flex: 1; min-height: 0; overflow: auto; padding: 0 5px 9px; }
+.stylist-scope .conversation:has(.suggestions:not([hidden])) { padding-bottom: 0; }
+.stylist-scope .conversation:has(.messages:not([hidden])) {
+  scrollbar-width: thin;
+  scrollbar-color: #b8b8b8 transparent;
+}
+@supports selector(::-webkit-scrollbar) {
+  .conversation:has(.messages:not([hidden])) {
+    scrollbar-width: auto;
+    scrollbar-color: auto;
+  }
+  .conversation::-webkit-scrollbar { width: 1px; }
+  .conversation::-webkit-scrollbar-track { background: transparent; margin-block: 18px; }
+  .conversation::-webkit-scrollbar-thumb { background: #c8c8ca; }
+  .conversation::-webkit-scrollbar-thumb:hover { background: #929292; }
+}
+.stylist-scope .suggestions { padding-top: 13px; }
+.stylist-scope .suggestions h2 { font-size: 12px; line-height: 16px; font-weight: 500; color: #080808; }
+.stylist-scope .presets { display: grid; gap: 7px; margin-top: 13px; }
+.stylist-scope .preset { display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 22px; padding: 3px 8px; margin: 0; font-size: 10px; text-align: left; color: #666; transition: color 180ms ease; }
+.stylist-scope .preset svg { width: 12px; height: 12px; flex: none; color: #666; stroke-width: 1.1; }
+.stylist-scope .preset:is(:hover, :focus-visible) { color: #171816; }
+.stylist-scope .preset:is(:hover, :focus-visible)::before { inset: -2px -4px; }
+.stylist-scope .composer { position: relative; flex: none; display: flex; align-items: center; gap: 7px; margin: 0 5px; padding: 10px 0 3px; }
+.stylist-scope .composer::before { content: ""; position: absolute; inset: 2px 0 auto; border-top: 1px solid var(--line); pointer-events: none; }
+.stylist-scope .field { position: relative; display: flex; flex: 1; min-width: 0; }
+.stylist-scope .field input { background: transparent; border: none; outline: none; padding: 7px 0; color: #171816; caret-color: #171816; font-size: 11px; width: 100%; }
+.stylist-scope .field input::placeholder { color: #818181; opacity: 1; }
+.stylist-scope .send { display: grid; place-items: center; width: 24px; height: 24px; flex: none; transition: color 180ms ease; }
+.stylist-scope .send svg { width: 13px; height: 13px; stroke-width: 1.65; }
+.stylist-scope .send:disabled { color: #77777c; cursor: default; }
+.stylist-scope .send::before { opacity: 0; }
+.stylist-scope .send:not(:disabled):is(:hover, :focus-visible, :active, .is-pressing)::before { opacity: 1; }
+.stylist-scope .send:not(:disabled):active::before, .stylist-scope .send.is-pressing::before { inset: -3px; }
+.stylist-scope .messages { display: grid; gap: 12px; padding-top: 10px; font-size: 11px; line-height: 1.4; }
+.stylist-scope .session-time { justify-self: center; color: #767676; font-size: 9px; }
+.stylist-scope .message-entry { display: grid; gap: 2px; max-width: 92%; min-width: 0; }
+.stylist-scope .message-bubble { margin: 0; padding: 6px 8px; overflow-wrap: anywhere; }
+.stylist-scope .user-message { justify-self: end; }
+.stylist-scope .user-message .message-bubble { justify-self: end; padding: 4px 7px; --corner: #777; }
+.stylist-scope .demo-reply { justify-self: start; color: #666; }
+.stylist-scope .demo-reply .message-bubble { --corner: #c9c9c9; }
+.stylist-scope .message-meta { display: flex; align-items: center; gap: 5px; padding: 0 3px; min-height: 17px; }
+.stylist-scope .user-message .message-meta { justify-content: flex-end; }
+.stylist-scope .message-time { font-size: 9px; color: #767676; white-space: nowrap; }
+.stylist-scope .message-actions { display: flex; gap: 4px; opacity: 0; pointer-events: none; transition: opacity 160ms ease; }
+.stylist-scope .user-message:is(:hover, :focus-within) .message-actions { opacity: 1; pointer-events: auto; }
+.stylist-scope .message-actions button { display: grid; place-items: center; width: 16px; height: 16px; color: #858585; --arm: 3px; }
+.stylist-scope .message-actions svg { width: 12px; height: 12px; }
+.stylist-scope .message-actions button::before { opacity: 0; inset: 1px; }
+.stylist-scope .message-actions button:is(:hover, :focus-visible)::before { opacity: 1; inset: -1px; }
+.stylist-scope .user-message:hover .message-bubble::before { inset: -2px -3px; }
+.stylist-scope .message-actions.is-editing { opacity: 1; pointer-events: auto; }
+.stylist-scope .message-actions.is-editing button:not(.confirm-edit) { display: none; }
+.stylist-scope .message-actions .confirm-edit::before { opacity: 1; inset: 0; }
+.stylist-scope .message-actions .confirm-edit:is(:hover, :focus-visible)::before { inset: -2px; }
+.stylist-scope .copy-confirmation { display: flex; justify-content: center; align-items: center; min-height: 1.4em; overflow: hidden; }
+.stylist-scope .copy-confirmation svg { width: 11px; height: 11px; color: #292929; stroke-width: 1.15; }
+.stylist-scope .back:disabled { opacity: .45; cursor: default; }
+.stylist-scope .back:disabled::before { opacity: 0; }
+.stylist-scope .message-bubble input { width: 100%; min-width: 0; border: 0; padding: 0; color: inherit; background: transparent; }
+@media (max-width: 767px) {
+  .stylist-scope .field input { font-size: 15px; }
+}
+@media (hover: none) {
+  .launcher.is-first-visit { width: 81px; }
+  .launcher.is-first-visit .launcher-label { opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .stylist-scope *, .stylist-scope *::before { transition: none !important; }
+}
+
+.stylist-scope :is(button, input) { font-family: inherit; }
+.stylist-scope button { padding: 0; color: inherit; background: none; border: 0; cursor: pointer; }
+.stylist-scope svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 1.25; stroke-linecap: round; stroke-linejoin: round; }
+.stylist-scope .launcher, .stylist-scope .stylist { pointer-events: auto; }
+.stylist-scope .stylist { touch-action: pan-y; }
+.stylist-scope .launcher svg { width: 18px; }
+.stylist-scope .header-action { color: #b2b2b2; }
+.stylist-scope .header-action svg { width: 14px; height: 14px; }
+.stylist-scope .back svg { width: 17px; height: 17px; }
+.stylist-scope .stylist-header > svg { width: 16px; height: 16px; }
+.stylist-scope .launcher { padding: 0 7px; }
+.stylist-scope .preset { padding: 3px 8px; color: #666; }
+.stylist-scope .preset:hover { color: #171816; }
+.stylist-scope .message-actions button { color: #858585; }
+.stylist-scope [hidden] { display: none !important; }
+@media (max-width: 767px) {
+  .stylist-scope { --margin: 16px; --panel-width: min(316px, calc(100% - 32px)); }
+}
+
+.stylist-scope .demo-reply .message-bubble { white-space: pre-wrap; }
+.stylist-scope .is-typing:empty::after {
+  content: '···';
+  display: inline-block;
+  letter-spacing: 2px;
+  animation: stylist-wait 1.2s ease-in-out infinite alternate;
+}
+@keyframes stylist-wait { from { opacity: .35; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) {
+  .stylist-scope .is-typing:empty::after { animation: none; }
+}
+
+body.menu-is-open .stylist-scope { visibility: hidden; }
+#next:has(.stylist:hover) { touch-action: pan-y; }
