@@ -21,7 +21,6 @@ export default {
 
     headers["Content-Type"] = "application/x-ndjson; charset=utf-8";
     const fail = error => new Response(JSON.stringify({ error }) + "\n", { headers });
-    if (!env.OPENAI_API_KEY) return fail("AI Stylist is not configured yet.");
     const ip = request.headers.get("CF-Connecting-IP") || "unknown";
     const { success } = await env.CHAT_LIMIT.limit({ key: ip });
     if (!success) return fail("Too many messages. Try again in a minute.");
@@ -54,27 +53,25 @@ export default {
 
     let upstream;
     try {
-      upstream = await fetch("https://api.openai.com/v1/responses", {
-        method: "POST",
-        headers: { Authorization: "Bearer " + env.OPENAI_API_KEY, "Content-Type": "application/json" },
-        body: JSON.stringify({
-          model: env.OPENAI_MODEL, instructions, input, stream: true, store: false, max_output_tokens: 500
-        }),
-        signal: AbortSignal.timeout(40000)
+      upstream = await env.AI.run(env.AI_MODEL, {
+        messages: [{ role: "system", content: instructions }, ...input],
+        max_tokens: 300,
+        stream: true
       });
-    } catch {
-      return fail("AI Stylist couldn’t connect. Try again in a moment.");
+    } catch (error) {
+      console.warn("Workers AI request failed", error.name);
+      return fail("AI Stylist is temporarily unavailable. Try again later.");
     }
-    if (!upstream.ok || !upstream.body) return fail("AI Stylist couldn’t reply. Try again in a moment.");
 
     const encoder = new TextEncoder();
-    const reader = upstream.body.pipeThrough(new TextDecoderStream()).getReader();
+    const reader = upstream.pipeThrough(new TextDecoderStream()).getReader();
+    let cancelled = false;
     return new Response(new ReadableStream({
       async start(controller) {
         const emit = event => controller.enqueue(encoder.encode(JSON.stringify(event) + "\n"));
         let pending = "";
         try {
-          while (true) {
+          while (!cancelled) {
             const { value, done } = await reader.read();
             if (done) break;
             pending += value;
@@ -83,25 +80,28 @@ export default {
             for (const line of lines) {
               if (!line.startsWith("data:")) continue;
               const data = line.slice(5).trim();
-              if (data === "[DONE]") continue;
-              const event = JSON.parse(data);
-              if (["response.output_text.delta", "response.refusal.delta"].includes(event.type)) emit({ text: event.delta });
-              if (["response.completed", "response.incomplete"].includes(event.type)) {
+              if (data === "[DONE]") {
                 emit({ done: true });
                 return;
               }
-              if (["error", "response.failed"].includes(event.type)) throw Error();
+              const event = JSON.parse(data);
+              if (event.error) throw Error("Workers AI stream error");
+              const text = event.response ?? event.choices?.[0]?.delta?.content;
+              if (typeof text === "string" && text) emit({ text });
             }
           }
-          throw Error();
+          if (!cancelled) throw Error("Workers AI stream ended early");
         } catch {
-          emit({ error: "AI Stylist couldn’t finish the reply. Please try again." });
+          if (!cancelled) emit({ error: "AI Stylist couldn’t finish the reply. Please try again." });
         } finally {
           reader.cancel().catch(() => {});
-          controller.close();
+          if (!cancelled) controller.close();
         }
       },
-      cancel() { return reader.cancel(); }
+      cancel() {
+        cancelled = true;
+        return reader.cancel();
+      }
     }), { headers });
   }
 };
