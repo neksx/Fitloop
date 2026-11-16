@@ -628,6 +628,77 @@
   renderPeople();
   return true;
  }
+ const stylistModelSummary=look=>({id:look.id,name:look.name,...measurementDraft(look),items:productIdsFor(look)});
+ const stylistContext=()=>({
+  active:hasCreated?current().id:null,
+  models:hasCreated?looks.map(stylistModelSummary):[],
+  catalog:products.map(({id,name,category,gender})=>({id,name,category,gender})),
+  limits:Object.fromEntries(measurementFields.map(({id,values})=>[id,
+   typeof values[0]==='number'?{min:values[0],max:values.at(-1)}:values]))
+ });
+ function stylistSettings(plan){
+  const settings={};
+  for(const {id,values} of measurementFields){
+   if(!Object.hasOwn(plan,id))continue;
+   if(!values.includes(plan[id]))throw Error('invalid');
+   settings[id]=plan[id];
+  }
+  if(Object.hasOwn(plan,'name')){
+   if(typeof plan.name!=='string'||!plan.name.trim()||nameLength(plan.name.trim())>nameLimit)throw Error('invalid');
+   settings.name=plan.name.trim();
+  }
+  return settings;
+ }
+ async function applyStylistPlan(plan,context){
+  if(!section.classList.contains('fitting-arrived')||!section.classList.contains('is-active')||
+   saving||undoing||replacementState||panel.classList.contains('is-open')||pendingOutfits.size||
+   JSON.stringify(stylistContext())!==JSON.stringify(context))throw Error('busy');
+  if(plan.action==='create'){
+   const gender=plan.gender==='random'?(Math.random()<.5?'woman':'man'):(plan.gender??'woman');
+   const settings=stylistSettings({...plan,gender});
+   await window.FitloopFitting.createPerson({height:172,weight:62,...settings});
+   if(settings.name){current().name=settings.name;persistPeople();renderPeople();}
+   return stylistModelSummary(current());
+  }
+  if(!hasCreated)throw Error('no_model');
+  const index=looks.findIndex(look=>look.id===plan.target);
+  if(index<0)throw Error('invalid');
+  const look=looks[index];
+  if(plan.action==='select'){choose(index);return stylistModelSummary(look);}
+  if(plan.action==='delete'){choose(index);deleteCurrentModel();return stylistModelSummary(look);}
+  if(plan.action!=='update')throw Error('invalid');
+
+  const settings=stylistSettings(plan);
+  const gender=settings.gender||look.gender;
+  let next={...look,...settings};
+  for(const [key,category] of [['top','Tops'],['bottom','Bottoms']]){
+   if(!Object.hasOwn(plan,key))continue;
+   const id=plan[key];
+   if(!Number.isInteger(id)||products[id]?.category!==category||products[id].gender!==gender)throw Error('invalid');
+   next=outfitState.select(next,id);
+  }
+  if(gender!==look.gender){
+   next.identity=gender==='woman'?(look.femaleIdentity||'woman'):'man';
+   if(look.gender==='woman')next.femaleIdentity=look.identity;
+  }
+  const previous={...measurementDraft(look),...outfitState.snapshot(look),name:look.name,identity:look.identity,femaleIdentity:look.femaleIdentity};
+  const state={desired:next};
+  pendingOutfits.set(look.id,state);
+  try{
+   await window.FitloopMotion.load(portraitKey(next));
+   if(!section.classList.contains('is-active')||pendingOutfits.get(look.id)!==state||!looks.includes(look)||
+    JSON.stringify(stylistContext())!==JSON.stringify(context))throw Error('busy');
+   Object.assign(look,settings,outfitState.snapshot(next),{identity:next.identity,femaleIdentity:next.femaleIdentity});
+   actionHistory.push({type:'model',id:look.id,settings:previous,...previous});
+   if(current()===look)draft=measurementDraft(look);
+   renderPeople();persistPeople();announce(`${look.name} updated`);
+   return stylistModelSummary(look);
+  }finally{
+   if(pendingOutfits.get(look.id)===state)pendingOutfits.delete(look.id);
+   save.disabled=saving||pendingOutfits.has(current().id);
+   updateUndo();
+  }
+ }
  const stylistWardrobe={
   current:()=>hasCreated?{id:current().id,gender:current().gender,items:productIdsFor(current())}:null,
   art:id=>art(id),
@@ -640,7 +711,7 @@
    return saveCurrentLook();
   }
  };
- window.FitloopFitting={stylistWardrobe,changeModelFromStylist,saveCurrent:saveCurrentLook,saveState:()=>({id:hasCreated?current().id:null,panelMode:panel.classList.contains('is-open')?mode:null,available:hasCreated&&!saving&&!pendingOutfits.has(current().id)&&!replacementState}),capture:renderPositions,prepareSave,async openSaved(record,edit=false){pendingReturn=true;await window.FitloopMotion.load(portraitKey(record));let index=hasCreated?looks.findIndex(look=>look.savedId===record.id):-1;const details={...record,savedId:record.id};delete details.id;if(index<0){if(!hasCreated){looks=[createLook(0,record.pants,record.name,details)];index=0;hasCreated=true;}else{looks.push(createLook(0,record.pants,record.name,details));index=looks.length-1;}}else Object.assign(looks[index],details,{name:limitName(record.name)});focus=index;focusVelocity=0;choose(index);if(panel.classList.contains('is-open'))closePanel();section.dataset.restoreLook='true';pendingSavedEdit=edit;if(location.hash==='#next'){if(edit)openPanel('look');}else location.hash='next';},exit:exitFitting,openCreate:()=>openPanel('create'),async createPerson({gender,height,weight,jacketSize='M',pantSize=30}){if(!['woman','man'].includes(gender)||!Number.isInteger(height)||height<140||height>210||!Number.isInteger(weight)||weight<40||weight>140||!jacketSizes.includes(jacketSize)||!pantSizes.includes(pantSize))throw Error('Invalid model settings');const pants=gender==='woman'?3:1,jacket=gender==='woman'?6:0;await window.FitloopMotion.load(portraitKey({gender,identity:gender,pants,jacket}));const beforeFactory=factoryRect(),wasEmpty=!hasCreated;if(panel.classList.contains('is-open'))closePanel({returnFactory:false});const look=createLook(0,pants,`Look ${String(hasCreated?looks.length+1:1).padStart(2,'0')}`,{identity:gender,gender,height,weight,jacket,jacketSize,pantSize});if(hasCreated)looks.push(look);else{looks=[look];hasCreated=true;}active=looks.length-1;thumbWindowStart=Math.max(0,active-1);mode='look';draft=measurementDraft(look);renderPeople();warmOtherGender(look);animateFactoryFrom(beforeFactory);if(wasEmpty)animateModelEntry();persistPeople();announce(`${gender==='man'?'Man':'Woman'} added, ${height} cm, ${weight} kg`);}};
+ window.FitloopFitting={stylistContext,applyStylistPlan,stylistWardrobe,changeModelFromStylist,saveCurrent:saveCurrentLook,saveState:()=>({id:hasCreated?current().id:null,panelMode:panel.classList.contains('is-open')?mode:null,available:hasCreated&&!saving&&!pendingOutfits.has(current().id)&&!replacementState}),capture:renderPositions,prepareSave,async openSaved(record,edit=false){pendingReturn=true;await window.FitloopMotion.load(portraitKey(record));let index=hasCreated?looks.findIndex(look=>look.savedId===record.id):-1;const details={...record,savedId:record.id};delete details.id;if(index<0){if(!hasCreated){looks=[createLook(0,record.pants,record.name,details)];index=0;hasCreated=true;}else{looks.push(createLook(0,record.pants,record.name,details));index=looks.length-1;}}else Object.assign(looks[index],details,{name:limitName(record.name)});focus=index;focusVelocity=0;choose(index);if(panel.classList.contains('is-open'))closePanel();section.dataset.restoreLook='true';pendingSavedEdit=edit;if(location.hash==='#next'){if(edit)openPanel('look');}else location.hash='next';},exit:exitFitting,openCreate:()=>openPanel('create'),async createPerson({gender,height,weight,jacketSize='M',pantSize=30}){if(!['woman','man'].includes(gender)||!Number.isInteger(height)||height<140||height>210||!Number.isInteger(weight)||weight<40||weight>140||!jacketSizes.includes(jacketSize)||!pantSizes.includes(pantSize))throw Error('Invalid model settings');const pants=gender==='woman'?3:1,jacket=gender==='woman'?6:0;await window.FitloopMotion.load(portraitKey({gender,identity:gender,pants,jacket}));const beforeFactory=factoryRect(),wasEmpty=!hasCreated;if(panel.classList.contains('is-open'))closePanel({returnFactory:false});const look=createLook(0,pants,`Look ${String(hasCreated?looks.length+1:1).padStart(2,'0')}`,{identity:gender,gender,height,weight,jacket,jacketSize,pantSize});if(hasCreated)looks.push(look);else{looks=[look];hasCreated=true;}active=looks.length-1;thumbWindowStart=Math.max(0,active-1);mode='look';draft=measurementDraft(look);renderPeople();warmOtherGender(look);animateFactoryFrom(beforeFactory);if(wasEmpty)animateModelEntry();persistPeople();announce(`${gender==='man'?'Man':'Woman'} added, ${height} cm, ${weight} kg`);}};
  function observeEntry(){
   const active=section.classList.contains('is-active')&&document.body.classList.contains('experience-ready');
   if(section.classList.contains('fitting-suspended')){stage.inert=true;selector.inert=true;rail.inert=true;return;}

@@ -212,13 +212,13 @@ function animate(element, frames, duration) {
   }).finished;
 }
 
-async function streamReply(bubble, history) {
+async function streamReply(bubble, history, context) {
   const endpoint = document.querySelector('meta[name="fitloop-stylist-api"]')?.content;
   if (!endpoint) return { error: 'AI Stylist is coming soon. Live replies aren’t available yet.' };
   const response = await fetch(endpoint, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(history),
+    body: JSON.stringify({history, context}),
     signal: AbortSignal.timeout(45000)
   });
   if (!response.ok || !response.body) throw Error('Stylist service unavailable.');
@@ -246,6 +246,7 @@ async function streamReply(bubble, history) {
       for (const line of lines) {
         if (!line) continue;
         const event = JSON.parse(line);
+        if (event.plan) return { plan: event.plan };
         if (event.error) return { text: target, error: event.error };
         if (event.done) {
           if (!target.trim()) return { text: '', error: 'No reply came back. Please try again.' };
@@ -265,66 +266,26 @@ async function streamReply(bubble, history) {
   }
 }
 
-function modelCommand(message) {
-  const text = message.toLowerCase().trim().replace(/[.!]+$/, '');
-  const genderWords = [...text.matchAll(/(?:жінк\p{L}*|жіноч\p{L}*|дівчин\p{L}*|чоловік\p{L}*|чоловіч\p{L}*|\b(?:woman|female|man|male)\b)/gu)];
-  const lastGender = genderWords.at(-1)?.[0];
-  const gender = lastGender && (/^(?:жін|дів|woman|female)/u.test(lastGender) ? 'woman' : 'man');
-  const create = /^(?:(?:будь ласка[, ]+)?(?:створи|створити|додай|добав|зроби|create|add)\s)/u.test(text);
-  const change = /^(?:(?:будь ласка[, ]+)?(?:зміни|змінити|заміни|поміняй|перемкни|постав|switch|change|turn)\s)/u.test(text);
-  if (/^(?:(?:будь ласка[, ]+)?(?:видали|видалити|прибери|удали) (?:активну |поточну |цю |мою )?модель|(?:delete|remove) (?:the |my |this )?(?:active |current )?model)$/u.test(text)) return { action: 'delete' };
-  if (gender && change && !/^(?:створи|додай|добав|create|add) /u.test(text) && /(?:модел| на |\bmodel\b|\bto\b)/u.test(text)) return { action: 'gender', gender };
-  if (gender && create && /(?:модел\p{L}*|\bmodel\b|(?:створи|додай|create|add) (?:a )?(?:жінку|чоловіка|woman|man))$/u.test(text)) return { action: 'create', gender };
-  return null;
-}
-
-async function runModelCommand(command, message) {
-  const uk = /[а-яіїєґ]/iu.test(message);
-  const { action, gender } = command;
+async function executePlan(plan, context, message) {
+  if (plan.action === 'clarify') return typeof plan.text === 'string' ? plan.text.slice(0, 500) : 'Уточни, будь ласка, що змінити.';
+  const uk = /[а-яіїєґ]/iu.test(message) || /[а-яіїєґ]/iu.test(messages.textContent);
   try {
-    const changed = await window.FitloopFitting.changeModelFromStylist(action, gender);
-    if (action === 'delete') return uk ? 'Видалив активну модель.' : 'I removed the active model.';
-    if (action === 'create') return uk ? 'Створив нову модель.' : 'I created a new model.';
-    if (!changed) return uk ? 'Активна модель уже має цю стать.' : 'The active model already uses that gender.';
-    return uk ? 'Змінив стать активної моделі.' : 'I updated the active model.';
+    const model = await window.FitloopFitting.applyStylistPlan(plan, context);
+    const labels = uk ? {create:'Модель створено',delete:'Модель видалено',select:'Модель вибрано',update:'Модель оновлено'} :
+      {create:'Model created',delete:'Model deleted',select:'Model selected',update:'Model updated'};
+    const values = [
+      ['height', `${model.height} ${uk?'см':'cm'}`], ['weight', `${model.weight} ${uk?'кг':'kg'}`],
+      ['jacketSize', `${uk?'верх':'top'} ${model.jacketSize}`], ['pantSize', `${uk?'низ':'bottom'} ${model.pantSize}`],
+      ['gender', model.gender === 'woman' ? (uk?'жіноча модель':'female model') : (uk?'чоловіча модель':'male model')],
+      ['top', window.FitloopCatalog[model.items[0]]?.name], ['bottom', window.FitloopCatalog[model.items[1]]?.name]
+    ].filter(([key]) => Object.hasOwn(plan,key)).map(([,value])=>value);
+    return `${labels[plan.action]} · ${model.name}${values.length ? ` · ${values.join(', ')}` : ''}.`;
   } catch (error) {
     if (error.message === 'no_model') return uk ? 'Спочатку додай модель.' : 'Add a model first.';
-    return uk ? 'Не вдалося змінити модель. Закрий налаштування примірочної та спробуй ще раз.' : 'I couldn’t update the model. Close the fitting room settings and try again.';
+    if (error.message === 'invalid') return uk ? 'Це значення або річ недоступні. Уточни параметри.' : 'That value or garment is unavailable. Try another option.';
+    return uk ? 'Не вдалося застосувати зміни. Закрий налаштування моделі й повтори запит.' :
+      'The change couldn’t be applied. Close the model settings and try again.';
   }
-}
-
-function replacementCommand(message) {
-  const text = message.toLowerCase().trim().replace(/[.!]+$/, '');
-  const match = /^(?:а\s+)?(?:будь ласка[, ]+)?(?:заміни|замігни|поміняй|помінєй|зміни)\s+(куртку|верх|джинси|штани|низ)(?=\s|$)(.*)$/u.exec(text);
-  if (!match) return null;
-  const category = /куртку|верх/u.test(match[1]) ? 'Tops' : 'Bottoms';
-  const qualifier = match[2].trim().replace(/^на моделі(?: на сайті)?$/u, '')
-    .replace(/^на сайті$/u, '').replace(/(?:^|\s)на моделі(?: на сайті)?$/u, '')
-    .replace(/^на\s+/u, '').trim();
-  return { category, qualifier };
-}
-
-async function replaceActiveGarment(command) {
-  const fitting = window.FitloopFitting.stylistWardrobe;
-  const model = fitting.current();
-  if (!model) return 'Спочатку додай модель у примірочну.';
-  const catalog = window.FitloopCatalog;
-  const options = catalog.filter(item => item.gender === model.gender && item.category === command.category);
-  const worn = options.findIndex(item => model.items.includes(item.id));
-  const { qualifier } = command;
-  let item;
-  if (!qualifier || /^(?:іншу|інші|інший|наступну|наступні|наступний)$/u.test(qualifier)) {
-    const alternatives = options.filter(candidate => command.category !== 'Bottoms' || !/skirt|short/i.test(candidate.name));
-    const current = alternatives.findIndex(candidate => model.items.includes(candidate.id));
-    item = alternatives[(current + 1) % alternatives.length];
-  } else {
-    const matches = options.filter(candidate => candidate.name.toLowerCase().includes(qualifier));
-    if (matches.length !== 1) return 'Уточни назву речі з каталогу або попроси вибрати наступну.';
-    [item] = matches;
-  }
-  if (!item || item === options[worn]) return 'Іншої відповідної речі в каталозі поки немає.';
-  if (!await fitting.tryOn(model.id, [item.id])) return 'Не вдалося застосувати річ. Закрий налаштування моделі й спробуй ще раз.';
-  return `Готово. На моделі тепер ${item.name}.`;
 }
 
 function wardrobeSuggestion(message, attempt = 0) {
@@ -502,11 +463,10 @@ async function sendMessage(message, preset) {
   animate(reply, [{ opacity: 0, transform: 'translateY(5px)' }, { opacity: 1, transform: 'none' }], 300);
   messages.setAttribute('aria-busy', 'true');
   try {
-    const command = modelCommand(message);
-    const replacement = replacementCommand(message);
+    const context = window.FitloopFitting.stylistContext();
     const suggestion = wardrobeSuggestion(message);
-    const result = command ? { text: await runModelCommand(command, message) } : replacement ? { text: await replaceActiveGarment(replacement) } :
-      suggestion || await streamReply(bubble, history);
+    let result = suggestion || await streamReply(bubble, history, context);
+    if (result.plan) result = { text: await executePlan(result.plan, context, message) };
     if (suggestion) resultCard = renderWardrobeSuggestion(suggestion, reply, message, 0, card => { resultCard = card; });
     bubble.textContent = [result.text, result.error].filter(Boolean).join('\n\n');
     reply.classList.toggle('reply-error', Boolean(result.error));
