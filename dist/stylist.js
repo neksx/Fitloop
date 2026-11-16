@@ -293,6 +293,40 @@ async function runModelCommand(command, message) {
   }
 }
 
+function replacementCommand(message) {
+  const text = message.toLowerCase().trim().replace(/[.!]+$/, '');
+  const match = /^(?:а\s+)?(?:будь ласка[, ]+)?(?:заміни|замігни|поміняй|помінєй|зміни)\s+(куртку|верх|джинси|штани|низ)(?=\s|$)(.*)$/u.exec(text);
+  if (!match) return null;
+  const category = /куртку|верх/u.test(match[1]) ? 'Tops' : 'Bottoms';
+  const qualifier = match[2].trim().replace(/^на моделі(?: на сайті)?$/u, '')
+    .replace(/^на сайті$/u, '').replace(/(?:^|\s)на моделі(?: на сайті)?$/u, '')
+    .replace(/^на\s+/u, '').trim();
+  return { category, qualifier };
+}
+
+async function replaceActiveGarment(command) {
+  const fitting = window.FitloopFitting.stylistWardrobe;
+  const model = fitting.current();
+  if (!model) return 'Спочатку додай модель у примірочну.';
+  const catalog = window.FitloopCatalog;
+  const options = catalog.filter(item => item.gender === model.gender && item.category === command.category);
+  const worn = options.findIndex(item => model.items.includes(item.id));
+  const { qualifier } = command;
+  let item;
+  if (!qualifier || /^(?:іншу|інші|інший|наступну|наступні|наступний)$/u.test(qualifier)) {
+    const alternatives = options.filter(candidate => command.category !== 'Bottoms' || !/skirt|short/i.test(candidate.name));
+    const current = alternatives.findIndex(candidate => model.items.includes(candidate.id));
+    item = alternatives[(current + 1) % alternatives.length];
+  } else {
+    const matches = options.filter(candidate => candidate.name.toLowerCase().includes(qualifier));
+    if (matches.length !== 1) return 'Уточни назву речі з каталогу або попроси вибрати наступну.';
+    [item] = matches;
+  }
+  if (!item || item === options[worn]) return 'Іншої відповідної речі в каталозі поки немає.';
+  if (!await fitting.tryOn(model.id, [item.id])) return 'Не вдалося застосувати річ. Закрий налаштування моделі й спробуй ще раз.';
+  return `Готово. На моделі тепер ${item.name}.`;
+}
+
 function wardrobeSuggestion(message) {
   const fitting = window.FitloopFitting.stylistWardrobe;
   const catalog = window.FitloopCatalog;
@@ -442,8 +476,10 @@ async function sendMessage(message, preset) {
   messages.setAttribute('aria-busy', 'true');
   try {
     const command = modelCommand(message);
+    const replacement = replacementCommand(message);
     const suggestion = wardrobeSuggestion(message);
-    const result = command ? { text: await runModelCommand(command, message) } : suggestion || await streamReply(bubble, history);
+    const result = command ? { text: await runModelCommand(command, message) } : replacement ? { text: await replaceActiveGarment(replacement) } :
+      suggestion || await streamReply(bubble, history);
     if (suggestion) resultCard = renderWardrobeSuggestion(suggestion, reply);
     bubble.textContent = [result.text, result.error].filter(Boolean).join('\n\n');
     reply.classList.toggle('reply-error', Boolean(result.error));
