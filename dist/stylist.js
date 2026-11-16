@@ -327,12 +327,13 @@ async function replaceActiveGarment(command) {
   return `Готово. На моделі тепер ${item.name}.`;
 }
 
-function wardrobeSuggestion(message) {
+function wardrobeSuggestion(message, attempt = 0) {
   const fitting = window.FitloopFitting.stylistWardrobe;
   const catalog = window.FitloopCatalog;
   const prompt = message.trim().toLowerCase();
   if (prompt === 'find black ksubi jeans') {
-    const item = catalog.find(product => product.brand === 'KSUBI');
+    const matches = catalog.filter(product => product.brand === 'KSUBI');
+    const item = matches[attempt];
     return item ? {
       text: 'Fitloop has this Ksubi pair in the catalog. I can’t confirm a black option.',
       ids: [item.id], product: item, model: fitting.current()
@@ -345,9 +346,12 @@ function wardrobeSuggestion(message) {
   const options = category => catalog.filter(item => item.category === category && item.gender === model.gender);
   const [topId, bottomId] = model.items;
   const keepJacket = prompt === 'style my purple jacket';
-  const top = keepJacket ? catalog[topId] : options('Tops').find(item => item.id !== topId) || catalog[topId];
-  const bottom = options('Bottoms').find(item => item.id !== bottomId && !/skirt|short/i.test(item.name));
-  if (!top || !bottom) return { text: 'There isn’t another matching combination in this wardrobe yet.' };
+  const tops = keepJacket ? [catalog[topId]] : options('Tops').filter(item => item.id !== topId);
+  if (!tops.length) tops.push(catalog[topId]);
+  const bottoms = options('Bottoms').filter(item => item.id !== bottomId && !/skirt|short/i.test(item.name));
+  const combinations = tops.filter(Boolean).flatMap(top => bottoms.map(bottom => [top, bottom]));
+  if (!combinations.length) return { text: 'There isn’t another matching combination in this wardrobe yet.' };
+  const [top, bottom] = combinations[attempt % combinations.length];
   return {
     text: keepJacket ? `Keep your ${top.name} and try it with ${bottom.name}.` :
       `Try ${top.name} with ${bottom.name}.`,
@@ -357,7 +361,7 @@ function wardrobeSuggestion(message) {
   };
 }
 
-function renderWardrobeSuggestion(result, reply) {
+function renderWardrobeSuggestion(result, reply, message, attempt, onReplace) {
   if (!result.ids) return;
   const fitting = window.FitloopFitting.stylistWardrobe;
   const card = document.createElement('div');
@@ -403,7 +407,7 @@ function renderWardrobeSuggestion(result, reply) {
         return;
       }
       const success = await action.call(fitting, result.model.id, result.ids);
-      status.textContent = success ? (action === fitting.save ? 'Look saved.' : 'Applied to your model.') :
+      status.textContent = success ? 'Applied to your model.' :
         'Select the original model and close its settings, then try again.';
     } catch {
       status.textContent = 'The look could not load. Try again.';
@@ -412,22 +416,24 @@ function renderWardrobeSuggestion(result, reply) {
     }
   };
   primary.addEventListener('click', run(fitting.tryOn));
-  if (result.product?.url) {
-    const link = document.createElement('a');
-    link.href = result.product.url;
-    link.target = '_blank';
-    link.rel = 'noopener noreferrer';
-    link.className = 'stylist-result-secondary brackets';
-    link.textContent = 'VIEW PRODUCT ↗';
-    actions.append(link);
-  } else {
-    const save = document.createElement('button');
-    save.type = 'button';
-    save.className = 'stylist-result-secondary brackets';
-    save.textContent = 'SAVE LOOK';
-    save.addEventListener('click', run(fitting.save));
-    actions.append(save);
-  }
+  const retry = document.createElement('button');
+  retry.type = 'button';
+  retry.className = 'stylist-result-secondary brackets';
+  retry.textContent = 'TRY AGAIN';
+  retry.addEventListener('click', () => {
+    const next = wardrobeSuggestion(message, attempt + 1);
+    if (!next?.ids || next.photos?.join(',') === result.photos?.join(',') && next.ids.join(',') === result.ids.join(',')) {
+      status.hidden = false;
+      status.textContent = 'No other matching options in the catalog.';
+      return;
+    }
+    reply.querySelector('.message-bubble').textContent = next.text;
+    card.remove();
+    const updated = renderWardrobeSuggestion(next, reply, message, attempt + 1, onReplace);
+    onReplace(updated);
+    updated.querySelector('.stylist-result-secondary').focus({ preventScroll: true });
+  });
+  actions.append(retry);
   card.append(visual, actions, status);
   reply.after(card);
   animate(card, [{ opacity: 0, transform: 'translateY(4px)' }, { opacity: 1, transform: 'none' }], 240);
@@ -480,7 +486,7 @@ async function sendMessage(message, preset) {
     const suggestion = wardrobeSuggestion(message);
     const result = command ? { text: await runModelCommand(command, message) } : replacement ? { text: await replaceActiveGarment(replacement) } :
       suggestion || await streamReply(bubble, history);
-    if (suggestion) resultCard = renderWardrobeSuggestion(suggestion, reply);
+    if (suggestion) resultCard = renderWardrobeSuggestion(suggestion, reply, message, 0, card => { resultCard = card; });
     bubble.textContent = [result.text, result.error].filter(Boolean).join('\n\n');
     reply.classList.toggle('reply-error', Boolean(result.error));
   } catch {

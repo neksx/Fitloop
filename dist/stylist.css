@@ -199,9 +199,11 @@ body.menu-is-open .stylist-scope { visibility: hidden; }
   width: auto;
   min-width: 0;
   height: auto;
-  min-height: 32px;
-  padding: 7px 13px;
-  font: 600 12px/16px AvenirNext, sans-serif;
+  min-height: 36px;
+  margin: 0;
+  inset: auto;
+  padding: 9px 16px;
+  font: 600 11px/16px AvenirNext, sans-serif;
   text-align: center;
   text-decoration: none;
 }
