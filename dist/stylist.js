@@ -346,16 +346,19 @@ function wardrobeSuggestion(message, attempt = 0) {
   const options = category => catalog.filter(item => item.category === category && item.gender === model.gender);
   const [topId, bottomId] = model.items;
   const keepJacket = prompt === 'style my purple jacket';
-  const tops = keepJacket ? [catalog[topId]] : options('Tops').filter(item => item.id !== topId);
-  if (!tops.length) tops.push(catalog[topId]);
-  const bottoms = options('Bottoms').filter(item => item.id !== bottomId && !/skirt|short/i.test(item.name));
-  const combinations = tops.filter(Boolean).flatMap(top => bottoms.map(bottom => [top, bottom]));
+  const tops = keepJacket ? [catalog[topId]] : options('Tops');
+  const bottoms = options('Bottoms');
+  const combinations = tops.filter(Boolean).flatMap(top => bottoms.map(bottom => [top, bottom]))
+    .filter(([top, bottom]) => top.id !== topId || bottom.id !== bottomId);
+  const rank = ([top, bottom]) => Number(top.id !== topId) + Number(bottom.id !== bottomId)
+    + Number(!/skirt|short/i.test(bottom.name));
+  combinations.sort((a, b) => rank(b) - rank(a));
   if (!combinations.length) return { text: 'There isn’t another matching combination in this wardrobe yet.' };
   const [top, bottom] = combinations[attempt % combinations.length];
   return {
     text: keepJacket ? `Keep your ${top.name} and try it with ${bottom.name}.` :
       `Try ${top.name} with ${bottom.name}.`,
-    ids: keepJacket ? [bottom.id] : [top.id, bottom.id],
+    ids: [top.id, bottom.id].filter(id => !model.items.includes(id)),
     photos: [top.id, bottom.id],
     model
   };
