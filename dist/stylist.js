@@ -293,6 +293,113 @@ async function runModelCommand(command, message) {
   }
 }
 
+function wardrobeSuggestion(message) {
+  const fitting = window.FitloopFitting.stylistWardrobe;
+  const catalog = window.FitloopCatalog;
+  const prompt = message.trim().toLowerCase();
+  if (prompt === 'find black ksubi jeans') {
+    const item = catalog.find(product => product.brand === 'KSUBI');
+    return item ? {
+      text: 'Fitloop has this Ksubi pair in the catalog. I can’t confirm a black option.',
+      ids: [item.id], product: item, model: fitting.current()
+    } : null;
+  }
+  if (!['build a look from my wardrobe', 'style my purple jacket'].includes(prompt)) return null;
+
+  const model = fitting.current();
+  if (!model) return { text: 'Add a model first so I can match a look to it.' };
+  const options = category => catalog.filter(item => item.category === category && item.gender === model.gender);
+  const [topId, bottomId] = model.items;
+  const keepJacket = prompt === 'style my purple jacket';
+  const top = keepJacket ? catalog[topId] : options('Tops').find(item => item.id !== topId) || catalog[topId];
+  const bottom = options('Bottoms').find(item => item.id !== bottomId && !/skirt|short/i.test(item.name));
+  if (!top || !bottom) return { text: 'There isn’t another matching combination in this wardrobe yet.' };
+  return {
+    text: keepJacket ? `Keep your ${top.name} and try it with ${bottom.name}.` :
+      `Try ${top.name} with ${bottom.name}.`,
+    ids: keepJacket ? [bottom.id] : [top.id, bottom.id],
+    photos: [top.id, bottom.id],
+    model
+  };
+}
+
+function renderWardrobeSuggestion(result, reply) {
+  if (!result.ids) return;
+  const fitting = window.FitloopFitting.stylistWardrobe;
+  const card = document.createElement('div');
+  card.className = 'stylist-result brackets';
+  const visual = document.createElement('div');
+  visual.className = 'stylist-result-visual';
+  for (const id of result.photos || result.ids) {
+    const item = document.createElement('div');
+    item.className = 'stylist-result-item';
+    item.innerHTML = fitting.art(id);
+    item.setAttribute('role', 'img');
+    item.setAttribute('aria-label', window.FitloopCatalog[id].name);
+    visual.append(item);
+  }
+  if (result.product) {
+    const caption = document.createElement('div');
+    const brand = document.createElement('strong');
+    const name = document.createElement('span');
+    brand.textContent = result.product.brand;
+    name.textContent = result.product.name;
+    caption.className = 'stylist-product-caption';
+    caption.append(brand, name);
+    visual.append(caption);
+  }
+  const actions = document.createElement('div');
+  actions.className = 'stylist-result-actions';
+  const status = document.createElement('div');
+  status.className = 'stylist-result-status';
+  status.setAttribute('role', 'status');
+  status.hidden = true;
+  const primary = document.createElement('button');
+  primary.type = 'button';
+  primary.className = 'button fitting-save stylist-result-primary';
+  primary.innerHTML = '<i class="fitting-glass-pane" aria-hidden="true"></i><span>TRY ON</span>';
+  actions.append(primary);
+  const run = action => async () => {
+    status.hidden = false;
+    status.textContent = 'Applying…';
+    actions.inert = true;
+    try {
+      if (!result.model) {
+        status.textContent = 'Add a model, then ask for this item again.';
+        return;
+      }
+      const success = await action.call(fitting, result.model.id, result.ids);
+      status.textContent = success ? (action === fitting.save ? 'Look saved.' : 'Applied to your model.') :
+        'Select the original model and close its settings, then try again.';
+    } catch {
+      status.textContent = 'The look could not load. Try again.';
+    } finally {
+      actions.inert = false;
+    }
+  };
+  primary.addEventListener('click', run(fitting.tryOn));
+  if (result.product?.url) {
+    const link = document.createElement('a');
+    link.href = result.product.url;
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+    link.className = 'stylist-result-secondary brackets';
+    link.textContent = 'VIEW PRODUCT ↗';
+    actions.append(link);
+  } else {
+    const save = document.createElement('button');
+    save.type = 'button';
+    save.className = 'stylist-result-secondary brackets';
+    save.textContent = 'SAVE LOOK';
+    save.addEventListener('click', run(fitting.save));
+    actions.append(save);
+  }
+  card.append(visual, actions, status);
+  reply.after(card);
+  animate(card, [{ opacity: 0, transform: 'translateY(4px)' }, { opacity: 1, transform: 'none' }], 240);
+  return card;
+}
+
 async function sendMessage(message, preset) {
   const from = preset?.getBoundingClientRect();
   if (preset && !reducedMotion.matches) {
@@ -320,9 +427,11 @@ async function sendMessage(message, preset) {
   bubble.classList.add('is-typing');
   bubble.setAttribute('aria-label', 'Waiting for AI Stylist');
   addMessageActions(outgoing);
+  let resultCard;
   recordUndo(() => {
     outgoing.remove();
     reply.remove();
+    resultCard?.remove();
   });
   showConversation();
 
@@ -333,7 +442,9 @@ async function sendMessage(message, preset) {
   messages.setAttribute('aria-busy', 'true');
   try {
     const command = modelCommand(message);
-    const result = command ? { text: await runModelCommand(command, message) } : await streamReply(bubble, history);
+    const suggestion = wardrobeSuggestion(message);
+    const result = command ? { text: await runModelCommand(command, message) } : suggestion || await streamReply(bubble, history);
+    if (suggestion) resultCard = renderWardrobeSuggestion(suggestion, reply);
     bubble.textContent = [result.text, result.error].filter(Boolean).join('\n\n');
     reply.classList.toggle('reply-error', Boolean(result.error));
   } catch {

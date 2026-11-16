@@ -340,8 +340,8 @@
   if(current()!==look||!row.isConnected)return;refreshProductRows();
   panelProducts.querySelectorAll('.fitting-item-name,.fitting-item-view,.fitting-item-actions').forEach(e=>e.animate([{opacity:0,transform:'translateY(2px)'},{opacity:1,transform:'none'}],{duration:reduced.matches?0:160,easing:'ease-in-out'}));
  }
- async function applyProduct(id,originCard=null){
-  if(!products[id])return;outfitRequest++;const look=current(),previous=pendingOutfits.get(look.id),desired=outfitState.select({...look,...outfitState.snapshot(previous?.desired||look)},id),state={desired};
+ async function applyProduct(id,originCard=null,productIds=[id]){
+  if(!productIds.length||productIds.some(item=>!products[item]))return false;outfitRequest++;const look=current(),previous=pendingOutfits.get(look.id),desired=productIds.reduce((outfit,item)=>outfitState.select(outfit,item),{...look,...outfitState.snapshot(previous?.desired||look)}),state={desired};
   pendingOutfits.set(look.id,state);track.setAttribute('aria-busy','true');save.disabled=true;
   try{
    let loadedKey;do{await livePreviews.get(look.id)?.promise;loadedKey=portraitKey({...look,...outfitState.snapshot(desired)});await window.FitloopMotion.load(loadedKey);}while(pendingOutfits.get(look.id)===state&&looks.includes(look)&&loadedKey!==portraitKey({...look,...outfitState.snapshot(desired)}));
@@ -354,6 +354,7 @@
     if(genderMismatch(id,look)){if(originCard?.isConnected&&Number(originCard.dataset.product)===id)alreadyWorn(originCard,`Designed for ${products[id].gender==='man'?'men':'women'}.\nItem applied.`);}
     announce(`Now wearing ${products[productIdsFor(look)[0]].name} and ${products[productIdsFor(look)[1]].name}`);if(originCard&&changed){if(replacementState)replacementState.pendingSaveOffer=look.id;else window.FitloopSaveFlow?.offer?.(look.id);}
    }
+   return true;
   }catch(error){if(current()===look)announce('The look could not load. Please try again.');console.error('Outfit update failed',error);}
   finally{if(pendingOutfits.get(look.id)===state)pendingOutfits.delete(look.id);if(!pendingOutfits.has(current().id))track.removeAttribute('aria-busy');save.disabled=saving||pendingOutfits.has(current().id);}
  }
@@ -400,6 +401,7 @@
    renderPeople();save.querySelector('span').textContent='SAVED';announce(`${look.name} saved on this device`);
    await window.FitloopSaveFlow?.play(look);
    if(mode==='look')save.querySelector('span').textContent='SAVE MY LOOK';
+   return true;
   }catch{announce('The browser could not save this look.');}
   finally{saving=false;save.disabled=pendingOutfits.has(current().id);}
  }
@@ -626,7 +628,19 @@
   renderPeople();
   return true;
  }
- window.FitloopFitting={changeModelFromStylist,saveCurrent:saveCurrentLook,saveState:()=>({id:hasCreated?current().id:null,panelMode:panel.classList.contains('is-open')?mode:null,available:hasCreated&&!saving&&!pendingOutfits.has(current().id)&&!replacementState}),capture:renderPositions,prepareSave,async openSaved(record,edit=false){pendingReturn=true;await window.FitloopMotion.load(portraitKey(record));let index=hasCreated?looks.findIndex(look=>look.savedId===record.id):-1;const details={...record,savedId:record.id};delete details.id;if(index<0){if(!hasCreated){looks=[createLook(0,record.pants,record.name,details)];index=0;hasCreated=true;}else{looks.push(createLook(0,record.pants,record.name,details));index=looks.length-1;}}else Object.assign(looks[index],details,{name:limitName(record.name)});focus=index;focusVelocity=0;choose(index);if(panel.classList.contains('is-open'))closePanel();section.dataset.restoreLook='true';pendingSavedEdit=edit;if(location.hash==='#next'){if(edit)openPanel('look');}else location.hash='next';},exit:exitFitting,openCreate:()=>openPanel('create'),async createPerson({gender,height,weight,jacketSize='M',pantSize=30}){if(!['woman','man'].includes(gender)||!Number.isInteger(height)||height<140||height>210||!Number.isInteger(weight)||weight<40||weight>140||!jacketSizes.includes(jacketSize)||!pantSizes.includes(pantSize))throw Error('Invalid model settings');const pants=gender==='woman'?3:1,jacket=gender==='woman'?6:0;await window.FitloopMotion.load(portraitKey({gender,identity:gender,pants,jacket}));const beforeFactory=factoryRect(),wasEmpty=!hasCreated;if(panel.classList.contains('is-open'))closePanel({returnFactory:false});const look=createLook(0,pants,`Look ${String(hasCreated?looks.length+1:1).padStart(2,'0')}`,{identity:gender,gender,height,weight,jacket,jacketSize,pantSize});if(hasCreated)looks.push(look);else{looks=[look];hasCreated=true;}active=looks.length-1;thumbWindowStart=Math.max(0,active-1);mode='look';draft=measurementDraft(look);renderPeople();warmOtherGender(look);animateFactoryFrom(beforeFactory);if(wasEmpty)animateModelEntry();persistPeople();announce(`${gender==='man'?'Man':'Woman'} added, ${height} cm, ${weight} kg`);}};
+ const stylistWardrobe={
+  current:()=>hasCreated?{id:current().id,gender:current().gender,items:productIdsFor(current())}:null,
+  art:id=>art(id),
+  async tryOn(modelId,ids){
+   if(!hasCreated||current().id!==modelId||replacementState||saving||undoing||panel.classList.contains('is-open')||pendingOutfits.size)return false;
+   return applyProduct(ids.at(-1),null,ids);
+  },
+  async save(modelId,ids){
+   if(!await this.tryOn(modelId,ids)||current().id!==modelId)return false;
+   return saveCurrentLook();
+  }
+ };
+ window.FitloopFitting={stylistWardrobe,changeModelFromStylist,saveCurrent:saveCurrentLook,saveState:()=>({id:hasCreated?current().id:null,panelMode:panel.classList.contains('is-open')?mode:null,available:hasCreated&&!saving&&!pendingOutfits.has(current().id)&&!replacementState}),capture:renderPositions,prepareSave,async openSaved(record,edit=false){pendingReturn=true;await window.FitloopMotion.load(portraitKey(record));let index=hasCreated?looks.findIndex(look=>look.savedId===record.id):-1;const details={...record,savedId:record.id};delete details.id;if(index<0){if(!hasCreated){looks=[createLook(0,record.pants,record.name,details)];index=0;hasCreated=true;}else{looks.push(createLook(0,record.pants,record.name,details));index=looks.length-1;}}else Object.assign(looks[index],details,{name:limitName(record.name)});focus=index;focusVelocity=0;choose(index);if(panel.classList.contains('is-open'))closePanel();section.dataset.restoreLook='true';pendingSavedEdit=edit;if(location.hash==='#next'){if(edit)openPanel('look');}else location.hash='next';},exit:exitFitting,openCreate:()=>openPanel('create'),async createPerson({gender,height,weight,jacketSize='M',pantSize=30}){if(!['woman','man'].includes(gender)||!Number.isInteger(height)||height<140||height>210||!Number.isInteger(weight)||weight<40||weight>140||!jacketSizes.includes(jacketSize)||!pantSizes.includes(pantSize))throw Error('Invalid model settings');const pants=gender==='woman'?3:1,jacket=gender==='woman'?6:0;await window.FitloopMotion.load(portraitKey({gender,identity:gender,pants,jacket}));const beforeFactory=factoryRect(),wasEmpty=!hasCreated;if(panel.classList.contains('is-open'))closePanel({returnFactory:false});const look=createLook(0,pants,`Look ${String(hasCreated?looks.length+1:1).padStart(2,'0')}`,{identity:gender,gender,height,weight,jacket,jacketSize,pantSize});if(hasCreated)looks.push(look);else{looks=[look];hasCreated=true;}active=looks.length-1;thumbWindowStart=Math.max(0,active-1);mode='look';draft=measurementDraft(look);renderPeople();warmOtherGender(look);animateFactoryFrom(beforeFactory);if(wasEmpty)animateModelEntry();persistPeople();announce(`${gender==='man'?'Man':'Woman'} added, ${height} cm, ${weight} kg`);}};
  function observeEntry(){
   const active=section.classList.contains('is-active')&&document.body.classList.contains('experience-ready');
   if(section.classList.contains('fitting-suspended')){stage.inert=true;selector.inert=true;rail.inert=true;return;}
