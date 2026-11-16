@@ -190,7 +190,8 @@ body.menu-is-open .stylist-scope { visibility: hidden; }
 .stylist-scope .is-outfit::after { content: ""; position: absolute; inset-block: 2px; left: 50%; border-left: 1px solid var(--line); pointer-events: none; }
 .stylist-scope .is-outfit .stylist-result-item { flex: 0 1 44%; }
 .stylist-scope .is-outfit .stylist-result-item:first-child { justify-items: start; }
-.stylist-scope .is-outfit .stylist-result-item:last-child { justify-items: end; }
+.stylist-scope .is-outfit .stylist-result-item:last-child { justify-items: center; }
+.stylist-scope .stylist-result:has(> .is-outfit)::before { left: -3px; }
 .stylist-scope .stylist-result-item svg { display: block; width: auto; height: 70px; max-width: 100%; stroke: none; mix-blend-mode: multiply; }
 .stylist-scope .stylist-product-caption { display: grid; gap: 3px; flex: 1.4; padding-left: 10px; }
 .stylist-scope .stylist-product-caption span { color: #666; font-style: normal; }
