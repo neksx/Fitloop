@@ -361,17 +361,35 @@ function wardrobeSuggestion(message, attempt = 0) {
   };
 }
 
+// Artwork bounds omit the white and transparent margins in the original cutouts.
+const stylistGarmentBounds = {
+  4: '196 674 1276 1149',
+  5: '312 675 1036 1199',
+  6: '165 609 1339 1221',
+  7: '224 674 1225 1141',
+  8: '21 182 985 1231',
+  9: '126 30 772 1477',
+  10: '463 961 749 528',
+  11: '413 958 846 577'
+};
+
 function renderWardrobeSuggestion(result, reply, message, attempt, onReplace) {
   if (!result.ids) return;
   const fitting = window.FitloopFitting.stylistWardrobe;
   const card = document.createElement('div');
   card.className = 'stylist-result brackets';
   const visual = document.createElement('div');
-  visual.className = 'stylist-result-visual';
+  visual.className = result.product ? 'stylist-result-visual is-product' : 'stylist-result-visual is-outfit';
   for (const id of result.photos || result.ids) {
     const item = document.createElement('div');
     item.className = 'stylist-result-item';
     item.innerHTML = fitting.art(id);
+    const product = window.FitloopCatalog[id];
+    const svg = item.querySelector('svg');
+    svg.setAttribute('viewBox', stylistGarmentBounds[id] || product.rowBox || product.thumbBox);
+    svg.querySelector('image').removeAttribute('transform');
+    const [, , width, height] = svg.getAttribute('viewBox').split(' ').map(Number);
+    svg.style.aspectRatio = `${width} / ${height}`;
     item.setAttribute('role', 'img');
     item.setAttribute('aria-label', window.FitloopCatalog[id].name);
     visual.append(item);
