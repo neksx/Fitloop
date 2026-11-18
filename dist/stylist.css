@@ -50,7 +50,7 @@
     linear-gradient(116deg, transparent 30%, rgb(255 255 255 / 18%) 48%, transparent 66%),
     radial-gradient(ellipse 74% 55% at 98% 10%, rgb(172 177 187 / 4%), transparent 74%),
     radial-gradient(ellipse 63% 62% at 20% 95%, rgb(199 192 201 / 6%), transparent 76%),
-    rgb(255 255 255 / 88%);
+    var(--stylist-surface, rgb(255 255 255 / 88%));
   backdrop-filter: blur(1.25px) saturate(1.1);
   opacity: 0;
   visibility: hidden;
@@ -245,7 +245,7 @@ body.menu-is-open .stylist-scope { visibility: hidden; }
   background:
     radial-gradient(ellipse 60% 60% at 100% 0%, rgb(172 177 187 / 4%), transparent 78%),
     radial-gradient(ellipse 58% 58% at 0% 100%, rgb(199 192 201 / 5%), transparent 78%),
-    rgb(255 255 255 / 88%);
+    var(--stylist-surface, rgb(255 255 255 / 88%));
   backdrop-filter: blur(1.25px) saturate(1.1);
 }
 .fitting-panel-open .stylist-scope .petal-settings { display: none; }
@@ -345,4 +345,20 @@ body.menu-is-open .stylist-scope { visibility: hidden; }
     margin: 10px auto;
     pointer-events: none;
   }
+}
+
+
+/* The tools join the room's arrival together with its other controls. */
+#next:not(.fitting-arrived):not(.fitting-tools-arriving) .stylist-scope,
+#next.fitting-leaving .stylist-scope { opacity: 0; }
+#next .stylist-scope { transition: opacity 260ms ease; }
+
+@media (max-width: 767px) {
+  #next .stylist-scope #stylist,
+  #next .stylist-scope .petal-settings.is-expanded { --stylist-surface: rgb(255 255 255 / 96%); }
+  #next.fitting-arrived .fitting-models { transition: opacity 260ms ease; }
+  #next.fitting-arrived:has(#stylist.is-open, .petal-settings.is-expanded) .fitting-models { opacity: .58; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #next .stylist-scope, #next.fitting-arrived .fitting-models { transition: none; }
 }
