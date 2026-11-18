@@ -97,7 +97,49 @@
  function persistPeople(){try{localStorage.setItem('fitloop-fitting-people-v1',JSON.stringify({looks:(hasCreated?looks:[]).map(({id,savedId,name,identity,gender,height,weight,pants,jacket,jacketSize,pantSize,acknowledged,reviewed,femaleIdentity})=>({id,savedId,name,identity,gender,height,weight,pants,jacket,jacketSize,pantSize,acknowledged,reviewed,femaleIdentity})),active}));}catch{}}
  const measurementFields=[{id:'gender',label:'GENDER',values:['woman','man']},{id:'height',label:'HEIGHT',values:Array.from({length:71},(_,i)=>140+i),suffix:' CM'},{id:'weight',label:'WEIGHT',values:Array.from({length:101},(_,i)=>40+i),suffix:' KG'},{id:'jacketSize',label:'TOPS',values:jacketSizes},{id:'pantSize',label:'BOTTOMS',values:pantSizes}];
  let draft=null;
+ const defaultModel={gender:'woman',height:172,weight:62,jacketSize:'M',pantSize:30};
+ const newModelLook=settings=>({...settings,identity:settings.gender,pants:settings.gender==='woman'?3:1,jacket:settings.gender==='woman'?6:0});
+ const creationPreview=document.createElement('div');
+ creationPreview.className='fitting-person fitting-creation-preview';
+ creationPreview.hidden=true;
+ creationPreview.setAttribute('role','img');
+ creationPreview.innerHTML='<canvas class="fitting-motion" width="768" height="1024" aria-hidden="true"></canvas><span class="fitting-photo" aria-hidden="true"><span class="fitting-sprite"></span></span>';
+ const previewCanvas=creationPreview.querySelector('canvas');
+ let previewRenderer,previewLook,previewRequest=0;
+ function placeCreationPreview(){
+  if(mode!=='create'||panel.inert)return;
+  if(liveDesktop.matches)stage.append(creationPreview);
+  else content.querySelector('.fitting-motion-options')?.after(creationPreview);
+ }
+ async function updateCreationPreview(){
+  const look=newModelLook(draft),request=++previewRequest;
+  try{
+   await window.FitloopMotion.load(portraitKey(look));
+   if(request!==previewRequest||mode!=='create'||panel.inert)return;
+   if(previewRenderer===undefined){try{previewRenderer=new window.FitloopMotion.Motion(previewCanvas);}catch{previewRenderer=null;}}
+   previewLook=look;
+   const label=look.gender==='woman'?'Woman':'Man';
+   creationPreview.setAttribute('aria-label',`Model preview: ${label}, ${look.height} cm, ${look.weight} kg, top ${look.jacketSize}, bottom ${look.pantSize}`);
+   setFrame(creationPreview.querySelector('.fitting-sprite'),look);
+   section.querySelectorAll('.fitting-mode-preview .fitting-sprite').forEach(element=>setFrame(element,look));
+   drawCreationPreview();
+   creationPreview.hidden=false;
+  }catch{if(request===previewRequest)announce('The model preview could not load.');}
+ }
+ function drawCreationPreview(){
+  if(!previewLook)return;
+  const still=reduced.matches||motionChoice==='static';
+  creationPreview.dataset.motion=previewRenderer?.draw(portraitKey(previewLook),0,0,still,previewLook,!still)?'ready':'fallback';
+ }
+ function clearCreationPreview(){
+  previewRequest++;
+  previewLook=null;
+  creationPreview.hidden=true;
+  creationPreview.remove();
+ }
+
  const liveDesktop=matchMedia('(min-width:768px)'),livePreviews=new Map(),femaleIdentities=new Map();
+ liveDesktop.addEventListener('change',placeCreationPreview);
  const measurementDraft=person=>Object.fromEntries(measurementFields.map(field=>[field.id,person[field.id]]));
  function current(){return looks[active];}
  function productIds(){return productIdsFor(current());}
@@ -170,7 +212,7 @@
    const layers=button.querySelectorAll('.fitting-photo .fitting-sprite');
    setFrame(layers[0],looks[i],n);setFrame(layers[1],looks[i],n+1);
    layers[0].style.opacity='1';layers[1].style.opacity='0';button.dataset.frame='0';button.dataset.frameCount='1';
-   button.dataset.motion=portraitRenderers.get(looks[i].id)?.draw(portraitKey(looks[i]),n,mix,reduced.matches||motionChoice==='static'||Math.abs(active-focus)>.002||document.body.classList.contains('saved-model-handoff'),liveDesktop.matches?looks[i]:null,liveDesktop.matches&&!reduced.matches&&!document.body.classList.contains('saved-model-handoff'))?'ready':'fallback';
+   button.dataset.motion=portraitRenderers.get(looks[i].id)?.draw(portraitKey(looks[i]),n,mix,reduced.matches||motionChoice==='static'||Math.abs(active-focus)>.002||document.body.classList.contains('saved-model-handoff'),looks[i],liveDesktop.matches&&!reduced.matches&&!document.body.classList.contains('saved-model-handoff'))?'ready':'fallback';
    if(button.dataset.motion==='fallback'){layers[0].style.opacity=String(1-mix);layers[1].style.opacity=String(mix);}
 
   });
@@ -220,6 +262,7 @@
   content.querySelectorAll('.fitting-measurement-wheel').forEach(wheel=>{const field=measurementFields.find(field=>field.id===wheel.dataset.field),index=Math.max(0,field.values.indexOf(draft[field.id]));wheel.scrollTop=index*16;syncMeasurement(wheel,index);});
 
   section.querySelectorAll('.fitting-mode-preview .fitting-sprite').forEach(element=>setFrame(element,current()));
+  if(mode==='create'){placeCreationPreview();updateCreationPreview();}
   panelProducts.innerHTML=mode==='create'?'':rows;
   panel.querySelectorAll('.fitting-motion-options,.fitting-mode-preview[aria-pressed=true]').forEach(element=>element.insertAdjacentHTML('beforeend',thinCorners()));
   for(const field of ['jacketSize','pantSize'])content.querySelector(`[data-field="${field}"]`)?.parentElement.insertAdjacentHTML('beforeend',`<button type="button" class="fitting-fit-notice" data-fit-notice="${field}" hidden aria-label="${field==='jacketSize'?'Top':'Bottom'} outside fit range. Show size information" aria-expanded="false" aria-controls="fit-info-${field}"><span class="fit-label">OUTSIDE FIT RANGE.</span><span class="fit-range"></span><span class="fit-alert" aria-hidden="true"><span>!</span>${thinCorners()}</span>${thinCorners()}</button><div class="fit-info" id="fit-info-${field}" hidden><span class="fit-info-heading">OUTSIDE FIT RANGE.</span><dl><dt>HEIGHT</dt><dd>154–194 CM</dd><dt>WEIGHT</dt><dd data-fit-weight></dd></dl>${thinCorners()}</div>`);
@@ -253,6 +296,7 @@
   const changed=draft[field.id]!==field.values[index];draft[field.id]=field.values[index];
   wheel.setAttribute('aria-activedescendant',`measurement-${field.id}-${index}`);[...wheel.children].forEach((option,i)=>{option.setAttribute('aria-selected',String(i===index));option.style.opacity=i===index?'1':'.35';});
   if(changed&&mode==='look'&&(liveDesktop.matches||field.id==='gender'))previewMeasurements(current(),{...draft});
+  if(changed&&mode==='create')updateCreationPreview();
   if(changed)updateFitNotices();
  }
 
@@ -267,8 +311,8 @@
  content.addEventListener('wheel',event=>{const wheel=event.target.closest('.fitting-measurement-wheel');if(wheel){wheelTargets.delete(wheel);event.stopPropagation();}},{passive:true});
  content.addEventListener('pointerdown',event=>{const wheel=event.target.closest('.fitting-measurement-wheel');if(wheel)wheelTargets.delete(wheel);});
  content.addEventListener('keydown',event=>{const wheel=event.target.closest('.fitting-measurement-wheel');if(!wheel||!['ArrowUp','ArrowDown','Home','End'].includes(event.key))return;event.preventDefault();event.stopPropagation();const field=measurementFields.find(field=>field.id===wheel.dataset.field),index=field.values.indexOf(draft[field.id]);moveMeasurement(wheel,event.key==='Home'?0:event.key==='End'?field.values.length-1:index+(event.key==='ArrowDown'?1:-1));});
- function openPanel(nextMode='look',category='All'){window.FitloopSaveFlow?.hideOffer?.();const beforeFactory=!hasCreated&&nextMode==='create'?factoryRect():null;warmOtherGender(current());panelViewport.scrollTop=0;closeRailActions();previousFocus=document.activeElement;mode=nextMode;draft=measurementDraft(current());filter=category;panel.inert=false;panel.setAttribute('aria-hidden','false');panel.classList.add('is-open');section.classList.add('fitting-panel-open');renderPanel();animateFactoryFrom(beforeFactory);$('.fitting-close').focus({preventScroll:true});}
- function closePanel({returnFactory=true}={}){const beforeFactory=returnFactory&&!hasCreated&&mode==='create'?factoryRect():null;panel.classList.remove('is-open');panel.inert=true;panel.setAttribute('aria-hidden','true');section.classList.remove('fitting-panel-open');$('#add-model')?.setAttribute('aria-expanded','false');animateFactoryFrom(beforeFactory);(previousFocus?.isConnected?previousFocus:models.children[active])?.focus({preventScroll:true});}
+ function openPanel(nextMode='look',category='All'){window.FitloopSaveFlow?.hideOffer?.();const beforeFactory=!hasCreated&&nextMode==='create'?factoryRect():null;warmOtherGender(current());panelViewport.scrollTop=0;closeRailActions();previousFocus=document.activeElement;mode=nextMode;draft=mode==='create'?{...defaultModel}:measurementDraft(current());if(mode!=='create')clearCreationPreview();filter=category;panel.inert=false;panel.setAttribute('aria-hidden','false');panel.classList.add('is-open');section.classList.add('fitting-panel-open');renderPanel();animateFactoryFrom(beforeFactory);$('.fitting-close').focus({preventScroll:true});}
+ function closePanel({returnFactory=true}={}){const beforeFactory=returnFactory&&!hasCreated&&mode==='create'?factoryRect():null;clearCreationPreview();panel.classList.remove('is-open');panel.inert=true;panel.setAttribute('aria-hidden','true');section.classList.remove('fitting-panel-open');$('#add-model')?.setAttribute('aria-expanded','false');animateFactoryFrom(beforeFactory);(previousFocus?.isConnected?previousFocus:models.children[active])?.focus({preventScroll:true});}
  $('.fitting-close').addEventListener('click',closePanel);
  const modelEase='cubic-bezier(.22,1,.36,1)';
  const modelGhosts=new Map(),modelMoves=new WeakMap();let factoryMotion=null;
@@ -295,9 +339,16 @@
    animation.finished.catch(()=>{}).finally(()=>{if(modelMoves.get(button)===animation)modelMoves.delete(button);animation.cancel();});
   }
  }
- function animateModelEntry(direction=0){
+ function animateModelEntry(direction=0,previewRect=null){
   if(reduced.matches||!section.classList.contains('is-active'))return;
   const button=models.children[active];if(!button)return;const end=button.style.transform;
+  if(previewRect){
+   const target=button.getBoundingClientRect(),scale=previewRect.width/target.width;
+   const dx=previewRect.left+previewRect.width/2-target.left-target.width/2;
+   const dy=previewRect.top+previewRect.height/2-target.top-target.height/2;
+   settleAnimation(button.animate([{transform:`translate(${dx}px,${dy}px) ${end} scale(${scale})`},{transform:end}],{duration:720,easing:modelEase,fill:'both'}));
+   return;
+  }
   settleAnimation(button.animate([{transform:`translateX(${direction*72}px) ${end.replace(/scale\([^)]+\)/,'scale(.9)')}`,opacity:0},{transform:end,opacity:button.style.opacity||1}],{duration:720,easing:modelEase,fill:'both'}));
  }
  function makeModelGhost(button){
@@ -409,7 +460,7 @@
   if(save.disabled||pendingOutfits.has(current().id))return;
   if(mode==='look')return saveCurrentLook();
   if(mode!=='create'||!draft)return;const settings={...draft};save.disabled=true;save.querySelector('span').textContent='CREATING…';
-  try{await window.FitloopFitting.createPerson(settings);}
+  try{await window.FitloopFitting.createPerson(settings,{fromForm:true});}
   catch{announce('The model could not load. Please try again.');}
   finally{save.disabled=false;save.querySelector('span').textContent=mode==='create'?'CREATE MODEL':'SAVE MY LOOK';}
  });
@@ -711,7 +762,16 @@
    return saveCurrentLook();
   }
  };
- window.FitloopFitting={stylistContext,applyStylistPlan,stylistWardrobe,changeModelFromStylist,saveCurrent:saveCurrentLook,saveState:()=>({id:hasCreated?current().id:null,panelMode:panel.classList.contains('is-open')?mode:null,available:hasCreated&&!saving&&!pendingOutfits.has(current().id)&&!replacementState}),capture:renderPositions,prepareSave,async openSaved(record,edit=false){pendingReturn=true;await window.FitloopMotion.load(portraitKey(record));let index=hasCreated?looks.findIndex(look=>look.savedId===record.id):-1;const details={...record,savedId:record.id};delete details.id;if(index<0){if(!hasCreated){looks=[createLook(0,record.pants,record.name,details)];index=0;hasCreated=true;}else{looks.push(createLook(0,record.pants,record.name,details));index=looks.length-1;}}else Object.assign(looks[index],details,{name:limitName(record.name)});focus=index;focusVelocity=0;choose(index);if(panel.classList.contains('is-open'))closePanel();section.dataset.restoreLook='true';pendingSavedEdit=edit;if(location.hash==='#next'){if(edit)openPanel('look');}else location.hash='next';},exit:exitFitting,openCreate:()=>openPanel('create'),async createPerson({gender,height,weight,jacketSize='M',pantSize=30}){if(!['woman','man'].includes(gender)||!Number.isInteger(height)||height<140||height>210||!Number.isInteger(weight)||weight<40||weight>140||!jacketSizes.includes(jacketSize)||!pantSizes.includes(pantSize))throw Error('Invalid model settings');const pants=gender==='woman'?3:1,jacket=gender==='woman'?6:0;await window.FitloopMotion.load(portraitKey({gender,identity:gender,pants,jacket}));const beforeFactory=factoryRect(),wasEmpty=!hasCreated;if(panel.classList.contains('is-open'))closePanel({returnFactory:false});const look=createLook(0,pants,`Look ${String(hasCreated?looks.length+1:1).padStart(2,'0')}`,{identity:gender,gender,height,weight,jacket,jacketSize,pantSize});if(hasCreated)looks.push(look);else{looks=[look];hasCreated=true;}active=looks.length-1;thumbWindowStart=Math.max(0,active-1);mode='look';draft=measurementDraft(look);renderPeople();warmOtherGender(look);animateFactoryFrom(beforeFactory);if(wasEmpty)animateModelEntry();persistPeople();announce(`${gender==='man'?'Man':'Woman'} added, ${height} cm, ${weight} kg`);}};
+ window.FitloopFitting={stylistContext,applyStylistPlan,stylistWardrobe,changeModelFromStylist,saveCurrent:saveCurrentLook,saveState:()=>({id:hasCreated?current().id:null,panelMode:panel.classList.contains('is-open')?mode:null,available:hasCreated&&!saving&&!pendingOutfits.has(current().id)&&!replacementState}),capture:renderPositions,prepareSave,async openSaved(record,edit=false){pendingReturn=true;await window.FitloopMotion.load(portraitKey(record));let index=hasCreated?looks.findIndex(look=>look.savedId===record.id):-1;const details={...record,savedId:record.id};delete details.id;if(index<0){if(!hasCreated){looks=[createLook(0,record.pants,record.name,details)];index=0;hasCreated=true;}else{looks.push(createLook(0,record.pants,record.name,details));index=looks.length-1;}}else Object.assign(looks[index],details,{name:limitName(record.name)});focus=index;focusVelocity=0;choose(index);if(panel.classList.contains('is-open'))closePanel();section.dataset.restoreLook='true';pendingSavedEdit=edit;if(location.hash==='#next'){if(edit)openPanel('look');}else location.hash='next';},exit:exitFitting,openCreate:()=>openPanel('create'),async createPerson({gender,height,weight,jacketSize='M',pantSize=30},{fromForm=false}={}){if(!['woman','man'].includes(gender)||!Number.isInteger(height)||height<140||height>210||!Number.isInteger(weight)||weight<40||weight>140||!jacketSizes.includes(jacketSize)||!pantSizes.includes(pantSize))throw Error('Invalid model settings');const formDraft=draft,settings=newModelLook({gender,height,weight,jacketSize,pantSize});await window.FitloopMotion.load(portraitKey(settings));if(fromForm&&(panel.inert||mode!=='create'||draft!==formDraft))return;const beforeFactory=factoryRect(),wasEmpty=!hasCreated;
+  const beforeModels=fromForm?modelRects():null;
+  const previewBox=fromForm&&!creationPreview.hidden?creationPreview.getBoundingClientRect():null;
+  const viewport=liveDesktop.matches?stage.getBoundingClientRect():panelViewport.getBoundingClientRect();
+  const previewRect=previewBox?.width&&previewBox.bottom>viewport.top&&previewBox.top<viewport.bottom?previewBox:null;if(panel.classList.contains('is-open'))closePanel({returnFactory:false});const look=createLook(0,settings.pants,`Look ${String(hasCreated?looks.length+1:1).padStart(2,'0')}`,settings);if(hasCreated)looks.push(look);else{looks=[look];hasCreated=true;}active=looks.length-1;if(previewRect){focus=active;focusVelocity=0;}thumbWindowStart=Math.max(0,active-1);mode='look';draft=measurementDraft(look);renderPeople();warmOtherGender(look);animateFactoryFrom(beforeFactory);
+  if(beforeModels)animateModelShifts(beforeModels);
+  if(wasEmpty||fromForm)animateModelEntry(0,previewRect);
+  if(wasEmpty&&!reduced.matches)for(const control of [selector,rail,section.querySelector('.stylist-scope')]){
+   if(control)settleAnimation(control.animate([{opacity:0},{opacity:1}],{duration:480,delay:160,fill:'both',easing:modelEase}));
+  }persistPeople();announce(`${gender==='man'?'Man':'Woman'} added, ${height} cm, ${weight} kg`);}};
  function observeEntry(){
   const active=section.classList.contains('is-active')&&document.body.classList.contains('experience-ready');
   if(section.classList.contains('fitting-suspended')){stage.inert=true;selector.inert=true;rail.inert=true;return;}
@@ -729,7 +789,7 @@
    const split=replacementState,canMove=!split||['open','line'].includes(split.phase);
    if(canMove&&!hoverRail&&!focusRail&&!activeRailCard&&!reduced.matches)offset=(offset+18*dt/1000)%((split?split.indices.length:cards.length)*160);
    if(canMove)cards.forEach((card,i)=>{const rank=split?.ranks.get(i);card.style.opacity=split&&rank===undefined?'0':'1';const x=split?(rank===undefined?0:wrapRail(rank,split.indices.length,offset)):wrapRail(i,cards.length,offset);card.style.transform=`translateX(${x}px)`;});
-   track.dataset.offset=offset.toFixed(2);renderPositions();sampleConfirm(dt);
+   track.dataset.offset=offset.toFixed(2);renderPositions();if(previewLook)drawCreationPreview();sampleConfirm(dt);
   }
   frame=requestAnimationFrame(tick);
  }

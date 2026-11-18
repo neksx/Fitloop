@@ -2,8 +2,8 @@
 // A bounded petal pool: a sparse fall and a single thin resting band.
 (function(root){
  class Petals{
-  constructor(width,height,random=Math.random){this.random=random;this.resize(width,height);this.items=Array.from({length:this.count},(_,i)=>this.make(i,i<this.restCount));}
-  resize(width,height){this.width=width;this.height=height;this.restCount=Math.min(64,Math.ceil(width/22));this.fallCount=Math.min(18,Math.max(7,Math.ceil(width/90)));this.count=this.restCount+this.fallCount;}
+  constructor(width,height,random=Math.random,density=1){this.random=random;this.density=density;this.resize(width,height);this.items=Array.from({length:this.count},(_,i)=>this.make(i,i<this.restCount));}
+  resize(width,height){this.width=width;this.height=height;this.restCount=Math.round(Math.min(64,Math.ceil(width/22))*this.density);this.fallCount=Math.round(Math.min(18,Math.max(7,Math.ceil(width/90)))*this.density);this.count=this.restCount+this.fallCount;}
   make(i,rest=false){const r=this.random;return {x:r()*this.width,y:rest?this.height-r()*6:r()*this.height,vx:0,vy:rest?0:12+r()*14,angle:r()*360,spin:r()*22-11,size:2+r()*2.5,age:rest?r()*24:0,rest,seed:r()*7};}
   scatter(x,y,dx,dy){for(const p of this.items){const a=p.x-x,b=p.y-y,d=Math.hypot(a,b);if(d<48){const force=(1-d/48);p.rest=false;p.age=0;p.vx+=(dx*5+(a||1)*.7)*force;p.vy=-Math.min(90,28+Math.abs(dy)*4)*force;}}}
   step(dt,time){
@@ -20,14 +20,75 @@
  const section=document.querySelector('#next');if(!section)return;
  const ns='http://www.w3.org/2000/svg',host=document.createElement('div'),svg=document.createElementNS(ns,'svg'),reduced=matchMedia('(prefers-reduced-motion:reduce)');
  host.className='sakura-overlay';host.setAttribute('aria-hidden','true');host.inert=true;svg.setAttribute('focusable','false');host.append(svg);section.append(host);
+ const petalShape='M0 0C-1.8-2.8-5.3-2-4.6.5C-4 2.4-1.7 3.1 0 4C1.8 2.2 3 .7 2.1-.8C1.4-1.9.5-1.2 0 0Z';
+ const levels = ['Off', 'Light', 'Steady', 'Heavy'];
+ const densities = [0, .45, 1, 1.65];
+ const storageKey = 'fitloop-petal-intensity';
+ let level = 2;
+ try {
+  const saved = localStorage.getItem(storageKey);
+  if (/^[0-3]$/.test(saved ?? '')) level = Number(saved);
+ } catch { /* The control still works when storage is disabled. */ }
+
  let pool,paths=[],raf=0,last=0,pointer=null;
- function resize(){pool=new Petals(section.clientWidth,section.clientHeight);svg.setAttribute('viewBox',`0 0 ${pool.width} ${pool.height}`);paths=pool.items.map((p,i)=>{const path=document.createElementNS(ns,'path');path.setAttribute('d','M0 0C-1.8-2.8-5.3-2-4.6.5C-4 2.4-1.7 3.1 0 4C1.8 2.2 3 .7 2.1-.8C1.4-1.9.5-1.2 0 0Z');path.setAttribute('fill',['#e6a6c4','#f0bbd3','#dfa0bc'][i%3]);path.setAttribute('opacity',i<pool.restCount?'.68':'.58');return path;});svg.replaceChildren(...paths);paint();sync();}
+ function resize(){pool=new Petals(section.clientWidth,section.clientHeight,Math.random,densities[level]);svg.setAttribute('viewBox',`0 0 ${pool.width} ${pool.height}`);paths=pool.items.map((p,i)=>{const path=document.createElementNS(ns,'path');path.setAttribute('d',petalShape);path.setAttribute('fill',['#e6a6c4','#f0bbd3','#dfa0bc'][i%3]);path.setAttribute('opacity',i<pool.restCount?'.68':'.58');return path;});svg.replaceChildren(...paths);paint();sync();}
  function paint(){pool.items.forEach((p,i)=>{paths[i].setAttribute('transform',`translate(${p.x.toFixed(2)} ${p.y.toFixed(2)}) rotate(${p.angle.toFixed(1)}) scale(${(p.size/4).toFixed(2)})`);paths[i].style.visibility=reduced.matches&&!p.rest?'hidden':'';});}
- const visible=()=>document.body.dataset.screen==='2'&&!document.body.classList.contains('menu-is-open')&&!document.hidden;
+ const visible=()=>level>0&&document.body.dataset.screen==='2'&&!document.body.classList.contains('menu-is-open')&&!document.hidden;
  function tick(now){raf=0;if(!visible()||reduced.matches){last=0;return;}pool.step(Math.min(.04,last?(now-last)/1000:0),now/1000);last=now;paint();raf=requestAnimationFrame(tick);}
  function sync(){if(!pool)return;if(visible()&&!reduced.matches&&!raf)raf=requestAnimationFrame(tick);else if(!visible()||reduced.matches){cancelAnimationFrame(raf);raf=0;last=0;paint();}}
  window.addEventListener('pointermove',event=>{if(!visible()||reduced.matches)return;const next={x:event.clientX,y:event.clientY};if(pointer)pool.scatter(next.x,next.y,Math.max(-15,Math.min(15,next.x-pointer.x)),Math.max(-15,Math.min(15,next.y-pointer.y)));pointer=next;},{passive:true});
  window.addEventListener('pointerout',event=>{if(!event.relatedTarget)pointer=null;},{passive:true});
  document.addEventListener('fitloop-screen',sync);document.addEventListener('visibilitychange',sync);reduced.addEventListener('change',sync);
  new MutationObserver(sync).observe(document.body,{attributes:true,attributeFilter:['class']});new ResizeObserver(resize).observe(section);resize();
+
+ const settings = section.querySelector('.petal-settings');
+ if (!settings) return;
+ const launcher = settings.querySelector('.petal-launcher');
+ const controls = settings.querySelector('.petal-controls');
+ const close = settings.querySelector('.close');
+ const slider = settings.querySelector('input');
+ const value = settings.querySelector('output');
+ const stylistLauncher = section.querySelector('[aria-controls="stylist"]');
+ const compact = matchMedia('(max-width: 640px)');
+ settings.querySelectorAll('.petal-icon path').forEach(path => path.setAttribute('d', petalShape));
+
+ function setOpen(open, moveFocus = true) {
+  if (open && compact.matches && stylistLauncher.getAttribute('aria-expanded') === 'true') {
+   section.querySelector('#stylist .close').click();
+  }
+  launcher.setAttribute('aria-expanded', String(open));
+  settings.classList.toggle('is-expanded', open);
+  controls.inert = !open;
+  launcher.inert = open;
+  if (moveFocus) (open ? slider : launcher).focus({ preventScroll: true });
+ }
+
+ function updateControl() {
+  slider.value = level;
+  slider.setAttribute('aria-valuetext', levels[level]);
+  value.textContent = levels[level];
+  settings.style.setProperty('--petal-position', `${level / 3 * 100}%`);
+ }
+
+ updateControl();
+ launcher.addEventListener('click', () => setOpen(true));
+ close.addEventListener('click', () => setOpen(false));
+ settings.addEventListener('keydown', event => {
+  if (event.key !== 'Escape' || controls.inert) return;
+  event.preventDefault();
+  event.stopPropagation();
+  setOpen(false);
+ });
+ function closeIfOverlapping() {
+  if (compact.matches && !controls.inert && stylistLauncher.getAttribute('aria-expanded') === 'true') setOpen(false, false);
+ }
+ compact.addEventListener('change', closeIfOverlapping);
+ new MutationObserver(closeIfOverlapping).observe(stylistLauncher, { attributes: true, attributeFilter: ['aria-expanded'] });
+ slider.addEventListener('input', () => {
+  level = slider.valueAsNumber;
+  updateControl();
+  pointer = null;
+  resize();
+  try { localStorage.setItem(storageKey, level); } catch { /* Storage is optional. */ }
+ });
 })(typeof window==='undefined'?globalThis:window);

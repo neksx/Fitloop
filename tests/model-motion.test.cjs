@@ -22,6 +22,6 @@ test('reduced motion skips the added transitions',()=>{
 });
 test('closing the first-model panel returns the plus to the center',()=>{
  const close=source.slice(source.indexOf(' function closePanel('),source.indexOf(" $('.fitting-close').addEventListener('click',closePanel)"));
- const moves=[],before={left:100,top:80},panel={classList:{remove(){}},setAttribute(){},inert:false},context={hasCreated:false,mode:'create',panel,section:{classList:{remove(){}}},factoryRect:()=>before,animateFactoryFrom:rect=>moves.push(rect),previousFocus:{isConnected:true,focus(){}},models:{children:[]},$(){return {setAttribute(){}}}};
+ const moves=[],before={left:100,top:80},panel={classList:{remove(){}},setAttribute(){},inert:false},context={hasCreated:false,mode:'create',panel,section:{classList:{remove(){}}},factoryRect:()=>before,animateFactoryFrom:rect=>moves.push(rect),clearCreationPreview(){},previousFocus:{isConnected:true,focus(){}},models:{children:[]},$(){return {setAttribute(){}}}};
  const run=vm.runInNewContext(close+';closePanel',context);run();assert.equal(moves[0],before);run({returnFactory:false});assert.equal(moves[1],null);
 });
