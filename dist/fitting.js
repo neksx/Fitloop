@@ -103,9 +103,10 @@
  creationPreview.className='fitting-person fitting-creation-preview';
  creationPreview.hidden=true;
  creationPreview.setAttribute('role','img');
- creationPreview.innerHTML='<canvas class="fitting-motion" width="768" height="1024" aria-hidden="true"></canvas><span class="fitting-photo" aria-hidden="true"><span class="fitting-sprite"></span></span>';
+ creationPreview.innerHTML='<canvas class="fitting-motion" width="768" height="1024" aria-hidden="true"></canvas><span class="fitting-photo" aria-hidden="true"><span class="fitting-sprite"></span></span><span class="fitting-corners" aria-hidden="true"><i></i><i></i><i></i><i></i></span>';
  const previewCanvas=creationPreview.querySelector('canvas');
- let previewRenderer,previewLook,previewRequest=0;
+ let previewRenderer,previewLook,previewAnimation,previewRequest=0,previewSlot=0,previewProgress=0;
+ let previewLayout={from:0,to:0,start:0};
  function placeCreationPreview(){
   if(mode!=='create'||panel.inert)return;
   if(liveDesktop.matches)stage.append(creationPreview);
@@ -117,25 +118,36 @@
    await window.FitloopMotion.load(portraitKey(look));
    if(request!==previewRequest||mode!=='create'||panel.inert)return;
    if(previewRenderer===undefined){try{previewRenderer=new window.FitloopMotion.Motion(previewCanvas);}catch{previewRenderer=null;}}
+   const entering=!previewLook;
    previewLook=look;
+   if(entering)previewAnimation?.cancel();
    const label=look.gender==='woman'?'Woman':'Man';
    creationPreview.setAttribute('aria-label',`Model preview: ${label}, ${look.height} cm, ${look.weight} kg, top ${look.jacketSize}, bottom ${look.pantSize}`);
    setFrame(creationPreview.querySelector('.fitting-sprite'),look);
    section.querySelectorAll('.fitting-mode-preview .fitting-sprite').forEach(element=>setFrame(element,look));
-   drawCreationPreview();
+   drawCreationPreview(entering);
    creationPreview.hidden=false;
+   if(entering&&!reduced.matches){
+    previewAnimation=creationPreview.animate([{opacity:0,translate:liveDesktop.matches?'24px 5px':'0 6px',scale:.97},{opacity:1,translate:'0 0',scale:1}],{duration:520,easing:modelEase});
+    settleAnimation(previewAnimation);
+   }
   }catch{if(request===previewRequest)announce('The model preview could not load.');}
  }
- function drawCreationPreview(){
+ function drawCreationPreview(entering=false){
   if(!previewLook)return;
   const still=reduced.matches||motionChoice==='static';
-  creationPreview.dataset.motion=previewRenderer?.draw(portraitKey(previewLook),0,0,still,previewLook,!still)?'ready':'fallback';
+  creationPreview.dataset.motion=previewRenderer?.draw(portraitKey(previewLook),0,0,still,previewLook,!still&&!entering)?'ready':'fallback';
  }
- function clearCreationPreview(){
+ function clearCreationPreview(animate=false){
   previewRequest++;
+  const opacity=getComputedStyle(creationPreview).opacity;
+  previewAnimation?.cancel();
   previewLook=null;
-  creationPreview.hidden=true;
-  creationPreview.remove();
+  const remove=()=>{creationPreview.hidden=true;creationPreview.remove();};
+  if(!animate||!liveDesktop.matches||creationPreview.hidden||reduced.matches){remove();return;}
+  const exit=creationPreview.animate([{opacity,translate:'0 0'},{opacity:0,translate:'18px 4px'}],{duration:240,easing:modelEase,fill:'forwards'});
+  previewAnimation=exit;
+  exit.finished.then(()=>{if(previewAnimation===exit)remove();},()=>{}).finally(()=>exit.cancel());
  }
 
  const liveDesktop=matchMedia('(min-width:768px)'),livePreviews=new Map(),femaleIdentities=new Map();
@@ -174,8 +186,8 @@
     button.innerHTML='<span class="fitting-photo" role="img"><span class="fitting-sprite"></span><span class="fitting-sprite"></span></span><span class="fitting-corners" aria-hidden="true"><i></i><i></i><i></i><i></i></span>';
     const canvas=Object.assign(document.createElement('canvas'),{className:'fitting-motion',width:1536,height:2048});button.prepend(canvas);
     if(window.FitloopMotion){try{portraitRenderers.set(look.id,new window.FitloopMotion.Motion(canvas));}catch{}}
-    models.append(button);
    }
+   if(models.children[i]!==button)models.insertBefore(button,models.children[i]??null);
    existing.delete(look.id);button.dataset.look=String(i);button.classList.toggle('is-selected',i===active);button.setAttribute('aria-pressed',String(i===active));button.setAttribute('aria-label',`${look.name} — ${i===active?'view clothes':'select model'}`);
    button.querySelector('.fitting-photo').setAttribute('aria-label',`${look.gender==='man'?'Man':'Woman'} wearing ${products[productIdsFor(look)[1]].name} and ${products[productIdsFor(look)[0]].name}`);
   });
@@ -205,7 +217,7 @@
  // New model centers while preceding models slide left, shrink and fade into white.
  function renderPositions(){
   [...models.children].forEach((button,i)=>{
-   const distance=i-focus,d=Math.min(1,Math.abs(distance)),away=d*d*(3-2*d),scale=Math.max(.45,1-.26*Math.abs(distance)),x=distance*.28*stage.clientWidth;
+   const distance=i-focus+(i>=previewSlot?previewProgress:0),d=Math.min(1,Math.abs(distance)),away=d*d*(3-2*d),scale=Math.max(.45,1-.26*Math.abs(distance)),x=distance*.28*stage.clientWidth;
    const n=0,mix=0;
    button.style.zIndex=String(10-Math.min(9,Math.round(Math.abs(distance)*3)));
    button.style.transform=`translateX(calc(-50% + ${x}px)) scale(${scale})`;button.style.opacity=String(1-.62*away);button.style.filter=`saturate(${1-.5*away}) brightness(${1+.12*away})`;
@@ -218,11 +230,11 @@
   });
   section.dataset.pants=String(current().pants);section.dataset.look=String(active+1);section.dataset.lookCount=String(looks.length);section.dataset.rotation='0';
  }
- function choose(index){if(replacementState)return;window.FitloopSaveFlow?.hideOffer?.();if(!hasCreated||index<0||index>=looks.length)return;thumbWindowStart=index<active?Math.max(0,index-1):Math.min(index,Math.max(0,looks.length-2));active=index;mode='look';draft=measurementDraft(current());renderPeople();warmOtherGender(current());persistPeople();announce(current().name);}
- models.addEventListener('click',event=>{if(replacementState)return;const button=event.target.closest('[data-look]');if(!button)return;const index=Number(button.dataset.look);if(index!==active)choose(index);else if(panel.classList.contains('is-open'))closePanel();else openPanel('look');});
+ function choose(index){if(replacementState||mode==='create'&&!panel.inert)return;window.FitloopSaveFlow?.hideOffer?.();if(!hasCreated||index<0||index>=looks.length)return;thumbWindowStart=index<active?Math.max(0,index-1):Math.min(index,Math.max(0,looks.length-2));active=index;mode='look';draft=measurementDraft(current());renderPeople();warmOtherGender(current());persistPeople();announce(current().name);}
+ models.addEventListener('click',event=>{if(replacementState)return;const button=event.target.closest('[data-look]');if(!button||mode==='create'&&!panel.inert)return;const index=Number(button.dataset.look);if(index!==active)choose(index);else if(panel.classList.contains('is-open'))closePanel();else openPanel('look');});
  section.addEventListener('click',event=>{if(!panel.classList.contains('is-open')||event.target.closest('.fitting-panel,.fitting-person,.fitting-model-factory,.look-switcher,.fitting-rail,.fitting-undo,button,a,input'))return;closePanel();});
  thumbs.setAttribute('role','group');thumbs.setAttribute('aria-label','Models — use left and right arrow keys to browse');
- function selectThumbnail(index){choose(index);thumbs.querySelector(`[data-select-look="${active}"]`)?.focus({preventScroll:true});}
+ function selectThumbnail(index){if(mode==='create'&&!panel.inert)return;choose(index);thumbs.querySelector(`[data-select-look="${active}"]`)?.focus({preventScroll:true});}
  thumbs.addEventListener('click',event=>{const button=event.target.closest('[data-select-look]');if(button)selectThumbnail(Number(button.dataset.selectLook));});
  thumbs.addEventListener('keydown',event=>{if(!['ArrowLeft','ArrowRight','Home','End'].includes(event.key))return;event.preventDefault();event.stopPropagation();selectThumbnail(event.key==='Home'?0:event.key==='End'?looks.length-1:Math.max(0,Math.min(looks.length-1,active+(event.key==='ArrowRight'?1:-1))));});
  let modelPointer=null,modelSwiped=false;
@@ -237,6 +249,7 @@
  function renderFilters(){filters.hidden=true;filters.innerHTML='';}
  function renderPanel(){
   save.disabled=saving||pendingOutfits.has(current().id);
+  if(mode!=='create'&&previewLook)clearCreationPreview();
   if(panel.dataset.mode!==mode){panelViewport.scrollTop=0;panel.querySelector('.fitting-panel-scroll').scrollTop=0;}
   renderFilters();panel.dataset.mode=mode;savedLink.hidden=mode!=='look';
   removeModel.hidden=mode!=='look'||!hasCreated;
@@ -311,8 +324,8 @@
  content.addEventListener('wheel',event=>{const wheel=event.target.closest('.fitting-measurement-wheel');if(wheel){wheelTargets.delete(wheel);event.stopPropagation();}},{passive:true});
  content.addEventListener('pointerdown',event=>{const wheel=event.target.closest('.fitting-measurement-wheel');if(wheel)wheelTargets.delete(wheel);});
  content.addEventListener('keydown',event=>{const wheel=event.target.closest('.fitting-measurement-wheel');if(!wheel||!['ArrowUp','ArrowDown','Home','End'].includes(event.key))return;event.preventDefault();event.stopPropagation();const field=measurementFields.find(field=>field.id===wheel.dataset.field),index=field.values.indexOf(draft[field.id]);moveMeasurement(wheel,event.key==='Home'?0:event.key==='End'?field.values.length-1:index+(event.key==='ArrowDown'?1:-1));});
- function openPanel(nextMode='look',category='All'){window.FitloopSaveFlow?.hideOffer?.();const beforeFactory=!hasCreated&&nextMode==='create'?factoryRect():null;warmOtherGender(current());panelViewport.scrollTop=0;closeRailActions();previousFocus=document.activeElement;mode=nextMode;draft=mode==='create'?{...defaultModel}:measurementDraft(current());if(mode!=='create')clearCreationPreview();filter=category;panel.inert=false;panel.setAttribute('aria-hidden','false');panel.classList.add('is-open');section.classList.add('fitting-panel-open');renderPanel();animateFactoryFrom(beforeFactory);$('.fitting-close').focus({preventScroll:true});}
- function closePanel({returnFactory=true}={}){const beforeFactory=returnFactory&&!hasCreated&&mode==='create'?factoryRect():null;clearCreationPreview();panel.classList.remove('is-open');panel.inert=true;panel.setAttribute('aria-hidden','true');section.classList.remove('fitting-panel-open');$('#add-model')?.setAttribute('aria-expanded','false');animateFactoryFrom(beforeFactory);(previousFocus?.isConnected?previousFocus:models.children[active])?.focus({preventScroll:true});}
+ function openPanel(nextMode='look',category='All'){window.FitloopSaveFlow?.hideOffer?.();const beforeFactory=!hasCreated&&nextMode==='create'?factoryRect():null;warmOtherGender(current());panelViewport.scrollTop=0;closeRailActions();previousFocus=document.activeElement;mode=nextMode;if(mode==='create')previewSlot=active;draft=mode==='create'?{...defaultModel}:measurementDraft(current());if(mode!=='create')clearCreationPreview();filter=category;panel.inert=false;panel.setAttribute('aria-hidden','false');panel.classList.add('is-open');section.classList.add('fitting-panel-open');renderPanel();animateFactoryFrom(beforeFactory);$('.fitting-close').focus({preventScroll:true});}
+ function closePanel({returnFactory=true}={}){const beforeFactory=returnFactory&&!hasCreated&&mode==='create'?factoryRect():null;clearCreationPreview(returnFactory);panel.classList.remove('is-open');panel.inert=true;panel.setAttribute('aria-hidden','true');section.classList.remove('fitting-panel-open');$('#add-model')?.setAttribute('aria-expanded','false');animateFactoryFrom(beforeFactory);(previousFocus?.isConnected?previousFocus:models.children[active])?.focus({preventScroll:true});}
  $('.fitting-close').addEventListener('click',closePanel);
  const modelEase='cubic-bezier(.22,1,.36,1)';
  const modelGhosts=new Map(),modelMoves=new WeakMap();let factoryMotion=null;
@@ -766,7 +779,7 @@
   const beforeModels=fromForm?modelRects():null;
   const previewBox=fromForm&&!creationPreview.hidden?creationPreview.getBoundingClientRect():null;
   const viewport=liveDesktop.matches?stage.getBoundingClientRect():panelViewport.getBoundingClientRect();
-  const previewRect=previewBox?.width&&previewBox.bottom>viewport.top&&previewBox.top<viewport.bottom?previewBox:null;if(panel.classList.contains('is-open'))closePanel({returnFactory:false});const look=createLook(0,settings.pants,`Look ${String(hasCreated?looks.length+1:1).padStart(2,'0')}`,settings);if(hasCreated)looks.push(look);else{looks=[look];hasCreated=true;}active=looks.length-1;if(previewRect){focus=active;focusVelocity=0;}thumbWindowStart=Math.max(0,active-1);mode='look';draft=measurementDraft(look);renderPeople();warmOtherGender(look);animateFactoryFrom(beforeFactory);
+  const previewRect=previewBox?.width&&previewBox.bottom>viewport.top&&previewBox.top<viewport.bottom?previewBox:null;if(panel.classList.contains('is-open'))closePanel({returnFactory:false});const look=createLook(0,settings.pants,`Look ${String(hasCreated?looks.length+1:1).padStart(2,'0')}`,settings);const insertAt=hasCreated&&!fromForm?looks.length:active;looks.splice(insertAt,wasEmpty?1:0,look);hasCreated=true;active=insertAt;if(fromForm){focus=active;focusVelocity=0;previewProgress=0;previewLayout={from:0,to:0,start:0};}thumbWindowStart=Math.max(0,active-1);mode='look';draft=measurementDraft(look);renderPeople();warmOtherGender(look);animateFactoryFrom(beforeFactory);
   if(beforeModels)animateModelShifts(beforeModels);
   if(wasEmpty||fromForm)animateModelEntry(0,previewRect);
   if(wasEmpty&&!reduced.matches)for(const control of [selector,rail,section.querySelector('.stylist-scope')]){
@@ -783,9 +796,16 @@
  new ResizeObserver(updateGeometry).observe(stage);new ResizeObserver(updateBoundaries).observe(panel);
  document.fonts.ready.then(()=>{sizeLookName();updateBoundaries();updateFitNotices();alignPanelHeading();});
  function tick(time){
-  const dt=last?Math.min(40,Math.max(0,time-last)):0;last=time;
+  const elapsed=last?Math.max(0,time-last):0,dt=Math.min(40,elapsed);last=time;
   if(section.classList.contains('is-active')&&!document.hidden&&!document.body.classList.contains('menu-is-open')){
-   if(reduced.matches||(Math.abs(active-focus)<.0001&&Math.abs(focusVelocity)<.001)){focus=active;focusVelocity=0;}else{const seconds=dt/1000,omega=9,displacement=focus-active,decay=Math.exp(-omega*seconds),step=(focusVelocity+omega*displacement)*seconds;focus=active+(displacement+step)*decay;focusVelocity=(focusVelocity-omega*step)*decay;}
+   const staging=hasCreated&&liveDesktop.matches&&previewLook&&mode==='create'&&!panel.inert;
+   const seconds=Math.min(120,elapsed)/1000;
+   const previewTarget=staging?1:0;
+   if(previewLayout.to!==previewTarget)previewLayout={from:previewProgress,to:previewTarget,start:time};
+   const progress=reduced.matches?1:Math.min(1,(time-previewLayout.start)/650);
+   const eased=progress*progress*(3-2*progress);
+   previewProgress=previewLayout.from+(previewLayout.to-previewLayout.from)*eased;
+   if(reduced.matches||(Math.abs(active-focus)<.0001&&Math.abs(focusVelocity)<.001)){focus=active;focusVelocity=0;}else{const omega=9,displacement=focus-active,decay=Math.exp(-omega*seconds),step=(focusVelocity+omega*displacement)*seconds;focus=active+(displacement+step)*decay;focusVelocity=(focusVelocity-omega*step)*decay;}
    const split=replacementState,canMove=!split||['open','line'].includes(split.phase);
    if(canMove&&!hoverRail&&!focusRail&&!activeRailCard&&!reduced.matches)offset=(offset+18*dt/1000)%((split?split.indices.length:cards.length)*160);
    if(canMove)cards.forEach((card,i)=>{const rank=split?.ranks.get(i);card.style.opacity=split&&rank===undefined?'0':'1';const x=split?(rank===undefined?0:wrapRail(rank,split.indices.length,offset)):wrapRail(i,cards.length,offset);card.style.transform=`translateX(${x}px)`;});
